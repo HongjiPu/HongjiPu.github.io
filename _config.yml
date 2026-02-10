@@ -14,7 +14,7 @@ url: https://HongjiPu.github.io
 # --------------------------------------------------
 owner:
   name: Hongji Pu
-  avatar: "/images/avatar.jpg"  # 关键！告诉它图片在 images 文件夹里
+  avatar: avatar.jpg  # 关键！告诉它图片在 images 文件夹里
   email: hongjip2@gmail.com
   # cv: https://caihanlin.com/file/CV-HanlinCAI.pdf
 
