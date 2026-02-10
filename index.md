@@ -10,22 +10,15 @@ header:
 ---
 
 <style>
-  /* 让大图区域更高 */
+  /* 强制让大图区域有高度，防止图片加载失败时塌陷 */
   .page__hero--overlay {
-    min-height: 60vh; /* 占据屏幕 60% 的高度，比全屏稳妥，不会遮挡内容 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    min-height: 60vh;
+    background-color: #333; /* 调试用：如果你看到深灰色背景但没图，说明路径还是不对 */
   }
-  /* 调整大标题的字号 */
   .page__title {
     font-size: 3.5rem !important;
     color: white !important;
-  }
-  /* 调整副标题字号 */
-  .page__lead {
-    font-size: 1.5rem !important;
-    color: #f0f0f0 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 加点阴影，防字看不清 */
   }
 </style>
 
@@ -52,11 +45,3 @@ Here are some of the topics I am interested in:
 
 * **[Feb 2026]** 🚧 My personal website is currently under construction.
 * **[Jan 2026]** Started my journey in Data Science.
-
----
-
-## 💬 Chat with me
-
-I am always open to discussing new ideas and collaborations.
-
-* **Email:** hongjip2@gmail.com
