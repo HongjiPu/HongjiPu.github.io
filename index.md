@@ -1,15 +1,9 @@
----
-layout: archive
-title: "About Me"
-permalink: /
-author_profile: true
----
+
 
 Here is **Hongji Pu** [(Zax, 蒲洪基)](https://www.eng.cam.ac.uk/profiles/hc663).
 
 I am currently a Data Science student at UIUC.
 
----
 
 ## Research Interests
 
