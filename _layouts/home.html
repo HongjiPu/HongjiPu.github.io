@@ -3,50 +3,23 @@
 <head>
   {% include head.html %}
   <style>
-    /* --- 1. 全局重置 (最严格模式) --- */
+    /* --- 1. 全局重置 (恢复原生单滚动条) --- */
     html, body {
         margin: 0 !important;
         padding: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        overflow-x: hidden !important; /* 禁止左右横向滚动 */
-    }
-
-    /* 恢复原生滚动条，确保能下拉 */
-    body {
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* --- 2. Hero 区域 (绝对定位覆盖) --- */
-    .full-screen-hero {
-        /* 关键：脱离文档流，强行覆盖 */
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100vh; /* 占满一屏 */
-
-        /* 视觉样式 */
-        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
-                    url('{{ site.url }}/{{ site.owner.hero_img }}') no-repeat center center;
-        background-size: cover;
-        background-attachment: fixed; /* 视差滚动，背景不动 */
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 0; /* 在最底层 */
+        height: auto !important; /* 解除高度锁定 */
+        overflow-x: hidden;      /* 禁止横向滚动 */
+        overflow-y: auto;        /* 恢复浏览器原生垂直滚动 */
     }
 
-    /* --- 3. 导航栏 (固定在最顶层) --- */
+    /* --- 2. 导航栏 (永远置顶) --- */
     #main-nav-container {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 9999; /* 永远在最上面 */
+        z-index: 9999;
         transition: background 0.4s ease;
     }
 
@@ -69,24 +42,30 @@
         padding: 15px 20px;
     }
 
-    /* --- 4. 正文内容 (手动推到第二屏) --- */
-    #main-content {
-        position: relative;
-        z-index: 1; /* 盖住背景图 */
-        background: white;
+    /* --- 3. Hero 区域 (底层 - Fixed) --- */
+    .full-screen-hero {
+        position: fixed; /* 关键：固定在视口，不随滚动条走 */
+        top: 0;
+        left: 0;
         width: 100%;
-        min-height: 100vh;
+        height: 100vh;
+        z-index: 0; /* 放在最底层 */
 
-        /* 关键：把内容顶下去，留出第一屏给 Hero */
-        margin-top: 100vh;
-        padding: 60px 20px;
-        box-sizing: border-box; /* 防止 padding 撑大宽度导致右侧溢出 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+                    url('{{ site.url }}/{{ site.owner.hero_img }}') no-repeat center center;
+        background-size: cover;
     }
 
-    /* --- 5. Hero 内部元素样式 --- */
+    /* 文字样式 */
     .hero-content {
-        text-align: center;
         z-index: 2;
+        text-align: center;
+        padding: 0 20px;
     }
     .hero-content h1 {
         font-size: 5rem;
@@ -102,31 +81,45 @@
         font-weight: 300;
         letter-spacing: 1px;
     }
-
-    /* 分割线 */
     .hero-line {
-        width: 80px;
-        height: 2px;
-        border: none;
-        background-color: white;
-        margin: 20px auto;
-        opacity: 0.8;
+        width: 80px; height: 2px; border: none;
+        background-color: white; margin: 20px auto; opacity: 0.8;
     }
 
-    /* 箭头 */
+    /* 箭头样式 */
     .scroll-down {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        cursor: pointer;
-        animation: bounce 2s infinite;
-        z-index: 10;
-        color: white; /* 确保箭头是白的 */
+        position: absolute; bottom: 30px; left: 50%;
+        transform: translateX(-50%); cursor: pointer;
+        animation: bounce 2s infinite; z-index: 10;
+        color: white;
     }
     @keyframes bounce {
         0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
         40% {transform: translateX(-50%) translateY(-10px);}
+    }
+
+    /* --- 4. 内容区域 (上层 - Relative) --- */
+    /* 这是一个容器，把正文和页脚都包起来，给它们加白色背景 */
+    .content-layer {
+        position: relative;
+        z-index: 10; /* 盖在 Hero 上面 */
+        background: white; /* 确保背景是白的，不透明 */
+        margin-top: 100vh; /* 关键：把内容往下推一个屏幕的高度 */
+        min-height: 100vh; /* 解决“白色区域不足”：至少保证有一屏高 */
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1); /* 给顶部加点阴影，覆盖感更强 */
+    }
+
+    #main-content {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* 确保页脚也有背景色 */
+    .footer-wrap {
+        background: #f2f2f2; /* 或者 white */
+        position: relative;
+        z-index: 11;
     }
   </style>
 </head>
@@ -148,19 +141,27 @@
     </a>
   </section>
 
-  <div id="main-content">
-    <div class="article-author-top">
-      {% include author-bio.html %}
+  <div class="content-layer">
+    <div id="main-content">
+      <div class="article-author-top">
+        {% include author-bio.html %}
+      </div>
+      <div id="index">
+        {{ content }}
+      </div>
     </div>
-    <div id="index">
-      {{ content }}
+
+    <div class="footer-wrap">
+      <footer>
+        {% include footer.html %}
+      </footer>
     </div>
   </div>
 
 <script>
   const nav = document.getElementById('main-nav-container');
 
-  // 1. 滚动监听
+  // 1. 监听滚动变色
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       nav.classList.remove('nav-transparent');
@@ -171,17 +172,17 @@
     }
   });
 
-  // 2. 箭头点击跳转 (更可靠的写法)
+  // 2. 箭头点击跳转
   function scrollToContent() {
-    document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.content-layer').scrollIntoView({ behavior: 'smooth' });
   }
 
-  // 3. 鼠标滚轮自动跳转
+  // 3. 滚轮自动跳转 (可选)
   let hasScrolled = false;
   window.addEventListener('wheel', (e) => {
     if (!hasScrolled && e.deltaY > 0 && window.scrollY < 10) {
       hasScrolled = true;
-      document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+      document.querySelector('.content-layer').scrollIntoView({ behavior: 'smooth' });
     }
   });
 </script>
