@@ -10,26 +10,6 @@ author_profile: true
 
 
 ## Intern
-<details open>
-  <summary style="cursor: pointer; outline: none;">
-    <table width="100%" style="margin-bottom: 0px; display: inline-table; vertical-align: middle;">
-      <tr>
-        <td align="left"><strong>S&P 500 Futures and BTC Linked Strategy Based on Cross-Market Volatility Spillover Effect</strong></td>
-        <td align="right" valign="top" style="white-space: nowrap;">2025.12 - 2026.01</td>
-      </tr>
-    </table>
-    <p style="margin-top: 2px; margin-bottom: 4px;"><em>Quantitative Researcher, Positive Research Ltd.(US)</em></p>
-  </summary>
-
-  <div style="text-align: justify; line-height: 1.4; text-indent: 0em; margin-top: 10px; margin-bottom: 5px;">
-    Cross-Asset Forecasting: Validated volatility spillover from S&P 500 to crypto; built hybrid model integrating VIX surface features with BTC L1 data, significantly improving performance during macro events.
-    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
-    Surface Modeling: Calibrated Arbitrage-Free Implied Volatility Surfaces via SSVI and Differential Evolution ($WRMSE < 0.006$); extracted ATM Variance and Skew as leading macro indicators.
-    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
-    Implementation: Engineered 30+ Alpha signals from 60,000+ hours of BTC tick data; optimized LightGBM via Optuna for 24h volatility forecasting, achieving an out-of-sample IC of 0.46.
-  </div>
-</details>
-
 
 <details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
   <summary style="cursor: pointer; list-style: none; outline: none;">
@@ -57,3 +37,64 @@ author_profile: true
   summary::-webkit-details-marker { display: none; }
   details[open] { background-color: #fafafa; }
 </style>
+
+
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Financial LLM & Multimodal Alpha Research (AI Lab)</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2025.05 - 2025.07</td>
+      </tr>
+    </table>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Intern in AI Lab, REI-Tech</em></p>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>RAG & Fin-Data:</strong> Built a financial RAG prototype with 10k+ instructions from Snowball and East Money; implemented <strong>CoT (Chain-of-Thought)</strong> prompting to refine logical information extraction from complex earnings reports.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Multimodal Alpha:</strong> Developed a novel pipeline structuring <strong>YOLO K-line patterns</strong> and <strong>Whisper audio tags</strong> into embeddings, capturing nuanced market sentiment and non-linear signals beyond traditional text.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>LLM Tuning & Performance:</strong> Fine-tuned <strong>DeepSeek-V1 (LoRA)</strong> for efficient iteration; delivered a sentiment factor achieving <strong>0.038 Peak RankIC</strong>, significantly outperforming Alpha101 in A-share backtests.
+  </div>
+</details>
+
+<style>
+  /* 全局样式建议：放在简历开头一次即可 */
+  summary::-webkit-details-marker { display: none; }
+  details[open] { background-color: #fafafa; }
+</style>
+
+
+
+
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Deep-Learning Factor Mining Pipeline for A-shares</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2025.01 - 2025.04</td>
+      </tr>
+    </table>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Quantitative Researcher, Hantak Investment Management</em></p>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>Alpha Generation:</strong> Developed a deep-learning factor mining pipeline for A-shares, significantly enhancing the Liquidity Volatility (LiqVol) anomaly. Integrated <strong>ProbSparse Attention</strong> to mitigate complexity and <strong>TFT Variable Selection</strong> for dynamic feature distillation, elevating monthly <strong>IC from 0.05 to 0.13</strong>.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Model Optimization:</strong> Implemented rigorous neutralizations (Size, Industry) and AdamW with cyclic learning rates to prevent overfitting; ensured robust signal decay profiles across diverse market regimes.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Backtesting & Performance:</strong> Executed comprehensive backtests (2010-2023) demonstrating a <strong>15% Sharpe Ratio improvement</strong> and persistent Out-of-Sample Alpha against the CSI 300 index.
+  </div>
+</details>
+
+<style>
+  /* 这里的 CSS 只需要在简历中出现一次即可 */
+  summary::-webkit-details-marker { display: none; }
+  details[open] { background-color: #fafafa; }
+</style>
+
+
+
