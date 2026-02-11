@@ -17,6 +17,8 @@ author_profile: true
   </tr>
 </table>
 
+*Quantitative Researcher, Positive Research Ltd.(US)*
+
 <div style="text-align: justify;">
     <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
         Cross-Asset Volatility Forecasting Framework: Formulated and validated the hypothesis of "volatility spillover from S&P 500 implied volatility to cryptocurrency markets." Integrated S&P 500 volatility surface features as exogenous macro risk factors with BTC Level-1 order book data to construct a hybrid-signal forecasting model, significantly enhancing strategy performance during macro-event days.
@@ -30,3 +32,6 @@ author_profile: true
          BTC Volatility Prediction & ML Implementation: Cleaned 60,000+ hours of BTC order book data to engineer 30+ Alpha signals, fusing macro factors with micro-structure features (e.g., Order Book Imbalance). Trained a LightGBM model optimized via Optuna (Bayesian optimization) to forecast 24-hour rolling Realized Volatility, achieving an out-of-sample Information Coefficient (IC) of 0.54 and validating the efficacy of cross-market signals.
     </p>
 </div>
+
+
+
