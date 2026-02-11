@@ -16,6 +16,7 @@ owner:
   name: Hongji Pu
   avatar: avatar.jpg  # 关键！告诉它图片在 images 文件夹里
   email: hongjip2@gmail.com
+  hero_img: hero.jpg  # 直接写文件名，因为它就在主文件夹
   # cv: https://caihanlin.com/file/CV-HanlinCAI.pdf
 
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
