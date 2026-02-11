@@ -1,19 +1,7 @@
 ---
 layout: page
-title: "Experiences"
+title: "Experiences Test"
 permalink: /experiences/
 author_profile: true
 ---
-
-
-
-> I am always open to...
-
-
-
-
-
-
-
-
-<br>
+This is a test content.
