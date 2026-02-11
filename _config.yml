@@ -2,7 +2,7 @@
 #  BASIC SITE INFO
 # --------------------------------------------------
 title: Hongji Pu   # Main site title (appears in browser tab & RSS)
-tagline: Hongji Pu's Personal Website  # Optional short tagline, used by some layouts
+tagline: Quantitative & Audacious & Articulation  # Optional short tagline, used by some layouts
 description:   # Strongly recommended for SEO & social cards
 
 # TIP ── For local development you can comment out `url`
@@ -57,8 +57,6 @@ links:
     url: /awards/
   - title: Hobbies
     url: /hobbies/
-  - title: Blogs
-    url: /blogs/
   - title: 中文
     url: /cn/
 
