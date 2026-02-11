@@ -48,3 +48,14 @@ author_profile: true
 * **Surface Modeling**: Calibrated Arbitrage-Free Implied Volatility Surfaces via SSVI and Differential Evolution ($WRMSE < 0.006$); extracted ATM Variance and Skew as leading macro indicators.
 * **Implementation**: Engineered 30+ Alpha signals from 60,000+ hours of BTC tick data; optimized LightGBM via Optuna for 24h volatility forecasting, achieving an out-of-sample IC of 0.46.
 </div>
+
+
+**S&P 500 Futures and BTC Linked Strategy ** <p align="right" style="margin-top:-22px;">2025.12 - 2026.01</p>
+
+*Quantitative Researcher, Positive Research Ltd.(US)*
+
+* Cross-Asset Forecasting: Validated volatility spillover from S&P 500 to crypto; built hybrid model integrating VIX surface features with BTC L1 data, significantly improving performance during macro events.
+
+* Surface Modeling: Calibrated Arbitrage-Free Implied Volatility Surfaces via SSVI and Differential Evolution ($WRMSE < 0.006$); extracted ATM Variance and Skew as leading macro indicators.
+
+* Implementation: Engineered 30+ Alpha signals from 60,000+ hours of BTC tick data; optimized LightGBM via Optuna for 24h volatility forecasting, achieving an out-of-sample IC of 0.46.
