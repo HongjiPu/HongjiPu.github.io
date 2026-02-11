@@ -4,6 +4,26 @@
   {% include head.html %}
   <style>
     html, body { height: 100%; margin: 0; scroll-behavior: smooth; }
+    html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden; /* 防止横向滚动条 */
+}
+
+/* 2. 确保页面包装器没有顶部偏移 */
+.page-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. 核心修改：让 Hero 区域绝对置顶 */
+.full-screen-hero {
+    margin-top: 0 !important;
+    top: 0;
+    /* 确保背景图没有边角空白 */
+    background-size: cover;
+    background-attachment: scroll; /* 或者 fixed */
+}
 
     /* --- 导航栏固定与样式 --- */
     /* 我们直接控制 ID，确保优先级 */
