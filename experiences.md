@@ -106,7 +106,7 @@ author_profile: true
         <td align="right" valign="top" style="white-space: nowrap; color: #666;">2023.10 - 2024.07</td>
       </tr>
     </table>
-    <p style="margin: 4px 0 0 0; color: #555;"><em>Intern in Financial Engineering Group, Guosheng Securities</em></p>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Intern in Financial Engineering Group, Guosheng Securities（CN）</em></p>
     <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
   </summary>
 
@@ -132,11 +132,11 @@ author_profile: true
   <summary style="cursor: pointer; list-style: none; outline: none;">
     <table width="100%" style="margin: 0;">
       <tr>
-        <td align="left"><strong>Green Finance Research & Data Engineering</strong></td>
+        <td align="left"><strong>Green Finance Research </strong></td>
         <td align="right" valign="top" style="white-space: nowrap; color: #666;">2022.03 – 2023.03</td>
       </tr>
     </table>
-    <p style="margin: 4px 0 0 0; color: #555;"><em>Research Assistant, IIGF of CUFE</em></p>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Research Assistant, IIGF of CUFE（CN）</em></p>
     <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
   </summary>
 
@@ -151,6 +151,34 @@ author_profile: true
 
 <style>
   /* 全局样式建议：放在简历开头一次即可 */
+  summary::-webkit-details-marker { display: none; }
+  details[open] { background-color: #fafafa; }
+</style>
+
+
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Private Equity：Industrial Technology Investment Research</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2022.01 – 2022.03</td>
+      </tr>
+    </table>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Investment Research Intern (Industrial Tech), Source Code Capital（CN）</em></p>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>Sector Analysis & Landscape Mapping:</strong> Conducted deep-dive research into New Energy and Metaverse sectors, mapping 100+ target companies. Synthesized industry lifecycles and competitive dynamics to evaluate <strong>Business Model Scalability</strong> and core technical moats.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Fundamental Modeling & Due Diligence:</strong> Performed financial deconstruction and <strong>Unit Economics</strong> analysis for growth-stage startups (e.g., DigiNation, Svolt, CarbonEnergy). Supported multi-million dollar capital allocation decisions through quantitative and qualitative assessments of management and market positioning.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Insights Extraction:</strong> Conducted expert interviews and field research to capture non-public micro-market insights. Translated complex industry know-how into <strong>structured investment memorandums</strong>, developing a deep understanding of primary market asset pricing and underlying value drivers.
+  </div>
+</details>
+
+<style>
+  /* 这一段全局 CSS 放在简历最开头即可，不需要重复写 */
   summary::-webkit-details-marker { display: none; }
   details[open] { background-color: #fafafa; }
 </style>
