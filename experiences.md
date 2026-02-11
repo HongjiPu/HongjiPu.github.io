@@ -6,7 +6,88 @@ author_profile: true
 ---
 
 ## Research
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Neural Network Optimization for Option Pricing</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2025.09</td>
+      </tr>
+    </table>
+    <table width="100%" style="margin-top: 2px;">
+      <tr>
+        <td align="left" style="color: #555;"><em>Independent Researcher / Project Lead</em></td>
+        <td align="right" style="color: #555;"><strong>Advisor: Matthew Murphy</strong></td>
+      </tr>
+    </table>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>Problem Formulation:</strong> Investigated the acceleration of Early Exercise Premium (EEP) calculations using deep learning. Modeled the implied volatility surface via <strong>SSVI</strong> and optimized the fitting process using the <strong>SLSQP algorithm</strong>.
+    <p style="margin-top: 8px;"></p>
+    <strong>Methodology:</strong> Designed a Feedforward Neural Network (FFNN) to learn the non-linear mapping from SSVI surface parameters to EEP. Implemented a <strong>dual-phase framework</strong> (Offline/Online) to bridge the gap between numerical methods and real-time inference.
+    <p style="margin-top: 8px;"></p>
+    <strong>Performance:</strong> Achieved a <strong>10x reduction in RMSE</strong> compared to traditional approximations. The Fast-NN variant demonstrated significant generalization across varying market conditions (k, r, q, T).
+  </div>
+</details>
 
+
+
+
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Revisiting Man vs. Machine Learning</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2025.03</td>
+      </tr>
+    </table>
+    <table width="100%" style="margin-top: 2px;">
+      <tr>
+        <td align="left" style="color: #555;"><em>Research Assistant</em></td>
+        <td align="right" style="color: #555;"><strong>Prof. Yangdi Zhu</strong></td>
+      </tr>
+    </table>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>Predictive Modeling:</strong> Evaluated the efficiency of analyst earnings forecasts by implementing a <strong>75-feature Random Forest (RF)</strong> regressor. Extended Binsbergen et al. (2023) by introducing <strong>LASSO and LightGBM</strong> as comparative benchmarks.
+    <p style="margin-top: 8px;"></p>
+    <strong>Robustness & Evaluation:</strong> Conducted exhaustive sensitivity analysis across 48 RF variants. Controlled for systematic biases using <strong>Fama-French 5-Factor models</strong> to isolate the machine learning premium from known anomalies.
+  </div>
+</details>
+
+
+
+
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Risk Spillover Effects in Digital Finance</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2024.09</td>
+      </tr>
+    </table>
+    <table width="100%" style="margin-top: 2px;">
+      <tr>
+        <td align="left" style="color: #555;"><em>Research Lead</em></td>
+        <td align="right" style="color: #555;"><strong>Assoc. Prof. Bianling Qu (CUFE)</strong></td>
+      </tr>
+    </table>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>Systemic Risk Modeling:</strong> Developed a multi-market risk assessment framework covering stock, bond, and FX markets. Employed <strong>GARCH-family models</strong> and <strong>Monte Carlo simulations</strong> to estimate joint distributions of Value-at-Risk (VaR).
+    <p style="margin-top: 8px;"></p>
+    <strong>Causal Inference:</strong> Utilized Structural Vector Autoregression (SVAR) and Error Correction Models (VECM) to quantify the impulse response of fintech expansion on financial stability.
+  </div>
+</details>
+
+<style>
+  /* 仅需在简历中保留一份此样式 */
+  summary::-webkit-details-marker { display: none; }
+  details[open] { background-color: #fafafa; }
+</style>
 
 
 ## Intern
@@ -29,7 +110,7 @@ author_profile: true
     <table width="100%" style="margin-top: 2px;">
       <tr>
         <td align="left" style="color: #555;"><em>Quantitative Research Intern (Practicum)</em></td>
-        <td align="right" style="color: #555;"><strong>JPM</strong></td>
+        <td align="right" style="color: #555;"><strong>JPM Chase（US）</strong></td>
       </tr>
     </table>
     <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
