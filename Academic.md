@@ -1,28 +1,17 @@
 ---
 layout: page
-permalink: /services/index.html
-title: Services
-
+permalink: /awards/index.html
+title: Awards
 ---
 
-> I am always open to...
 ## Academic Services
-
 ### Reviewer
-
-
-
 ### Program Committee
-
----
-
+--
+## Scholarships
+--
+## Competitions
+--
 ## Teaching and Supervision
-
-  <br>
-
----
-
+--
 ## Voluntary Service
-
-
-<br>
