@@ -3,57 +3,37 @@
 <head>
   {% include head.html %}
   <style>
-    /* 1. 终极置顶方案：强制重置 body 上的所有位移 */
-    /* 我们给 body 加上 .home 类名选择器，增加优先级 */
-    html,
-    body.home,
-    body.home .page-wrapper {
+    /* --- 1. 全局重置 --- */
+    /* 只锁死 html 和 body，不锁 wrapper */
+    html, body {
         margin: 0 !important;
         padding: 0 !important;
         height: 100% !important;
-        overflow: hidden !important; /* 解决双滚动条的关键 */
-        position: absolute !important; /* 强制脱离可能存在的 padding 约束 */
-        top: 0 !important;
-        left: 0 !important;
+        overflow: hidden !important; /* 禁止浏览器默认的双滚动条 */
         width: 100% !important;
     }
 
-    /* 2. 让真正的滚动发生在内层容器 */
+    /* --- 2. 核心滚动容器 --- */
+    /* 这是唯一允许滚动的地方 */
     .page-wrapper {
-        height: 100vh !important;
-        overflow-y: auto !important;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-    }
-
-    /* 3. 确保 Hero 区域没有任何间距偏移 */
-    .full-screen-hero {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-        top: 0 !important;
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         position: relative;
-        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
-                    url('{{ site.url }}/{{ site.owner.hero_img }}') no-repeat center center;
-        background-size: cover;
+        height: 100vh !important; /* 占满全屏高度 */
+        overflow-y: auto !important; /* 关键：允许垂直滚动！ */
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch; /* 手机端顺滑滚动 */
+        scroll-behavior: smooth;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    /* 4. 固定导航栏 */
+    /* --- 3. 导航栏 --- */
     #main-nav-container {
         position: fixed;
-        top: 0 !important; /* 确保它死死贴在视口最顶端 */
+        top: 0;
         width: 100%;
         z-index: 9999;
         transition: all 0.4s ease;
     }
-
-    /* 透明与变色逻辑保持不变 */
     .nav-transparent { background: transparent; }
     .nav-transparent a { color: white !important; }
     .nav-scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -68,26 +48,71 @@
         padding: 15px 20px;
     }
 
-    /* 头像与文字样式 */
-    .hero-content img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid white; margin-bottom: 20px; }
-    .hero-content h1 { font-size: 4rem; margin: 0; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-    .hero-content h2 { font-size: 1.5rem; color: white; opacity: 0.8; }
+    /* --- 4. Hero 区域 --- */
+    .full-screen-hero {
+        margin: 0 !important;
+        height: 100vh; /* 撑满第一屏 */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+                    url('{{ site.url }}/{{ site.owner.hero_img }}') no-repeat center center;
+        background-size: cover;
+    }
+
+    /* 文字样式 */
+    .hero-content {
+        z-index: 2;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 5rem;
+        color: white !important;
+        margin: 0;
+        text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+    .hero-content h2 {
+        font-size: 1.6rem;
+        color: rgba(255,255,255,0.9) !important;
+        margin-top: 10px;
+        font-weight: 300;
+    }
+
+    /* 你的细线 */
+    .hero-line {
+        width: 80px;
+        height: 2px;
+        border: none;
+        background-color: white;
+        margin: 20px auto;
+        opacity: 0.8;
+    }
 
     /* 跳动箭头 */
-    .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; cursor: pointer; }
-    @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);} 40% {transform: translateX(-50%) translateY(-10px);} }
+    .scroll-down {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        animation: bounce 2s infinite;
+        z-index: 10;
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+        40% {transform: translateX(-50%) translateY(-10px);}
+    }
 
-    #main-content { padding: 40px 20px; background: white; min-height: 100vh; }
-      /* 新增的细线样式 */
-.hero-line {
-    width: 80px;            /* 线的长度，想要更长就改大这个数字 */
-    height: 2px;            /* 线的粗细 */
-    border: none;           /* 去掉默认边框 */
-    background-color: white;/* 线的颜色 */
-    margin: 20px auto;      /* 上下留白 20px，左右自动居中 */
-    opacity: 0.8;           /* 稍微一点点透明，看起来更有质感 */
-}
-</style>
+    /* 正文内容 */
+    #main-content {
+        background: white;
+        padding: 40px 20px;
+        min-height: 100vh;
+    }
+  </style>
 </head>
 
 <body class="home">
@@ -100,7 +125,7 @@
     <section class="full-screen-hero">
       <div class="hero-content">
         <h1>{{ site.owner.name }}</h1>
-          <hr class="hero-line">
+        <hr class="hero-line">
         <h2>{{ site.tagline }}</h2>
       </div>
       <a href="#main-content" class="scroll-down">
@@ -122,7 +147,7 @@
   const scrollContainer = document.getElementById('scroll-container');
   const nav = document.getElementById('main-nav-container');
 
-  // 1. 因为滚动发生在 .page-wrapper，监听这个容器
+  // 1. 监听滚动变色 (监听对象是 scrollContainer 而不是 window)
   scrollContainer.addEventListener('scroll', () => {
     if (scrollContainer.scrollTop > 50) {
       nav.classList.remove('nav-transparent');
@@ -133,9 +158,10 @@
     }
   });
 
-  // 2. 自动跳转
+  // 2. 鼠标滚轮自动跳转
   let hasScrolled = false;
   scrollContainer.addEventListener('wheel', (e) => {
+    // 只有在顶部附近且向下滚时才触发自动跳转
     if (!hasScrolled && e.deltaY > 0 && scrollContainer.scrollTop < 10) {
       hasScrolled = true;
       document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
