@@ -3,52 +3,44 @@
 <head>
   {% include head.html %}
   <style>
-    html, body { height: 100%; margin: 0; scroll-behavior: smooth; }
+    /* --- 1. 强制重置浏览器与主题的默认边距，消除顶部空白 --- */
     html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden; /* 防止横向滚动条 */
-}
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
 
-/* 2. 确保页面包装器没有顶部偏移 */
-.page-wrapper {
-    margin: 0 !important;
-    padding: 0 !important;
-}
+    .page-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-/* 3. 核心修改：让 Hero 区域绝对置顶 */
-.full-screen-hero {
-    margin-top: 0 !important;
-    top: 0;
-    /* 确保背景图没有边角空白 */
-    background-size: cover;
-    background-attachment: scroll; /* 或者 fixed */
-}
-
-    /* --- 导航栏固定与样式 --- */
-    /* 我们直接控制 ID，确保优先级 */
+    /* --- 2. 导航栏固定与样式 --- */
     #main-nav-container {
         position: fixed;
         top: 0;
         width: 100%;
         z-index: 9999;
         transition: all 0.4s ease-in-out;
+        margin: 0;
     }
 
-    /* 初始：透明背景，文字白色 */
+    /* 初始透明状态 */
     .nav-transparent {
         background: transparent;
     }
     .nav-transparent a { color: white !important; }
 
-    /* 滚动后：白色背景，文字黑色 */
+    /* 滚动后状态 */
     .nav-scrolled {
         background: rgba(255, 255, 255, 0.98);
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .nav-scrolled a { color: #333 !important; }
 
-    /* 让 navigation.html 内部的 flex 布局生效且居中 */
+    /* 导航栏内部布局保持居中且两端对齐 */
     .navigation-wrapper {
         display: flex;
         justify-content: space-between;
@@ -59,21 +51,18 @@
         transition: padding 0.4s;
     }
     .nav-scrolled .navigation-wrapper {
-        padding: 10px 20px; /* 滚动后稍微收缩，更精致 */
+        padding: 10px 20px;
     }
 
-    /* 修正列表样式 */
-    .top-navigation ul { list-style: none; display: flex; margin: 0; }
+    .top-navigation ul { list-style: none; display: flex; margin: 0; padding: 0; }
     .top-navigation li { margin-left: 20px; }
     .top-navigation a { text-decoration: none; font-weight: 500; }
 
-    /* --- Hero 区域样式 --- */
+    /* --- 3. Hero 区域样式（确保置顶且填满） --- */
     .full-screen-hero {
+        margin-top: 0 !important; /* 强制消除可能的顶部外边距 */
         height: 100vh;
         width: 100%;
-        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
-                    url('{{ site.url }}/{{ site.owner.hero_img }}') no-repeat center center;
-        background-size: cover;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -81,6 +70,10 @@
         text-align: center;
         color: white;
         position: relative;
+        /* 确保图片正确填满，使用 site.url 获取根目录图片 */
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
+                    url('{{ site.url }}/{{ site.owner.hero_img }}') no-repeat center center;
+        background-size: cover;
     }
 
     .hero-content img {
@@ -94,6 +87,7 @@
     .hero-content h1 { font-size: 4rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
     .hero-content h2 { font-size: 1.5rem; font-weight: 300; opacity: 0.9; margin-top: 10px; }
 
+    /* 向下跳动的箭头 */
     .scroll-down {
         position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
         cursor: pointer; animation: bounce 2s infinite; z-index: 10;
@@ -103,7 +97,13 @@
         40% {transform: translateX(-50%) translateY(-10px);}
     }
 
-    #main-content { padding-top: 0px; }
+    /* 正文内容区，不需要额外 padding-top 因为导航栏是 fixed 的 */
+    #main-content {
+        padding-top: 40px;
+        background: white;
+        position: relative;
+        z-index: 1;
+    }
   </style>
 </head>
 
@@ -138,17 +138,19 @@
 </div>
 
 <script>
-  // 1. 导航栏滚动变色逻辑 - 修正 ID 指向
+  // 1. 滚动变色脚本
   const navContainer = document.getElementById('main-nav-container');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 80) {
-      navContainer.classList.replace('nav-transparent', 'nav-scrolled');
+      navContainer.classList.remove('nav-transparent');
+      navContainer.classList.add('nav-scrolled');
     } else {
-      navContainer.classList.replace('nav-scrolled', 'nav-transparent');
+      navContainer.classList.remove('nav-scrolled');
+      navContainer.classList.add('nav-transparent');
     }
   });
 
-  // 2. 检测第一次鼠标滚动，自动跳转到内容区
+  // 2. 滚轮触发自动跳转正文
   let scrolledToContent = false;
   window.addEventListener('wheel', function(e) {
     if (!scrolledToContent && e.deltaY > 0 && window.scrollY < 10) {
