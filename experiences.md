@@ -5,9 +5,9 @@ title: Services
 
 ---
 ---
-layout: page  # 或者 archive，取决于你的模板
+layout: page  
 title: Experiences
-permalink: /experiences/   <-- 关键！必须和 config 里的 url 一致
+permalink: /experiences/   
 ---
 
 > I am always open to...
