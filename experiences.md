@@ -10,6 +10,34 @@ author_profile: true
 
 
 ## Intern
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Volatility-Targeted Strategies</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2026.1 - 2026.4</td>
+      </tr>
+    </table>
+    <table width="100%" style="margin-top: 2px;">
+      <tr>
+        <td align="left" style="color: #555;"><em>Quantitative Research Intern (Practicum)</em></td>
+        <td align="right" style="color: #555;"><strong>JPM</strong></td>
+      </tr>
+    </table>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+   
+    <p style="margin-top: 8px;"></p>
+   
+    <p style="margin-top: 8px;"></p>
+    
+  </div>
+</details>
+
+
+
 
 <details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
   <summary style="cursor: pointer; list-style: none; outline: none;">
