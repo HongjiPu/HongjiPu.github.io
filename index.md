@@ -15,7 +15,7 @@
     </p>
 
     <p style="text-indent: 0em; margin-bottom: 0; margin-top: 0;">
-        Yet, the pursuit of rigor didn't stop there. I pushed further into the frontiers of Computer Science-not to follow a trend, but because I believe the future belongs to those who control the system's underlying logic.
+        Yet, I crave research and exploration, With a great interest in computer science. I pushed further into the frontiers of Computer Science-not to follow a trend, but because I believe the future belongs to those who control the system's underlying logic.
     </p>
 
 </div>

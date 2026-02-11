@@ -7,9 +7,9 @@ title: Hobbies
 # Hobbies
 
 ## Orchestra
-<div style="text-align: justify;">
+<div style="text-align: justify; text-indent: 0 !important;">
     
-    <p style="margin-bottom: 15px;">
+    <p style="margin-bottom: 20px;">
         My passion for performance has spanned the past 11 years. As an amateur tuba player, I have represented my alma maters—Central University of Finance and Economics, Beijing No. 166 High School, and Shijia Primary School—in numerous national competitions, winning multiple gold awards.
     </p>
 
@@ -20,10 +20,9 @@ title: Hobbies
 
 ## Clubs
 
-<div style="text-align: justify;">
-    
+<div style="text-align: justify; text-indent: 0 !important;">
 
-    <p style="margin-bottom: 10px; margin-top: 0;">
+    <p style="margin-bottom: 0px; margin-top: 0;">
         <strong>Conversationist:</strong> Vice President of the CUFE Finance Research Association.
     </p>
 
@@ -31,11 +30,11 @@ title: Hobbies
         <strong>Technologist:</strong>Vice President of the Fintech and Blockchain Community at CUFE
     </p>
 
-    <p style="margin-bottom: 10px; margin-top: 0;">
+    <p style="margin-bottom: 0px; margin-top: 0;">
         <strong>Debater:</strong> Member of the CUFE Varsity Debate Team.
     </p>
 
-    <p style="margin-bottom: 10px; margin-top: 0;">
+    <p style="margin-bottom: 0px; margin-top: 0;">
         <strong>Humanitarian:</strong> Member of the CUFE Red Cross Society.
     </p>
 
