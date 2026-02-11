@@ -78,6 +78,15 @@
     @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);} 40% {transform: translateX(-50%) translateY(-10px);} }
 
     #main-content { padding: 40px 20px; background: white; min-height: 100vh; }
+      /* 新增的细线样式 */
+.hero-line {
+    width: 80px;            /* 线的长度，想要更长就改大这个数字 */
+    height: 2px;            /* 线的粗细 */
+    border: none;           /* 去掉默认边框 */
+    background-color: white;/* 线的颜色 */
+    margin: 20px auto;      /* 上下留白 20px，左右自动居中 */
+    opacity: 0.8;           /* 稍微一点点透明，看起来更有质感 */
+}
 </style>
 </head>
 
@@ -90,8 +99,8 @@
 
     <section class="full-screen-hero">
       <div class="hero-content">
-        <img src="{{ site.url }}/images/{{ site.owner.avatar }}" alt="{{ site.owner.name }}">
         <h1>{{ site.owner.name }}</h1>
+          <hr class="hero-line">
         <h2>{{ site.tagline }}</h2>
       </div>
       <a href="#main-content" class="scroll-down">
