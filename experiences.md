@@ -64,8 +64,8 @@ author_profile: true
   <summary style="cursor: pointer; list-style: none; outline: none;">
     <table width="100%" style="margin: 0;">
       <tr>
-        <td align="left"><strong>Risk Spillover Effects in Digital Finance</strong></td>
-        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2024.09</td>
+        <td align="left"><strong>Risk Spillover Effects in Digital Financial Market</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2024.01</td>
       </tr>
     </table>
     <table width="100%" style="margin-top: 2px;">
