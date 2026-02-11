@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: page
 title: "Hobbies"
 permalink: /hobbies/
 author_profile: true
