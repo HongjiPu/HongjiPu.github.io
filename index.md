@@ -6,17 +6,18 @@
 <img src="avatar.jpg" class="floatpic">
 
 <div style="text-align: justify;">
-    <p style="text-indent: 2em; margin-bottom: 10px; margin-top: 0;">
-        Here is <strong>Hongji Pu</strong> <a href="https://www.eng.cam.ac.uk/profiles/hc663">(JP, 蒲洪基)</a>.
+    <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
+        Here is <strong>Hongji Pu</strong>.
     </p>
 
-    <p style="text-indent: 2em; margin-bottom: 10px; margin-top: 0;">
+    <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
         I began in Pure Finance, grasping the essence of capital with solid project experience. But understanding the 'what' wasn't enough; I needed the 'how.' This drive led me to Financial Engineering, where I mastered the mathematical models that price risk.
     </p>
 
-    <p style="text-indent: 2em; margin-bottom: 0; margin-top: 0;">
-        Yet, the pursuit of rigor didn't stop there. I pushed further into the frontiers of Computer Science—not to follow a trend, but because I believe the future belongs to those who control the system's underlying logic.
+    <p style="text-indent: 0em; margin-bottom: 0; margin-top: 0;">
+        Yet, the pursuit of rigor didn't stop there. I pushed further into the frontiers of Computer Science-not to follow a trend, but because I believe the future belongs to those who control the system's underlying logic.
     </p>
+
 </div>
 ---
 
