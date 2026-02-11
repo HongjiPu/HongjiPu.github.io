@@ -1,7 +1,8 @@
 ---
-layout: page
-permalink: /cn/index.html
-title: 蔡汉霖的个人主页
+layout: single
+title: "中文"
+permalink: /cn/
+author_profile: true
 ---
 
 ## 关于我

@@ -1,9 +1,10 @@
 ---
-layout: page
-permalink: /services/index.html
-title: Services
-
+title: "Experiences"
+layout: archive
+permalink: /experiences/
+author_profile: true
 ---
+
 
 
 > I am always open to...

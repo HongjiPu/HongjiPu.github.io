@@ -1,8 +1,10 @@
 ---
-layout: page
-permalink: /hobbies/index.html
-title: Hobbies
+layout: archive
+title: "Hobbies"
+permalink: /hobbies/
+author_profile: true
 ---
+
 
 # Hobbies
 

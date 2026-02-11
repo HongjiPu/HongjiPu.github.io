@@ -1,8 +1,12 @@
 ---
-layout: page
-title: Academic
-permalink: /academic/   <-- 必须和 config 里的 url 一模一样！
+title: "Academic"
+layout: archive
+permalink: /academic/
+author_profile: true
 ---
+
+
+
 
 
 ## Academic Services
