@@ -16,8 +16,8 @@ author_profile: true
     </table>
     <table width="100%" style="margin-top: 2px;">
       <tr>
-        <td align="left" style="color: #555;"><em>Independent Researcher / Project Lead</em></td>
-        <td align="right" style="color: #555;"><strong>Advisor: Matthew Murphy</strong></td>
+        <td align="left" style="color: #555;"><em>Independent Researcher</em></td>
+        <td align="right" style="color: #555;"><strong>Matthew Murphy(UIUC)</strong></td>
       </tr>
     </table>
     <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
@@ -25,7 +25,7 @@ author_profile: true
   <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
     <strong>Problem Formulation:</strong> Investigated the acceleration of Early Exercise Premium (EEP) calculations using deep learning. Modeled the implied volatility surface via <strong>SSVI</strong> and optimized the fitting process using the <strong>SLSQP algorithm</strong>.
     <p style="margin-top: 8px;"></p>
-    <strong>Methodology:</strong> Designed a Feedforward Neural Network (FFNN) to learn the non-linear mapping from SSVI surface parameters to EEP. Implemented a <strong>dual-phase framework</strong> (Offline/Online) to bridge the gap between numerical methods and real-time inference.
+    <strong>Methodology:</strong> Designed a Feedforward Neural Network (FNN) to learn the non-linear mapping from SSVI surface parameters to EEP. Implemented a <strong>dual-phase framework</strong> (Offline/Online) to bridge the gap between numerical methods and real-time inference.
     <p style="margin-top: 8px;"></p>
     <strong>Performance:</strong> Achieved a <strong>10x reduction in RMSE</strong> compared to traditional approximations. The Fast-NN variant demonstrated significant generalization across varying market conditions (k, r, q, T).
   </div>
@@ -70,8 +70,8 @@ author_profile: true
     </table>
     <table width="100%" style="margin-top: 2px;">
       <tr>
-        <td align="left" style="color: #555;"><em>Research Lead</em></td>
-        <td align="right" style="color: #555;"><strong>Assoc. Prof. Bianling Qu (CUFE)</strong></td>
+        <td align="left" style="color: #555;"><em>Research Assistant</em></td>
+        <td align="right" style="color: #555;"><strong>Prof. Bianling Ou</strong></td>
       </tr>
     </table>
     <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
