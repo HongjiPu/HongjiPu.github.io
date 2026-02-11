@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /awards/index.html
-title: Awards
+title: Academic
+permalink: /academic/   <-- 必须和 config 里的 url 一模一样！
 ---
 
 
