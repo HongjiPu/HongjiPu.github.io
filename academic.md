@@ -6,17 +6,15 @@ author_profile: true
 ---
 
 
-
-
-
 ## Academic Services
 ### Reviewer
 ### Program Committee
 --
-## Scholarships
+
+## Awards
 --
-## Competitions
---
+
 ## Teaching and Supervision
 --
+
 ## Voluntary Service
