@@ -43,11 +43,11 @@ author_profile: true
   <summary style="cursor: pointer; list-style: none; outline: none;">
     <table width="100%" style="margin: 0;">
       <tr>
-        <td align="left"><strong>Financial LLM & Multimodal Alpha Research (AI Lab)</strong></td>
+        <td align="left"><strong>Financial LLM & Multimodal Alpha Research</strong></td>
         <td align="right" valign="top" style="white-space: nowrap; color: #666;">2025.05 - 2025.07</td>
       </tr>
     </table>
-    <p style="margin: 4px 0 0 0; color: #555;"><em>Intern in AI Lab, REI-Tech</em></p>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Intern in AI Lab, REI-Tech（CN）</em></p>
     <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
   </summary>
 
@@ -77,7 +77,7 @@ author_profile: true
         <td align="right" valign="top" style="white-space: nowrap; color: #666;">2025.01 - 2025.04</td>
       </tr>
     </table>
-    <p style="margin: 4px 0 0 0; color: #555;"><em>Quantitative Researcher, Hantak Investment Management</em></p>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Quantitative Researcher, Hantak Investment Management（CN）</em></p>
     <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
   </summary>
 
@@ -98,3 +98,59 @@ author_profile: true
 
 
 
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Fundamental Factor Discovery & Strategy Backtesting</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2023.10 - 2024.07</td>
+      </tr>
+    </table>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Intern in Financial Engineering Group, Guosheng Securities</em></p>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>Foundational Factor Research:</strong> Initiated quantitative exploration by mapping supply chain dynamics and sentiment data via web crawling. Utilized <strong>rolling time-series analysis</strong> to investigate the lead-lag relationship between negative news and price adjustments, gaining insights into market pricing efficiency.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Backtesting Framework Practice:</strong> Under senior guidance, executed rigorous strategy backtesting protocols. Maintained demo accounts and performed <strong>sensitivity analysis</strong> by adjusting entry/exit parameters, while developing systematic performance visualization reports.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Statistical Modeling Exposure:</strong> Employed Stata to estimate factor premiums, comparing <strong>OLS and MAD regression</strong> methodologies for sentiment modeling. Leveraged <strong>VAR models</strong> to predict sector-specific premiums, establishing a solid foundation in factor evaluation.
+  </div>
+</details>
+
+<style>
+  /* 建议在简历开头统一写一次即可 */
+  summary::-webkit-details-marker { display: none; }
+  details[open] { background-color: #fafafa; }
+</style>
+
+
+
+
+<details style="border: 1px solid #eee; border-radius: 6px; padding: 10px; transition: all 0.3s ease;">
+  <summary style="cursor: pointer; list-style: none; outline: none;">
+    <table width="100%" style="margin: 0;">
+      <tr>
+        <td align="left"><strong>Green Finance Research & Data Engineering</strong></td>
+        <td align="right" valign="top" style="white-space: nowrap; color: #666;">2022.03 – 2023.03</td>
+      </tr>
+    </table>
+    <p style="margin: 4px 0 0 0; color: #555;"><em>Research Assistant, IIGF of CUFE</em></p>
+    <small style="color: #007aff; font-size: 10px;">(Click to expand / 点击展开详情)</small>
+  </summary>
+
+  <div style="padding-top: 15px; border-top: 1px solid #f9f9f9; text-align: justify; line-height: 1.6;">
+    <strong>Financial Data Engineering:</strong> Automated the crawling and preprocessing of green bond yields and pricing data. Contributed to database maintenance by optimizing table structures and implementing <strong>Hash Indexes</strong>, significantly enhancing query performance for high-frequency financial datasets.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>ESG Data Visualization:</strong> Developed dynamic visualization modules using <strong>Matplotlib</strong> to track EU carbon futures and forestry carbon sinks. Synthesized complex data into intuitive dashboards, providing quantitative support for institutional ESG research reports.
+    <p style="margin-top: 8px; margin-bottom: 8px;"></p>
+    <strong>Index Tracking & Metrics:</strong> Assisted in the periodic rebalancing of the <strong>CSI 300 Green Leading Index</strong>. Evaluated portfolio performance by calculating <strong>adjusted Sharpe Ratios</strong> and <strong>Maximum Drawdowns</strong>, gaining foundational experience in quantitative index construction.
+  </div>
+</details>
+
+<style>
+  /* 全局样式建议：放在简历开头一次即可 */
+  summary::-webkit-details-marker { display: none; }
+  details[open] { background-color: #fafafa; }
+</style>
