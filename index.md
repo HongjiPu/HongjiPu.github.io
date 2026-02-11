@@ -6,8 +6,9 @@
 <img src="avatar.jpg" class="floatpic">
 
 <div style="text-align: justify;">
+    
     <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
-        Here is <strong>Hongji Pu</strong>.
+        Here is <strong>Hongji Pu (JP,蒲洪基)</strong>.
     </p>
 
     <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
@@ -30,6 +31,11 @@
 ---
 
 ## Research Interests
+
+* Reinforcement Learning
+* Multi-agent artificial intelligence
+* Time series analysis
+* Fintech 
 
 ---
 
