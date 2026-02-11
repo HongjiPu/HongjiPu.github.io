@@ -1,6 +1,6 @@
 ---
-title: "Experiences"
 layout: page
+title: "Experiences"
 permalink: /experiences/
 author_profile: true
 ---

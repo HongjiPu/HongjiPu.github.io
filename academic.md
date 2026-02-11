@@ -1,6 +1,6 @@
 ---
-title: "Academic"
 layout: page
+title: "Academic"
 permalink: /academic/
 author_profile: true
 ---
