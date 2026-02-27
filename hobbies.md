@@ -12,6 +12,7 @@ author_profile: true
 <div style="text-align: justify;">
     
     <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
+        <img src="/images/logo/hobbies/tuba.png" alt="Tuba" style="float: right; margin: 0 0 10px 10px; width: 180px; height: auto;" />
         My passion for performance has spanned the past 11 years. As an amateur tuba player, I have represented my alma maters—Central University of Finance and Economics, Beijing No. 166 High School, and Shijia Primary School—in numerous national competitions, winning multiple gold awards.
     </p>
 
@@ -50,4 +51,3 @@ author_profile: true
 
 
 ## Chat with me
-
