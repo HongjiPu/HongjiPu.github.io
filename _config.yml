@@ -3,6 +3,7 @@
 # --------------------------------------------------
 title: Hongji Pu   # Main site title (appears in browser tab & RSS)
 tagline: Quantitative & Audacious & Narrative  # Optional short tagline, used by some layouts
+subtitle: Independent and profound thought defines what it means to be human.
 description: Hongji Pu's Personal Website. Researcher，Quantitative，Analyst  # Strongly recommended for SEO & social cards
 
 # TIP ── For local development you can comment out `url`
