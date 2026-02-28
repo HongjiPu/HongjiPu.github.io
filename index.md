@@ -3,7 +3,7 @@
 
 # About Me
 
-<img src="avatar.jpg" class="floatpic">
+<img src="bio_photo.jpg" class="floatpic">
 
 <div style="text-align: justify;">
     
