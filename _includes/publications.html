@@ -22,7 +22,15 @@
   var DATA = {{ site.data.publications | jsonify }};
   var CATEGORIES = DATA.categories || [];
   var PUBS       = DATA.items || [];
-  var ME         = (DATA.highlight_author || '').toLowerCase();
+  // 你的名字可能有多种写法（Hongji Pu / H Pu），任意一种命中就加粗
+  function norm(s) { return String(s == null ? '' : s).toLowerCase().replace(/[*†‡~\s]+/g, ' ').trim(); }
+  var ME = (DATA.highlight_authors || (DATA.highlight_author ? [DATA.highlight_author] : []))
+             .map(norm).filter(Boolean);
+  function isMe(a) {
+    var s = norm(a);
+    // 前缀匹配，避免 "Zhi Pu" 被 "H Pu" 误伤
+    return ME.some(function (n) { return s.indexOf(n) === 0; });
+  }
 
   var ICONS = {
     paper: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
@@ -57,8 +65,7 @@
 
   function card(p) {
     var authors = (p.authors || []).map(function (a) {
-      return (ME && String(a).toLowerCase().indexOf(ME) !== -1)
-        ? '<strong>' + esc(a) + '</strong>' : esc(a);
+      return isMe(a) ? '<strong>' + esc(a) + '</strong>' : esc(a);
     }).join(', ');
 
     var links = (p.links || []).map(function (l) {

@@ -1,74 +1,66 @@
 # ============================================================
 #  Publications / 出版物栏
 #
-#  categories : the research-direction filter chips, in display order.
-#               A paper's `category` MUST be one of these strings.
+#  categories : 筛选按钮，按这里的顺序显示。
+#               每篇论文的 `category` 必须是这里的一个。
 #
-#  items      : one block per paper. Fields —
-#    title            (required) paper title
-#    authors          (required) list; your own name is auto-bolded
-#                     (matching is set by `highlight_author` below)
-#    venue            (required) e.g. "NeurIPS, 2026" / "Working Paper, 2025"
-#    year             (required) integer, used for sorting + "by date" view
-#    month            (optional) 1-12, refines ordering inside a year
-#    category         (required) primary direction — must match `categories`
-#    extra_categories (optional) also show under these directions
-#    selected         (optional) true -> appears in the default "selected" view
-#    links            (optional) list of {name, url}. First link is used for
-#                     the title hyperlink. name "Code"/"Demo" get their own icon.
+#  items      : 一篇论文一块。字段 —
+#    title             必填，论文标题
+#    authors           必填，列表；名字命中 highlight_authors 会自动加粗
+#    venue             必填，如 "arXiv:2605.00180, 2026" / "NeurIPS, 2026"
+#    year              必填，整数，用于排序和 "show all by date"
+#    month             可选，1-12，同一年内再排序
+#    category          必填，主方向，必须是 categories 里的一个
+#    extra_categories  可选，同时归到别的方向下
+#    selected          可选，true 表示出现在默认的 "show selected" 视图
+#    links             可选，{name, url} 列表。第一个链接会挂在标题上。
+#                      name 用 Paper / Code / Demo / Slides，各有自己的图标。
 #
-#  To add a paper: copy a block and edit it. Order in this file does not
-#  matter — sorting is done by year/month.
+#  加论文：复制一块改内容即可。文件里的先后顺序无所谓，页面按 year/month 排。
 # ============================================================
 
-highlight_author: "Hongji Pu"
+# 你的名字在作者列表里的各种写法，命中任意一个就加粗
+highlight_authors:
+  - "Hongji Pu"
+  - "H Pu"
 
 categories:
-  - Reinforcement Learning
-  - Multi-Agent AI
+  - Efficient Agent Infrastructure
+  - Reliability
+  - Self-Evolving and Trustworthy AI Optimization
+  - Finance AI
+  - Education AI
   - Time Series & Volatility
   - FinTech & Market Microstructure
-  - Working Papers
 
 items:
-  - title: "Example — Neural Network Optimization for American Option Pricing"
+  - title: "RouteProfile: Elucidating the Design Space of LLM Profiles for Routing"
     authors:
-      - Hongji Pu
-      - Coauthor Name
-    venue: "Working Paper, 2026"
+      - J Xu
+      - H Pu
+      - T Feng
+      - H Zhang
+      - J You
+      - G Liu
+    venue: "arXiv e-prints, arXiv:2605.00180"
     year: 2026
-    month: 3
-    category: "Time Series & Volatility"
-    extra_categories:
-      - "FinTech & Market Microstructure"
+    month: 5
+    category: "Efficient Agent Infrastructure"
     selected: true
     links:
       - name: Paper
-        url: "#"
-      - name: Code
-        url: "#"
+        url: "https://arxiv.org/abs/2605.00180"
 
-  - title: "Example — Revisiting Man vs. Machine Learning in Analyst Forecasts"
+  - title: "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems"
     authors:
-      - Hongji Pu
-      - Yangdi Zhu
-    venue: "Working Paper, 2025"
-    year: 2025
-    month: 11
-    category: "FinTech & Market Microstructure"
+      - H Pu
+      - X Song
+      - L Zhao
+    venue: "arXiv preprint, arXiv:2605.13716"
+    year: 2026
+    month: 5
+    category: "Efficient Agent Infrastructure"
     selected: true
     links:
       - name: Paper
-        url: "#"
-
-  - title: "Example — Risk Spillover Effects in the Digital Financial Market"
-    authors:
-      - Hongji Pu
-      - Bianling Ou
-    venue: "Working Paper, 2024"
-    year: 2024
-    month: 6
-    category: "Working Papers"
-    links:
-      - name: Paper
-        url: "#"
+        url: "https://arxiv.org/abs/2605.13716"

@@ -147,26 +147,24 @@ pillars:
           The plumbing — routing, orchestration, and skill reuse that keep
           multi-model systems affordable.
         projects:
-          - name: "LLM Router"
+          - name: "RouteProfile: Elucidating the Design Space of LLM Profiles for Routing"
             summary: >
-              Learned selection across a pool of models, matching each query to
-              the cheapest model that still answers it correctly.
-            status: "In progress"
+              A systematic study of how LLM profiles should be represented and
+              used when routing queries across a pool of models.
+            status: "Submission"
+            venue: "arXiv:2605.00180, 2026"
             tags: ["Routing", "Efficiency"]
             links:
               - name: Paper
-                url: "#"
-              - name: Code
-                url: "#"
+                url: "https://arxiv.org/abs/2605.00180"
 
-          - name: "SkillOps"
+          - name: "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems"
             summary: >
-              Operational tooling for agent skills — versioning, evaluation, and
-              reuse of learned behaviours across tasks.
-            status: "In progress"
+              Treating an agent's skill library as a software ecosystem that
+              versions, evaluates, and repairs itself over time.
+            status: "Submission"
+            venue: "arXiv:2605.13716, 2026"
             tags: ["Infrastructure", "Agents"]
             links:
               - name: Paper
-                url: "#"
-              - name: Code
-                url: "#"
+                url: "https://arxiv.org/abs/2605.13716"

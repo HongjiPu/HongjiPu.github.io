@@ -86,14 +86,18 @@ cards:
 `_data/publications.yml`。顺序随便写，页面会按 `year` / `month` 自动排序。
 
 ```yaml
+highlight_authors:     # 你名字的各种写法，命中任意一个就自动加粗
+  - "Hongji Pu"
+  - "H Pu"
+
 categories:            # 筛选按钮，按这里的顺序显示
-  - Reinforcement Learning
-  - Multi-Agent AI
+  - Efficient Agent Infrastructure
+  - Reliability
 
 items:
   - title: "论文标题"
-    authors: ["Hongji Pu", "合作者"]     # 你的名字会自动加粗
-    venue: "NeurIPS, 2026"
+    authors: ["H Pu", "合作者"]          # 用哪种写法都行，见 highlight_authors
+    venue: "arXiv:2605.00180, 2026"
     year: 2026
     month: 5                             # 可选，用于同年内排序
     category: "Reinforcement Learning"   # 必须是上面 categories 里的一个
