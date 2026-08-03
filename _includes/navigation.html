@@ -21,6 +21,7 @@
         {% for link in site.links %}
         <li>
           <a href="{{ site.url }}{{ link.url }}"
+             {% if link.external %}target="_blank" rel="noopener"{% endif %}
              class="{% if current == link.url %}is-current{% elsif link.url != '/' and current contains link.url %}is-current{% endif %}">{{ link.title }}</a>
         </li>
         {% endfor %}

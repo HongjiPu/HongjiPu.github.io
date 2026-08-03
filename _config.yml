@@ -2,7 +2,7 @@
 #  BASIC SITE INFO
 # --------------------------------------------------
 title: Hongji Pu   # Main site title (appears in browser tab & RSS)
-tagline: Quantitative & Audacious & Narrative  # Optional short tagline, used by some layouts
+tagline: Adventurous · Aspirational · Analytical  # 大图上标题之上的那行小字
 subtitle: Independent and profound thought defines what it means to be human.
 description: Hongji Pu's Personal Website. Researcher，Quantitative，Analyst  # Strongly recommended for SEO & social cards
 
@@ -20,7 +20,7 @@ owner:
   bio_photo: avatar.jpg     # 侧栏和正文里的个人照片
   email: hongjip2@gmail.com
   hero_img: hero.jpg  # 直接写文件名，因为它就在主文件夹
-  # cv: /file/CV-HongjiPu.pdf   # 取消注释即可在侧栏显示 CV 链接
+  cv: /CV_Hongji_Pu.pdf     # 简历 PDF，放在站点根目录
 
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter:
@@ -49,19 +49,24 @@ google_verify: ""
 #  TOP NAVIGATION BAR
 #  `external: true` opens the link in a new tab.
 # --------------------------------------------------
+#  external: true  -> 在新标签页打开（外链、PDF 用）
+#
+#  注意：Academic 页 (/academic/) 和原来的 Hobbies 页现在不在导航里，
+#  但文件仍在、网址仍可直接访问。想加回来在下面补一行即可。
 links:
-  - title: About Me
+  - title: About
     url: /
   - title: Research
     url: /research/
   - title: Publications
     url: /publications/
-  - title: Experiences
+  - title: Projects
     url: /experiences/
-  - title: Academic
-    url: /academic/
-  - title: Hobbies
+  - title: Experience
     url: /hobbies/
+  - title: CV
+    url: /CV_Hongji_Pu.pdf
+    external: true
   - title: 中文
     url: /cn/
 

@@ -4,11 +4,11 @@ title: ""
 permalink: /
 # ---- Hero (the full-screen opening frame) ----------------------------------
 hero_title: "Hongji Pu"
-hero_lede: "Pricing risk with mathematics, and building the systems that act on it — from stochastic volatility surfaces to reinforcement-learning agents."
+hero_lede: "Designing intelligent systems that do more than predict — they reason, learn from experience, and evolve."
 hero_meta:
-  - "Financial Engineering · UIUC"
-  - "Quantitative Research"
-  - "Reinforcement Learning"
+  - "Quantitative Researcher"
+  - "AI Architect"
+  - "Explorer"
 # ---- Pull-quote band (delete these two lines to hide it) -------------------
 quote_label: "Point of view"
 quote: "Independent and profound thought defines what it means to be human."
