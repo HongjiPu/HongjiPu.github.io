@@ -338,6 +338,8 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;      /* 内容垂直居中，上下留白均衡 */
+  padding: 112px 0 92px;        /* 上避开导航栏，下留给 EXPLORE */
   background: var(--navy);
   overflow: hidden;
 }
@@ -366,7 +368,7 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   width: 100%;
   max-width: var(--measure);
   margin: 0 auto;               /* 现在在最上方 */
-  padding: 86px var(--gutter) 0;       /* 上边距避开固定导航栏 */
+  padding: 0 var(--gutter);
 }
 @media (max-width: 860px) {
   .hero__inner { padding-top: 96px; }
