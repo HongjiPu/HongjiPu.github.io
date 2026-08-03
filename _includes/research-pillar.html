@@ -1,0 +1,58 @@
+<!--
+  Renders one research pillar (modules + projects).
+  Usage:  include research-pillar.html with  key="foundations"  or  key="applications"
+  Data:   _data/research.yml
+-->
+{% for pillar in site.data.research.pillars %}
+{% if pillar.key == include.key %}
+
+<p class="pillar__blurb">{{ pillar.blurb }}</p>
+
+{% for module in pillar.modules %}
+<section class="module">
+  <header class="module__head">
+    <span class="module__num">0{{ forloop.index }}</span>
+    <div>
+      <h2 class="module__title">{{ module.name }}</h2>
+      {% if module.summary %}<p class="module__summary">{{ module.summary }}</p>{% endif %}
+    </div>
+  </header>
+
+  <div class="module__projects">
+    {% for project in module.projects %}
+    <article class="project">
+      <div class="project__head">
+        <h3 class="project__name">{{ project.name }}</h3>
+        {% if project.status %}<span class="project__status">{{ project.status }}</span>{% endif %}
+      </div>
+
+      {% if project.venue %}<p class="project__venue">{{ project.venue }}</p>{% endif %}
+      {% if project.summary %}<p class="project__summary">{{ project.summary }}</p>{% endif %}
+
+      {% if project.tags %}
+      <div class="project__tags">
+        {% for tag in project.tags %}<span class="tag tag--static">{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+
+      {% if project.links %}
+      <div class="project__links">
+        {% for link in project.links %}
+        <a href="{{ link.url }}" {% if link.url != '#' %}target="_blank" rel="noopener"{% endif %}>
+          {% if link.name == 'Code' %}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          {% elsif link.name == 'Demo' %}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          {% elsif link.name == 'Slides' %}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          {% else %}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>{% endif %}
+          {{ link.name }}
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+{% endif %}
+{% endfor %}

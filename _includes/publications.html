@@ -1,0 +1,187 @@
+<!-- Publications — content lives in _data/publications.yml -->
+<section class="pubs reveal" id="publications">
+  {% if include.hide_title != "yes" %}<h2 class="pubs__title">Publications</h2>{% endif %}
+
+  <div class="pubs__modes" id="pubs-modes"></div>
+
+  <div class="pubs__search">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input type="text" id="pubs-search" placeholder="Search by title, author or topic…" autocomplete="off">
+  </div>
+
+  <div class="pubs__filters" id="pubs-filters"></div>
+
+  <div class="pubs__grid" id="pubs-grid"></div>
+</section>
+
+<script>
+(function () {
+  var DATA = {{ site.data.publications | jsonify }};
+  var CATEGORIES = DATA.categories || [];
+  var PUBS       = DATA.items || [];
+  var ME         = (DATA.highlight_author || '').toLowerCase();
+
+  var ICONS = {
+    paper: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+    code:  '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+    demo:  '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+    slides:'<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'
+  };
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function icon(name) {
+    var n = String(name || '').toLowerCase();
+    if (n === 'code')   return ICONS.code;
+    if (n === 'demo')   return ICONS.demo;
+    if (n === 'slides') return ICONS.slides;
+    return ICONS.paper;
+  }
+  function cats(p) {
+    return [p.category].concat(p.extra_categories || []).filter(Boolean);
+  }
+  function byDate(a, b) {
+    var d = (b.year || 0) - (a.year || 0);
+    return d !== 0 ? d : (b.month || 0) - (a.month || 0);
+  }
+
+  var activeTag = 'All';
+  var term      = '';
+  var mode      = PUBS.some(function (p) { return p.selected; }) ? 'selected' : 'date';
+
+  function card(p) {
+    var authors = (p.authors || []).map(function (a) {
+      return (ME && String(a).toLowerCase().indexOf(ME) !== -1)
+        ? '<strong>' + esc(a) + '</strong>' : esc(a);
+    }).join(', ');
+
+    var links = (p.links || []).map(function (l) {
+      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + icon(l.name) + ' ' + esc(l.name) + '</a>';
+    }).join('');
+
+    var title = (p.links && p.links.length)
+      ? '<a href="' + esc(p.links[0].url) + '" target="_blank" rel="noopener">' + esc(p.title) + '</a>'
+      : esc(p.title);
+
+    var tags = cats(p).map(function (c) {
+      return '<button class="tag" data-tag="' + esc(c) + '">' + esc(c) + '</button>';
+    }).join('');
+
+    return '<article class="pub">' +
+             '<div style="flex:1">' +
+               '<h3 class="pub__title">' + title + '</h3>' +
+               (authors ? '<div class="pub__authors">' + authors + '</div>' : '') +
+               (p.venue ? '<div class="pub__venue">' + esc(p.venue) + '</div>' : '') +
+             '</div>' +
+             '<div class="pub__foot">' +
+               (links ? '<div class="pub__links">' + links + '</div>' : '') +
+               '<div class="pub__tags">' + tags + '</div>' +
+             '</div>' +
+           '</article>';
+  }
+
+  function render() {
+    var grid = document.getElementById('pubs-grid');
+    var q = term.toLowerCase().trim();
+
+    var list = PUBS.filter(function (p) {
+      var okTag = activeTag === 'All' || cats(p).indexOf(activeTag) !== -1;
+      var okQ = q === '' ||
+        String(p.title || '').toLowerCase().indexOf(q) !== -1 ||
+        String(p.venue || '').toLowerCase().indexOf(q) !== -1 ||
+        cats(p).join(' ').toLowerCase().indexOf(q) !== -1 ||
+        (p.authors || []).some(function (a) { return String(a).toLowerCase().indexOf(q) !== -1; });
+      return okTag && okQ;
+    });
+
+    if (mode === 'selected') list = list.filter(function (p) { return p.selected; });
+
+    if (!list.length) {
+      grid.innerHTML = '<div class="pubs__empty"><p>No publications match the current filters.</p>' +
+                       '<button id="pubs-reset">Clear search &amp; filters</button></div>';
+      return;
+    }
+
+    var html = '';
+    if (mode === 'topic' && activeTag === 'All' && q === '') {
+      CATEGORIES.forEach(function (c) {
+        var group = list.filter(function (p) { return cats(p).indexOf(c) !== -1; }).sort(byDate);
+        if (!group.length) return;
+        html += '<div class="pubs__group">' + esc(c) +
+                '<span class="pubs__group-count">(' + group.length + ')</span></div>' +
+                group.map(card).join('');
+      });
+    } else if (mode === 'date' && activeTag === 'All' && q === '') {
+      var last = null;
+      list.slice().sort(byDate).forEach(function (p) {
+        if (p.year !== last) { html += '<div class="pubs__group">' + esc(p.year) + '</div>'; last = p.year; }
+        html += card(p);
+      });
+    } else {
+      html = list.slice().sort(byDate).map(card).join('');
+    }
+    grid.innerHTML = html;
+  }
+
+  function renderModes() {
+    var modes = [
+      { key: 'selected', label: 'show selected' },
+      { key: 'date',     label: 'show all by date' },
+      { key: 'topic',    label: 'show all by topic' }
+    ];
+    document.getElementById('pubs-modes').innerHTML = modes.map(function (m, i) {
+      var btn = '<button class="pubs__mode' + (mode === m.key ? ' is-active' : '') +
+                '" data-mode="' + m.key + '">' + m.label + '</button>';
+      return i === 0 ? btn : '<span class="pubs__sep">/</span>' + btn;
+    }).join('');
+  }
+
+  function renderFilters() {
+    document.getElementById('pubs-filters').innerHTML =
+      '<button class="chip' + (activeTag === 'All' ? ' is-active' : '') + '" data-tag="All">All</button>' +
+      CATEGORIES.map(function (c) {
+        return '<button class="chip' + (activeTag === c ? ' is-active' : '') +
+               '" data-tag="' + esc(c) + '">' + esc(c) + '</button>';
+      }).join('');
+  }
+
+  function setTag(t) {
+    activeTag = t;
+    if (t !== 'All' && mode === 'selected') { mode = 'date'; renderModes(); }
+    renderFilters();
+    render();
+  }
+
+  // Delegated events — survives every re-render
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('[data-mode], [data-tag], #pubs-reset') : null;
+    if (!el) return;
+    if (el.id === 'pubs-reset') {
+      activeTag = 'All'; term = '';
+      document.getElementById('pubs-search').value = '';
+      renderFilters(); render();
+    } else if (el.hasAttribute('data-mode')) {
+      mode = el.getAttribute('data-mode');
+      renderModes(); render();
+    } else if (el.hasAttribute('data-tag')) {
+      setTag(el.getAttribute('data-tag'));
+      document.getElementById('publications').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  document.getElementById('pubs-search').addEventListener('input', function (e) {
+    term = e.target.value;
+    render();
+  });
+
+  renderModes();
+  renderFilters();
+  render();
+})();
+</script>

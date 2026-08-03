@@ -1,0 +1,23 @@
+<!-- Two-panel research split. Content lives in _data/research.yml -->
+<section class="split-panels reveal" id="research">
+  {% for pillar in site.data.research.pillars %}
+  <a class="panel panel--{{ pillar.key }}" href="{{ site.url }}{{ pillar.url }}">
+    <div class="panel__inner">
+      <span class="panel__num">{{ pillar.number }}</span>
+      <h2 class="panel__title">{{ pillar.title }}</h2>
+      <p class="panel__tagline">{{ pillar.tagline }}</p>
+
+      <ul class="panel__modules">
+        {% for module in pillar.modules %}
+        <li>{{ module.name }}</li>
+        {% endfor %}
+      </ul>
+
+      <span class="panel__cta">
+        Enter
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+  {% endfor %}
+</section>

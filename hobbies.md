@@ -1,20 +1,17 @@
 ---
 layout: page
-title: "Hobbies"
+title: "Beyond the Desk"
+subtitle: "Eleven years in an orchestra pit, a few years on set, and the teams in between."
+eyebrow: "Off the clock"
 permalink: /hobbies/
-author_profile: true
----
-
-
 ---
 
 ## Orchestra
-<hr style="border: none; height: 1px; background-color: #eaeaea; margin-top: -5px; margin-bottom: 20px;" />
 
 <div style="text-align: justify;">
 
 <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
-    <img src="/images/hobbies/tuba.jpg" alt="Tuba" style="float: right; margin: 0 0 10px 10px; width: 180px; height: auto;" />
+    <img src="/images/hobbies/tuba.jpg" alt="Tuba" class="floatpic" />
     My passion for performance has spanned the past 11 years. As an amateur tuba player, I have represented my alma maters—Central University of Finance and Economics, Beijing No. 166 High School, and Shijia Primary School—in numerous national competitions, winning multiple gold awards.
 </p>
 
@@ -24,26 +21,18 @@ author_profile: true
 
 </div>
 
-<hr style="border: none; height: 1px; background-color: #f2f2f2; margin: 40px 0;" />
-
-
-
 ## Acting
-<hr style="border: none; height: 1px; background-color: #eaeaea; margin-top: -5px; margin-bottom: 20px;" />
 
 <div style="text-align: justify;">
 
 <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
-    <img src="/images/hobbies/act.jpg" alt="Acting" style="float: right; margin: 0 0 10px 10px; width: 180px; height: auto;" />
+    <img src="/images/hobbies/act.jpg" alt="Acting" class="floatpic" />
     I had some acting experience in my early years, and I was fortunate enough to act alongside Yao Chen (姚晨) and Liu Ye (刘烨). Of course, I mostly played minor roles, such as the chubby little guy eating hamburgers in "Color Me Love" (爱出色).
 </p>
 
 </div>
 
-<hr style="border: none; height: 1px; background-color: #f2f2f2; margin: 40px 0;" />
-
 ## Other Roles
-<hr style="border: none; height: 1px; background-color: #eaeaea; margin-top: -5px; margin-bottom: 20px;" />
 
 <div style="text-align: justify;">
 

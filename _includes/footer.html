@@ -1,12 +1,35 @@
-<h6>&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}.
-  Published with <a href="https://pages.github.com/" rel="nofollow">GitHub Pages</a>,
-  powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>,
-  based on the <a href="https://mademistakes.com/" rel="nofollow">Minimal Mistakes</a> theme.
-  Source code for this website can be found <a href="https://github.com/GuangLun2000/GuangLun2000.github.io" rel="nofollow">here</a>.
+<div class="shell">
+  <div class="site-footer__top">
+    <div>
+      <p class="site-footer__name">{{ site.owner.name }}</p>
+      <p class="site-footer__tag">{{ site.subtitle }}</p>
+    </div>
 
-  <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=tGZ_4852x6Mm-PPomoo98e4y_CI8D9TmioGTO03Daik"></script> -->
-  
-</h6>
+    <div>
+      <h4>Navigate</h4>
+      <ul>
+        {% for link in site.links %}
+        <li><a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
 
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        {% if site.owner.email %}<li><a href="mailto:{{ site.owner.email }}">{{ site.owner.email }}</a></li>{% endif %}
+        {% if site.owner.github %}<li><a href="https://github.com/{{ site.owner.github }}" rel="noopener">GitHub</a></li>{% endif %}
+        {% if site.owner.linkedin %}<li><a href="https://linkedin.com/in/{{ site.owner.linkedin }}" rel="noopener">LinkedIn</a></li>{% endif %}
+        {% if site.owner.scholar %}<li><a href="{{ site.owner.scholar }}" rel="noopener">Google Scholar</a></li>{% endif %}
+      </ul>
+    </div>
+  </div>
 
-<!-- Lastly modified by Hanlin CAI in 2023/03/16 -->
+  <div class="site-footer__bottom">
+    <span>&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}. All rights reserved.</span>
+    <span>
+      Built with <a href="https://jekyllrb.com" rel="nofollow noopener">Jekyll</a> on
+      <a href="https://pages.github.com/" rel="nofollow noopener">GitHub Pages</a>.
+    </span>
+  </div>
+</div>

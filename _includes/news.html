@@ -1,0 +1,21 @@
+<!-- News board — content lives in _data/news.yml -->
+<section class="news reveal" id="news">
+  {% assign news_count = site.data.news | size %}
+  <div class="news__head">
+    <h2 class="news__title">News</h2>
+    {% if news_count == 1 %}<span class="news__count">1 update</span>{% endif %}
+    {% if news_count > 1 %}<span class="news__count">{{ news_count }} updates</span>{% endif %}
+  </div>
+
+  <div class="news__list">
+    {% if news_count > 0 %}
+      {% for item in site.data.news %}
+      <div class="news__item">
+        <span class="news__date">[{{ item.date }}]</span>{% if item.icon %} {{ item.icon }}{% endif %} {{ item.text }}
+      </div>
+      {% endfor %}
+    {% else %}
+      <p class="news__empty">No updates yet.</p>
+    {% endif %}
+  </div>
+</section>

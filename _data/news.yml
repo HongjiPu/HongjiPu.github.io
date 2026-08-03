@@ -1,0 +1,30 @@
+# ============================================================
+#  News / 消息栏
+#  Newest first. Each entry renders as one line in the News box.
+#
+#  date : shown in bold, wrapped in [ ]  ->  [2026.07.01]
+#  icon : optional emoji  (🎉 accepted · 🚀 released · 📌 misc · 🏆 award)
+#  text : the sentence. Inline HTML is allowed:
+#           <a href="...">Link</a>   <strong>Bold</strong>   <em>Italic</em>
+#         Use  >  for multi-line text (keeps it on one paragraph).
+#
+#  To add news: copy a block, change the values, put it at the top.
+# ============================================================
+
+- date: "2026.01"
+  icon: "🎉"
+  text: >
+    Example — <a href="#" target="_blank">Paper Title</a> was accepted at
+    <strong>Venue 2026</strong>! One sentence on what it does.
+
+- date: "2025.12"
+  icon: "🚀"
+  text: >
+    Example — released <a href="#" target="_blank">Project Name</a>, a short
+    description of the repo or tool. ⭐ <strong style="color:#2251FF;">100+ GitHub Stars!</strong>
+
+- date: "2025.09"
+  icon: "📌"
+  text: >
+    Example — started the <strong>MSFE</strong> program at
+    <strong>University of Illinois Urbana-Champaign</strong>.

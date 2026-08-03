@@ -1,38 +1,42 @@
 <!doctype html>
-<html class="no-js" lang="en"><head>
-{% include head.html %}
+<html class="no-js" lang="{{ page.lang | default: 'en' }}">
+<head>
+  {% include head.html %}
 </head>
-
 
 <body class="page" itemscope itemtype="http://schema.org/WebPage">
 
-<div class="page-wrapper">
+  {% include navigation.html over=false %}
 
-{% include chrome-frame.html %}
-
-{% include navigation.html %}
-
-{% if page.image.feature %}<div class="image-wrap">
-  <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
-</div>{% endif %}
-
-<div id="main" role="main"  itemprop="mainContentOfPage">
-  <div class="article-author-top">
-    {% include author-bio.html %}
+  <div class="page-hero">
+    <div class="shell">
+      <span class="eyebrow eyebrow--light">{{ page.eyebrow | default: site.owner.name }}</span>
+      <h1 class="page-hero__title" itemprop="headline">{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="page-hero__sub">{{ page.subtitle }}</p>{% endif %}
+    </div>
   </div>
-  <article itemscope itemtype="http://schema.org/CreativeWork">
-  {% comment %}
-    <div class="headline-wrap">
-      <h1 itemprop="headline">{{ page.title }}</h1>
-    </div>{% endcomment %}
-    <div class="article-wrap" itemprop="text">
-      {{ content }}
-    </div></article>
-</div></div><div class="footer-wrap">
-  <footer>
+
+  <main class="band">
+    <div class="shell">
+      {% if page.full_width %}
+        <article class="article-wrap article-wrap--wide reveal" itemprop="text">
+          {{ content }}
+        </article>
+      {% else %}
+        <div class="split">
+          {% include author-bio.html %}
+          <article class="article-wrap article-wrap--wide reveal" itemprop="text">
+            {{ content }}
+          </article>
+        </div>
+      {% endif %}
+    </div>
+  </main>
+
+  <footer class="site-footer">
     {% include footer.html %}
   </footer>
-</div>{% include scripts.html %}
 
+  {% include scripts.html %}
 </body>
 </html>

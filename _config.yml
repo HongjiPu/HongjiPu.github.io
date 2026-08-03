@@ -15,11 +15,12 @@ url: https://HongjiPu.github.io
 # --------------------------------------------------
 owner:
   name: Hongji Pu
+  role: MSFE · UIUC          # shown under your name in the sidebar rail
   avatar: avatar.jpg  # 关键！告诉它图片在 images 文件夹里
   bio_photo: bio_photo.jpg
   email: hongjip2@gmail.com
   hero_img: hero.jpg  # 直接写文件名，因为它就在主文件夹
-  # cv: https://caihanlin.com/file/CV-HanlinCAI.pdf
+  # cv: /file/CV-HongjiPu.pdf   # 取消注释即可在侧栏显示 CV 链接
 
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter:
@@ -51,6 +52,8 @@ google_verify: ""
 links:
   - title: About Me
     url: /
+  - title: Research
+    url: /research/
   - title: Publications
     url: /publications/
   - title: Experiences

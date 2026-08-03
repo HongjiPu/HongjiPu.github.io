@@ -1,0 +1,192 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  {% include head.html %}
+  <style>
+    /* --- 1. 全局重置 (恢复原生单滚动条) --- */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        height: auto !important; /* 解除高度锁定 */
+        overflow-x: hidden;      /* 禁止横向滚动 */
+        overflow-y: auto;        /* 恢复浏览器原生垂直滚动 */
+    }
+
+    /* --- 2. 导航栏 (永远置顶) --- */
+    #main-nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        transition: background 0.4s ease;
+    }
+
+    .nav-transparent { background: transparent; }
+    .nav-transparent a { color: white !important; }
+
+    .nav-scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding-bottom: 5px;
+    }
+    .nav-scrolled a { color: #333 !important; }
+
+    .navigation-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 20px;
+    }
+
+    /* --- 3. Hero 区域 (底层 - Fixed) --- */
+    .full-screen-hero {
+        position: fixed; /* 关键：固定在视口，不随滚动条走 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 0; /* 放在最底层 */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+                    url('{{ site.url }}/{{ site.owner.hero_img }}') no-repeat center center;
+        background-size: cover;
+    }
+
+    /* 文字样式 */
+    .hero-content {
+        z-index: 2;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .hero-content h1 {
+        font-size: 5rem;
+        color: white !important;
+        margin: 0;
+        text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        line-height: 1.1;
+    }
+    .hero-content h2 {
+        font-size: 1.6rem;
+        color: rgba(255,255,255,0.9) !important;
+        margin-top: 15px;
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+    .hero-line {
+        width: 80px; height: 2px; border: none;
+        background-color: white; margin: 20px auto; opacity: 0.8;
+    }
+
+    /* 箭头样式 */
+    .scroll-down {
+        position: absolute; bottom: 30px; left: 50%;
+        transform: translateX(-50%); cursor: pointer;
+        animation: bounce 2s infinite; z-index: 10;
+        color: white;
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+        40% {transform: translateX(-50%) translateY(-10px);}
+    }
+
+    /* --- 4. 内容区域 (上层 - Relative) --- */
+    /* 这是一个容器，把正文和页脚都包起来，给它们加白色背景 */
+    .content-layer {
+        position: relative;
+        z-index: 10; /* 盖在 Hero 上面 */
+        background: white; /* 确保背景是白的，不透明 */
+        margin-top: 100vh; /* 关键：把内容往下推一个屏幕的高度 */
+        min-height: 100vh; /* 解决“白色区域不足”：至少保证有一屏高 */
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1); /* 给顶部加点阴影，覆盖感更强 */
+    }
+
+    #main-content {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* 确保页脚也有背景色 */
+    .footer-wrap {
+        background: #f2f2f2; /* 或者 white */
+        position: relative;
+        z-index: 11;
+    }
+  </style>
+</head>
+
+<body class="home">
+
+  <div id="main-nav-container" class="nav-transparent">
+    {% include navigation.html %}
+  </div>
+
+  <section class="full-screen-hero">
+    <div class="hero-content">
+      <h1>{{ site.owner.name }}</h1>
+      <hr class="hero-line">
+      <h2>{{ site.tagline }}</h2>
+    </div>
+    <a onclick="scrollToContent()" class="scroll-down">
+       <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"></path></svg>
+    </a>
+  </section>
+
+  <div class="content-layer">
+    <div id="main-content">
+      <div class="article-author-top">
+        {% include author-bio.html %}
+      </div>
+      <div id="index">
+        {{ content }}
+      </div>
+    </div>
+
+    <div class="footer-wrap">
+      <footer>
+        {% include footer.html %}
+      </footer>
+    </div>
+  </div>
+
+<script>
+  const nav = document.getElementById('main-nav-container');
+
+  // 1. 监听滚动变色
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.remove('nav-transparent');
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+      nav.classList.add('nav-transparent');
+    }
+  });
+
+  // 2. 箭头点击跳转
+  function scrollToContent() {
+    document.querySelector('.content-layer').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // 3. 滚轮自动跳转 (可选)
+  let hasScrolled = false;
+  window.addEventListener('wheel', (e) => {
+    if (!hasScrolled && e.deltaY > 0 && window.scrollY < 10) {
+      hasScrolled = true;
+      document.querySelector('.content-layer').scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+
+{% include scripts.html %}
+</body>
+</html>

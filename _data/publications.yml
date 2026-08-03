@@ -1,0 +1,74 @@
+# ============================================================
+#  Publications / 出版物栏
+#
+#  categories : the research-direction filter chips, in display order.
+#               A paper's `category` MUST be one of these strings.
+#
+#  items      : one block per paper. Fields —
+#    title            (required) paper title
+#    authors          (required) list; your own name is auto-bolded
+#                     (matching is set by `highlight_author` below)
+#    venue            (required) e.g. "NeurIPS, 2026" / "Working Paper, 2025"
+#    year             (required) integer, used for sorting + "by date" view
+#    month            (optional) 1-12, refines ordering inside a year
+#    category         (required) primary direction — must match `categories`
+#    extra_categories (optional) also show under these directions
+#    selected         (optional) true -> appears in the default "selected" view
+#    links            (optional) list of {name, url}. First link is used for
+#                     the title hyperlink. name "Code"/"Demo" get their own icon.
+#
+#  To add a paper: copy a block and edit it. Order in this file does not
+#  matter — sorting is done by year/month.
+# ============================================================
+
+highlight_author: "Hongji Pu"
+
+categories:
+  - Reinforcement Learning
+  - Multi-Agent AI
+  - Time Series & Volatility
+  - FinTech & Market Microstructure
+  - Working Papers
+
+items:
+  - title: "Example — Neural Network Optimization for American Option Pricing"
+    authors:
+      - Hongji Pu
+      - Coauthor Name
+    venue: "Working Paper, 2026"
+    year: 2026
+    month: 3
+    category: "Time Series & Volatility"
+    extra_categories:
+      - "FinTech & Market Microstructure"
+    selected: true
+    links:
+      - name: Paper
+        url: "#"
+      - name: Code
+        url: "#"
+
+  - title: "Example — Revisiting Man vs. Machine Learning in Analyst Forecasts"
+    authors:
+      - Hongji Pu
+      - Yangdi Zhu
+    venue: "Working Paper, 2025"
+    year: 2025
+    month: 11
+    category: "FinTech & Market Microstructure"
+    selected: true
+    links:
+      - name: Paper
+        url: "#"
+
+  - title: "Example — Risk Spillover Effects in the Digital Financial Market"
+    authors:
+      - Hongji Pu
+      - Bianling Ou
+    venue: "Working Paper, 2024"
+    year: 2024
+    month: 6
+    category: "Working Papers"
+    links:
+      - name: Paper
+        url: "#"

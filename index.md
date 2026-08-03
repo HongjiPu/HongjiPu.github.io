@@ -1,47 +1,69 @@
+---
+layout: home
+title: ""
+permalink: /
+# ---- Hero (the full-screen opening frame) ----------------------------------
+hero_title: "Hongji Pu"
+hero_lede: "Pricing risk with mathematics, and building the systems that act on it — from stochastic volatility surfaces to reinforcement-learning agents."
+hero_meta:
+  - "Financial Engineering · UIUC"
+  - "Quantitative Research"
+  - "Reinforcement Learning"
+# ---- Pull-quote band (delete these two lines to hide it) -------------------
+quote_label: "Point of view"
+quote: "Independent and profound thought defines what it means to be human."
+---
 
-
+<span class="eyebrow">01 — Profile</span>
 
 # About Me
 
-<img src="bio_photo.jpg" class="floatpic">
+<img src="{{ site.url }}/{{ site.owner.bio_photo }}" class="floatpic" alt="Hongji Pu">
 
 <div style="text-align: justify;">
-    
-    <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
-        Here is <strong>Hongji Pu (JP,蒲洪基)</strong>.
-    </p>
+  <p>Here is <strong>Hongji Pu (JP, 蒲洪基)</strong>.</p>
 
-    <p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
-        I began in Pure Finance, grasping the essence of capital with solid project experience. But understanding the 'what' wasn't enough; I needed the 'how.' This drive led me to Financial Engineering, where I mastered the mathematical models that price risk.
-    </p>
+  <p>I began in Pure Finance, grasping the essence of capital with solid project experience. But understanding the <em>what</em> wasn't enough; I needed the <em>how</em>. That drive led me to Financial Engineering, where I mastered the mathematical models that price risk.</p>
 
-    <p style="text-indent: 0em; margin-bottom: 0; margin-top: 0;">
-        Yet, I crave research and exploration, With a great interest in computer science. I pushed further into the frontiers of Computer Science-not to follow a trend, but because I believe the future belongs to those who control the system's underlying logic.
-    </p>
-
+  <p>Yet I crave research and exploration. With a deep interest in computer science, I pushed further into its frontiers — not to follow a trend, but because I believe the future belongs to those who control the system's underlying logic.</p>
 </div>
----
 
-# Education
-* Master of Science in Financial Engineering (MSFE)，University of Illinois Urbana-Champaign (UIUC) 
-
-* Bachelor of Economics in Finance，Central University of Finance and Economics (CUFE) 
-
+<a class="arrow-link" href="{{ site.url }}/experiences/">See selected experience</a>
 
 ---
+
+<span class="eyebrow">02 — Education</span>
+
+## Education
+
+* **M.S. in Financial Engineering (MSFE)** — University of Illinois Urbana-Champaign (UIUC)
+* **B.Econ. in Finance** — Central University of Finance and Economics (CUFE)
+
+---
+
+<span class="eyebrow">03 — Focus</span>
 
 ## Research Interests
 
-* Reinforcement Learning
-* Multi-agent artificial intelligence
-* Time series analysis
-* Fintech 
-
----
-
-## News and Updates
-
-<br>
----
-
-## Chat with me
+<div class="cards">
+  <div class="card">
+    <span class="card__num">01</span>
+    <h3 class="card__title">Reinforcement Learning</h3>
+    <p class="card__text">Sequential decision-making under uncertainty, applied to execution and portfolio control.</p>
+  </div>
+  <div class="card">
+    <span class="card__num">02</span>
+    <h3 class="card__title">Multi-Agent AI</h3>
+    <p class="card__text">Emergent behaviour and coordination among interacting learning agents in markets.</p>
+  </div>
+  <div class="card">
+    <span class="card__num">03</span>
+    <h3 class="card__title">Time Series Analysis</h3>
+    <p class="card__text">Volatility surfaces, regime detection, and the forecasting of non-stationary signals.</p>
+  </div>
+  <div class="card">
+    <span class="card__num">04</span>
+    <h3 class="card__title">FinTech</h3>
+    <p class="card__text">Where market microstructure, large language models, and modern data infrastructure meet.</p>
+  </div>
+</div>

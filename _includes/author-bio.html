@@ -1,36 +1,70 @@
-<img src="{{ site.url }}/{{ site.owner.bio_photo }}" class="bio-photo" alt="{{ site.owner.name }} bio photo" width="100" height="100">
+<!-- Sticky profile rail. Social links are driven by `owner:` in _config.yml -->
+<aside class="rail">
+  <img class="rail__photo" src="{{ site.url }}/{{ site.owner.bio_photo }}"
+       alt="{{ site.owner.name }}" width="260" height="260">
 
-<!-- <h4>{{ site.owner.name }}</h4> -->
+  <h3 class="rail__name">{{ site.owner.name }}</h3>
+  <p class="rail__role">{{ site.owner.role | default: "MSFE · UIUC" }}</p>
 
-<p>{{ site.owner.bio }}</p>
+  <ul class="rail__links">
+    {% if site.owner.email %}
+    <li><a href="mailto:{{ site.owner.email }}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      Email</a></li>
+    {% endif %}
 
-{% if site.owner.email %}<p style="text-indent:0;margin-top:1.5em;"><a href="mailto:{{ site.owner.email }}" target="_blank"><i class="icon-mail"></i> Email</a></p>{% endif %}
+    {% if site.owner.cv %}
+    <li><a href="{{ site.owner.cv }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Curriculum Vitae</a></li>
+    {% endif %}
 
-{% if site.owner.cv %}<p style="text-indent:0;"><a href="{{ site.owner.cv }}"><img src="https://caihanlin.com/images/logo/icons8-cv-100.png" width="17" height="17"></i> My CV</a></p>{% endif %}
+    {% if site.owner.scholar %}
+    <li><a href="{{ site.owner.scholar }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+      Google Scholar</a></li>
+    {% endif %}
 
-{% if site.owner.twitter %}<p style="text-indent:0;"><a href="https://twitter.com/{{ site.owner.twitter }}"><i class="icon-twitter"></i> Twitter</a></p>{% endif %}
+    {% if site.owner.github %}
+    <li><a href="https://github.com/{{ site.owner.github }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+      GitHub</a></li>
+    {% endif %}
 
-{% if site.owner.facebook %}<p style="text-indent:0;"><a href="https://facebook.com/{{ site.owner.facebook }}"><i class="icon-facebook"></i> Facebook</a></p>{% endif %}
+    {% if site.owner.linkedin %}
+    <li><a href="https://linkedin.com/in/{{ site.owner.linkedin }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.5 4.7 5.8V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21h-4V9Z"/></svg>
+      LinkedIn</a></li>
+    {% endif %}
 
-{% if site.owner.google_plus %}<p style="text-indent:0;"><a href="{{ site.owner.google_plus }}"><i class="icon-google-plus"></i> Google+</a></p>{% endif %}
+    {% if site.owner.researchgate %}
+    <li><a href="{{ site.owner.researchgate }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      ResearchGate</a></li>
+    {% endif %}
 
-{% if site.owner.linkedin %}<p style="text-indent:0;"><a href="https://linkedin.com/in/{{ site.owner.linkedin }}"><i class="icon-linkedin"></i> LinkedIn</a></p>{% endif %}
+    {% if site.owner.zhihu %}
+    <li><a href="{{ site.owner.zhihu }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Zhihu</a></li>
+    {% endif %}
 
-{% if site.owner.instagram %}<p style="text-indent:0;"><a href="https://instagram.com/{{ site.owner.instagram }}"><i class="icon-instagram"></i> Instagram</a></p>{% endif %}
+    {% if site.owner.xiaohongshu %}
+    <li><a href="https://www.xiaohongshu.com/user/profile/{{ site.owner.xiaohongshu }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+      RedNote</a></li>
+    {% endif %}
 
-{% if site.owner.github %}<p style="text-indent:0;"><a href="https://github.com/{{ site.owner.github }}"><i class="icon-github"></i> Github</a></p>{% endif %}
+    {% if site.owner.bilibili %}
+    <li><a href="https://space.bilibili.com/{{ site.owner.bilibili }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="15" rx="3"/><path d="m7 2 3 4M17 2l-3 4"/></svg>
+      Bilibili</a></li>
+    {% endif %}
 
-{% if site.owner.lastfm %}<p style="text-indent:0;"><a href="https://lastfm.com/{{ site.owner.lastfm }}"><i class="icon-lastfm"></i> Last.fm</a></p>{% endif %}
-
-{% if site.owner.tumblr %}<p style="text-indent:0;"><a href="https://{{ site.owner.tumblr }}.tumblr.com"><i class="icon-tumblr"></i> Tumblr</a></p>{% endif %}
-
-{% if site.owner.scholar %}<p style="text-indent:0;"><a href="{{ site.owner.scholar }}"><i class="ai ai-google-scholar-square"></i> Google Scholar</a></p>{% endif %}
-
-{% if site.owner.researchgate %}<p style="text-indent:0;"><a href="{{ site.owner.researchgate }}"><img src="https://caihanlin.com/images/logo/icons8-rg.png" width="13.2" height="13.2"></i> ResearchGate</a></p>{% endif %}
-
-{% if site.owner.zhihu %}<p style="text-indent:0;"><a href="{{ site.owner.zhihu }}"><img src="https://caihanlin.com/images/logo/icons8-zhihu-96.png" width="16.8" height="16.8"></i> Zhihu</a></p>{% endif %}
-
-{% if site.owner.xiaohongshu %}<p style="text-indent:0;"><a href="https://www.xiaohongshu.com/user/profile/{{site.owner.xiaohongshu}}"><img src="https://caihanlin.com/images/logo/xiaohongshu.png" width="14.6" height="14.6"></i> RedNote</a></p>{% endif %}
-
-{% if site.owner.bilibili %}<p style="text-indent:0;"><a href="https://space.bilibili.com/{{ site.owner.bilibili }}"><img src="https://caihanlin.com/images/logo/icons8-retro-tv-100.png" width="14.5" height="14.5"></i> Bilibili</a></p>{% endif %}
-
+    {% if site.owner.twitter %}
+    <li><a href="https://twitter.com/{{ site.owner.twitter }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7 8 8.2 12H17l-5-7.3-5.8 7.3H3l7.5-8.6L2.6 2h6.4l4.5 6.7L18.9 2Z"/></svg>
+      X / Twitter</a></li>
+    {% endif %}
+  </ul>
+</aside>

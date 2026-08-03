@@ -1,8 +1,10 @@
 ---
 layout: page
-title: "中文"
+title: "中文主页"
+subtitle: "研究方向、工作经历与近期动态的中文说明。"
+eyebrow: "关于我"
 permalink: /cn/
-author_profile: true
+lang: zh-CN
 ---
 
 ## 关于我

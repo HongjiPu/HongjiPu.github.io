@@ -1,0 +1,172 @@
+# ============================================================
+#  Research architecture
+#
+#  Two pillars -> modules -> projects.
+#  The home page shows the two pillars as clickable panels;
+#  each pillar has its own page listing its modules and projects.
+#
+#  Per project you can set:
+#    name     (required)
+#    summary  one or two lines describing it
+#    status   optional badge, e.g. "In progress" / "Under review" / "Released"
+#    venue    optional, e.g. "NeurIPS 2026"
+#    tags     optional list of short keywords
+#    links    optional list of {name, url}; name Paper / Code / Demo / Slides
+#             each gets its own icon. Leave url as "#" until you have one.
+# ============================================================
+
+pillars:
+  # ---------------------------------------------------------------
+  - key: applications
+    number: "01"
+    title: "AI Applications"
+    tagline: "Putting agents to work in domains where being wrong is expensive."
+    blurb: >
+      Deploying agentic systems into real decision environments — capital
+      markets and classrooms — where correctness, latency, and accountability
+      are measured against outcomes rather than benchmarks.
+    url: /research/applications/
+    accent: "#2251FF"
+    modules:
+      - name: "Finance AI"
+        summary: >
+          Routing, reasoning, and risk-aware decision-making across market data.
+        projects:
+          - name: "Finance Router"
+            summary: >
+              Domain-specialised routing across heterogeneous financial models,
+              trading off cost against decision quality under live constraints.
+            status: "In progress"
+            tags: ["Routing", "Quantitative Finance"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+      - name: "Education AI"
+        summary: >
+          Assessment and feedback systems that stay calibrated and auditable.
+        projects:
+          - name: "RUBRICGUARD"
+            summary: >
+              Rubric-grounded evaluation that keeps model judgments anchored to
+              explicit criteria instead of drifting preference signals.
+            status: "In progress"
+            tags: ["Evaluation", "LLM-as-Judge"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+  # ---------------------------------------------------------------
+  - key: foundations
+    number: "02"
+    title: "AI Foundations"
+    tagline: "The machinery underneath: reliability, self-improvement, and infrastructure."
+    blurb: >
+      Core research on what makes an agent trustworthy at scale — how it
+      remembers, how it verifies its own beliefs, how it improves itself, and
+      how it runs efficiently enough to matter in production.
+    url: /research/foundations/
+    accent: "#00A9F4"
+    modules:
+      - name: "Reliability"
+        summary: >
+          Memory, belief, and retrieval mechanisms that make agent behaviour
+          reproducible and verifiable.
+        projects:
+          - name: "Counterfactual Memory"
+            summary: >
+              Probing what an agent would have concluded under altered memory,
+              turning memory contents into a testable causal variable.
+            status: "In progress"
+            tags: ["Memory", "Causality"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+          - name: "BeliefRAG"
+            summary: >
+              Retrieval-augmented generation with explicit belief state, so the
+              model can represent uncertainty over retrieved evidence.
+            status: "In progress"
+            tags: ["RAG", "Uncertainty"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+          - name: "Retrieval-Augmented Reasoning"
+            summary: >
+              Coupling retrieval with multi-step reasoning so evidence enters
+              the chain of thought where it actually changes the answer.
+            status: "In progress"
+            tags: ["Reasoning", "Retrieval"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+      - name: "Self-Evolving and Trustworthy AI Optimization"
+        summary: >
+          Systems that critique and repair themselves without losing their
+          alignment to the original specification.
+        projects:
+          - name: "RUBRICGUARD"
+            summary: >
+              Guardrails for self-optimisation: rubric-anchored scoring that
+              resists reward hacking during iterative self-improvement.
+            status: "In progress"
+            tags: ["Trustworthy AI", "Self-Improvement"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+          - name: "Paper-to-Patch"
+            summary: >
+              Translating research papers into working code changes, closing
+              the loop from published method to executable artefact.
+            status: "In progress"
+            tags: ["Code Generation", "Agents"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+      - name: "Efficient Agent Infrastructure"
+        summary: >
+          The plumbing — routing, orchestration, and skill reuse that keep
+          multi-model systems affordable.
+        projects:
+          - name: "LLM Router"
+            summary: >
+              Learned selection across a pool of models, matching each query to
+              the cheapest model that still answers it correctly.
+            status: "In progress"
+            tags: ["Routing", "Efficiency"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
+
+          - name: "SkillOps"
+            summary: >
+              Operational tooling for agent skills — versioning, evaluation, and
+              reuse of learned behaviours across tasks.
+            status: "In progress"
+            tags: ["Infrastructure", "Agents"]
+            links:
+              - name: Paper
+                url: "#"
+              - name: Code
+                url: "#"
