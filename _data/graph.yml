@@ -1,0 +1,142 @@
+# ============================================================
+#  研究图谱 / Research map
+#
+#  首页 "Research Interests" 那一块的点状关系图。
+#  中心是最大的点，外面两圈按主次排布，点越大 = 越核心（颜色也越深）。
+#
+#  字段说明：
+#    id      唯一标识，links 里靠它互相引用（英文小写，别用空格）
+#    label   点旁边显示的文字，尽量短，两三个词最好看
+#    weight  1-100，决定点的大小和颜色深浅 —— 这就是"主次"，按你的实际
+#            投入自己调。中心点固定 100。
+#    orbit   0 = 中心；1 = 内圈（核心方向）；2 = 外圈（具体课题）
+#    angle   角度，0 = 正右，逆时针为正。不写就在本圈内自动均分。
+#            想微调布局、避免文字打架的时候用它。
+#    note    鼠标悬停时显示的一句话说明
+#    links   除了自动连中心之外，还要连到哪些点（写对方的 id）
+#            内圈默认自动连中心，外圈必须写 links 指明挂在哪个方向下
+#
+#  改完直接刷新页面就能看到，不需要动任何代码。
+# ============================================================
+
+nodes:
+  # ---------- 中心 ----------
+  - id: llm
+    label: "LLM & Agents"
+    weight: 100
+    orbit: 0
+    note: "构建能推理、记忆、自我改进的智能体系统"
+
+  # ---------- 内圈：核心方向 ----------
+  - id: reasoning
+    label: "LLM Reasoning"
+    weight: 84
+    orbit: 1
+    angle: 90
+    note: "让模型在多步推理中真正用上检索到的证据"
+    links: [rl, memory]
+
+  - id: rl
+    label: "Reinforcement Learning"
+    weight: 80
+    orbit: 1
+    angle: 150
+    note: "不确定环境下的序贯决策"
+    links: [marl]
+
+  - id: memory
+    label: "Agent Memory & Reliability"
+    weight: 76
+    orbit: 1
+    angle: 30
+    note: "记忆、信念与检索机制，让智能体行为可复现、可验证"
+    links: [selfimp]
+
+  - id: marl
+    label: "Multi-Agent AI"
+    weight: 68
+    orbit: 1
+    angle: 210
+    note: "多个学习主体之间的协作与涌现行为"
+    links: []
+
+  - id: selfimp
+    label: "Self-Improving Systems"
+    weight: 64
+    orbit: 1
+    angle: 330
+    note: "系统自我批评与修复，同时不偏离原始目标"
+    links: [infra]
+
+  - id: timeseries
+    label: "Time Series Analysis"
+    weight: 56
+    orbit: 1
+    angle: 270
+    note: "波动率曲面、状态识别与非平稳信号预测"
+    links: [rl]
+
+  # ---------- 外圈：具体课题 ----------
+  - id: routing
+    label: "LLM Routing"
+    weight: 46
+    orbit: 2
+    angle: 345
+    note: "RouteProfile — 在模型池之间做成本感知的路由"
+    links: [infra, reasoning]
+
+  - id: infra
+    label: "Agent Infrastructure"
+    weight: 44
+    orbit: 2
+    angle: 315
+    note: "让多模型系统在生产环境里跑得起、养得起"
+    links: [selfimp]
+
+  - id: skills
+    label: "Skill Libraries"
+    weight: 40
+    orbit: 2
+    angle: 285
+    note: "SkillOps — 把智能体技能库当作自维护的软件生态"
+    links: [infra]
+
+  - id: rag
+    label: "Retrieval-Augmented Reasoning"
+    weight: 42
+    orbit: 2
+    angle: 60
+    note: "把证据送进推理链中真正会改变答案的位置"
+    links: [reasoning, memory]
+
+  - id: trust
+    label: "Trustworthy Evaluation"
+    weight: 38
+    orbit: 2
+    angle: 15
+    note: "RUBRICGUARD — 以评分量表为锚，抵抗奖励劫持"
+    links: [memory, selfimp]
+
+  - id: prompt
+    label: "Prompt Optimization"
+    weight: 34
+    orbit: 2
+    angle: 105
+    note: "以任务表现为目标反向优化提示"
+    links: [reasoning]
+
+  - id: quant
+    label: "Quantitative Finance"
+    weight: 44
+    orbit: 2
+    angle: 250
+    note: "衍生品定价、风险度量与跨市场风险传导"
+    links: [timeseries]
+
+  - id: alpha
+    label: "Factor Mining"
+    weight: 36
+    orbit: 2
+    angle: 190
+    note: "深度学习因子挖掘与组合回测"
+    links: [timeseries, marl]

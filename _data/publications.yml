@@ -7,6 +7,8 @@
 #  items      : 一篇论文一块。字段 —
 #    title             必填，论文标题
 #    authors           必填，列表；名字命中 highlight_authors 会自动加粗
+#                      共同一作直接在名字后面写 †，通讯作者写 ~
+#                      （加粗匹配会自动忽略这些符号，不影响你的名字变粗）
 #    venue             必填，如 "arXiv:2605.00180, 2026" / "NeurIPS, 2026"
 #    year              必填，整数，用于排序和 "show all by date"
 #    month             可选，1-12，同一年内再排序
@@ -36,8 +38,8 @@ categories:
 items:
   - title: "RouteProfile: Elucidating the Design Space of LLM Profiles for Routing"
     authors:
-      - J Xu
-      - H Pu
+      - J Xu†
+      - H Pu†
       - T Feng
       - H Zhang
       - J You
@@ -53,8 +55,8 @@ items:
 
   - title: "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems"
     authors:
-      - H Pu
-      - X Song
+      - H Pu†
+      - X Song†
       - L Zhao
     venue: "arXiv preprint, arXiv:2605.13716"
     year: 2026

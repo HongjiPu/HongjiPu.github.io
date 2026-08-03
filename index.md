@@ -29,7 +29,7 @@ quote: "Independent and profound thought defines what it means to be human."
   <p>This question led me to computer science and AI research, where I explore the foundations of reliable intelligent systems — building agents that can acquire knowledge, learn from experience, and improve their capabilities through memory, verification, and adaptive optimization while maintaining trustworthiness.</p>
 </div>
 
-<a class="arrow-link" href="{{ site.url }}/experiences/">See selected experience</a>
+<a class="arrow-link" href="{{ site.url }}/experiences/">See selected projects</a>
 
 ---
 
@@ -46,25 +46,4 @@ quote: "Independent and profound thought defines what it means to be human."
 
 ## Research Interests
 
-<div class="cards">
-  <div class="card">
-    <span class="card__num">01</span>
-    <h3 class="card__title">Reinforcement Learning</h3>
-    <p class="card__text">Sequential decision-making under uncertainty, applied to execution and portfolio control.</p>
-  </div>
-  <div class="card">
-    <span class="card__num">02</span>
-    <h3 class="card__title">Multi-Agent AI</h3>
-    <p class="card__text">Emergent behaviour and coordination among interacting learning agents in markets.</p>
-  </div>
-  <div class="card">
-    <span class="card__num">03</span>
-    <h3 class="card__title">Time Series Analysis</h3>
-    <p class="card__text">Volatility surfaces, regime detection, and the forecasting of non-stationary signals.</p>
-  </div>
-  <div class="card">
-    <span class="card__num">04</span>
-    <h3 class="card__title">FinTech</h3>
-    <p class="card__text">Where market microstructure, large language models, and modern data infrastructure meet.</p>
-  </div>
-</div>
+{% include research-graph.html %}

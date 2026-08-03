@@ -679,6 +679,107 @@ a.hero-feature__card:hover {
 }
 .card__text { font-size: .92rem; color: var(--muted); margin: 0; line-height: 1.6; }
 
+/* --------------------------------------------------------------------------
+   7d. 研究图谱 — 节点关系图
+   顺序型编码：点越大 / 颜色越深 = 权重越高。标签用正文字色，不用系列色。
+   -------------------------------------------------------------------------- */
+.rgraph { margin: 28px 0 0; padding: 0; }
+
+.rgraph__canvas {
+  position: relative;
+  border: 1px solid var(--hair);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(34,81,255,.045) 0%, transparent 62%),
+    var(--white);
+}
+.rgraph__canvas svg { display: block; width: 100%; height: auto; }
+
+.rgraph__edge {
+  stroke: #C6D0D7;
+  stroke-width: 1.3;
+  transition: stroke .25s var(--ease), stroke-width .25s var(--ease), opacity .25s var(--ease);
+}
+.rgraph.is-focused .rgraph__edge { opacity: .18; }
+.rgraph .rgraph__edge.is-on { stroke: var(--blue); stroke-width: 2.2; opacity: 1; }
+
+.rgraph__node { cursor: default; outline: none; }
+.rgraph__halo { fill: transparent; transition: fill .25s var(--ease); }
+.rgraph__dot {
+  stroke: var(--white);
+  stroke-width: 2;
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.rgraph.is-focused .rgraph__node { opacity: .28; }
+.rgraph.is-focused .rgraph__node.is-on { opacity: 1; }
+.rgraph__node.is-on .rgraph__halo { fill: rgba(34,81,255,.13); }
+.rgraph__node.is-on .rgraph__dot { transform: scale(1.06); }
+.rgraph__node:focus-visible .rgraph__halo { fill: rgba(34,81,255,.22); }
+
+.rgraph__label {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--ink);              /* 文字用文字色，不用系列色 */
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.rgraph__label.is-center {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  fill: #fff;
+  stroke: none;
+  dominant-baseline: middle;
+}
+
+.rgraph__cap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 44px;           /* 固定高度，切换文案时不跳动 */
+  margin: 12px 0 0;
+  padding-left: 13px;
+  border-left: 3px solid var(--hair);
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--muted);
+  transition: border-color .25s var(--ease), color .25s var(--ease);
+}
+.rgraph__cap.is-on { border-left-color: var(--blue); color: var(--body); }
+.rgraph__cap strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.rgraph__table { margin-top: 14px; border: 0; padding: 0; background: none; }
+.rgraph__table summary {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  cursor: pointer;
+}
+.rgraph__table[open] { background: none; }
+.rgraph__table table { font-size: .86rem; margin-top: 12px; }
+.rgraph__table td:nth-child(2),
+.rgraph__table td:nth-child(3) { white-space: nowrap; color: var(--muted); }
+
+/* 小屏：图形缩到看不清标签，直接换成列表 */
+@media (max-width: 720px) {
+  .rgraph__canvas, .rgraph__cap { display: none; }
+  .rgraph__table { margin-top: 0; }
+  .rgraph__table summary { display: none; }
+}
+
 /* Pull quote band */
 .pullquote {
   background: var(--navy);

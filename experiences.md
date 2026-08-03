@@ -1,50 +1,11 @@
 ---
 layout: page
-title: "Experience"
-subtitle: "Research, quantitative strategy, and investment work across academia, sell-side, buy-side, and venture."
-eyebrow: "Track record"
+title: "Projects"
+subtitle: "Quantitative research and systematic strategy work across the sell-side, buy-side, AI labs, and venture capital."
+eyebrow: "Selected work"
 permalink: /experiences/
 ---
 
-## Research
-<details class="entry">
-  <summary>
-    <span class="entry__row"><span class="entry__title">Neural Network Optimization for Option Pricing</span><span class="entry__date">2025.09</span></span>
-    <span class="entry__row"><span class="entry__role">Independent Researcher</span><span class="entry__org">Matthew Murphy(UIUC)</span></span>
-    <span class="entry__hint">Click to expand / 点击展开详情</span>
-  </summary>
-  <div class="entry__body">
-    <p><strong>Problem Formulation:</strong> Investigated the acceleration of Early Exercise Premium (EEP) calculations using deep learning. Modeled the implied volatility surface via <strong>SSVI</strong> and optimized the fitting process using the <strong>SLSQP algorithm</strong>.</p>
-    <p><strong>Methodology:</strong> Designed a Feedforward Neural Network (FNN) to learn the non-linear mapping from SSVI surface parameters to EEP. Implemented a <strong>dual-phase framework</strong> (Offline/Online) to bridge the gap between numerical methods and real-time inference.</p>
-    <p><strong>Performance:</strong> Achieved a <strong>10x reduction in RMSE</strong> compared to traditional approximations. The Fast-NN variant demonstrated significant generalization across varying market conditions (k, r, q, T).</p>
-  </div>
-</details>
-
-<details class="entry">
-  <summary>
-    <span class="entry__row"><span class="entry__title">Revisiting Man vs. Machine Learning</span><span class="entry__date">2025.03</span></span>
-    <span class="entry__row"><span class="entry__role">Research Assistant</span><span class="entry__org">Prof. Yangdi Zhu</span></span>
-    <span class="entry__hint">Click to expand / 点击展开详情</span>
-  </summary>
-  <div class="entry__body">
-    <p><strong>Predictive Modeling:</strong> Evaluated the efficiency of analyst earnings forecasts by implementing a <strong>75-feature Random Forest (RF)</strong> regressor. Extended Binsbergen et al. (2023) by introducing <strong>LASSO and LightGBM</strong> as comparative benchmarks.</p>
-    <p><strong>Robustness & Evaluation:</strong> Conducted exhaustive sensitivity analysis across 48 RF variants. Controlled for systematic biases using <strong>Fama-French 5-Factor models</strong> to isolate the machine learning premium from known anomalies.</p>
-  </div>
-</details>
-
-<details class="entry">
-  <summary>
-    <span class="entry__row"><span class="entry__title">Risk Spillover Effects in Digital Financial Market</span><span class="entry__date">2024.01</span></span>
-    <span class="entry__row"><span class="entry__role">Research Assistant</span><span class="entry__org">Prof. Bianling Ou</span></span>
-    <span class="entry__hint">Click to expand / 点击展开详情</span>
-  </summary>
-  <div class="entry__body">
-    <p><strong>Systemic Risk Modeling:</strong> Developed a multi-market risk assessment framework covering stock, bond, and FX markets. Employed <strong>GARCH-family models</strong> and <strong>Monte Carlo simulations</strong> to estimate joint distributions of Value-at-Risk (VaR).</p>
-    <p><strong>Causal Inference:</strong> Utilized Structural Vector Autoregression (SVAR) and Error Correction Models (VECM) to quantify the impulse response of fintech expansion on financial stability.</p>
-  </div>
-</details>
-
-## Intern
 <details class="entry">
   <summary>
     <span class="entry__row"><span class="entry__title">Volatility-Targeted Strategies</span><span class="entry__date">2026.01 - 2026.04</span></span>
@@ -52,7 +13,9 @@ permalink: /experiences/
     <span class="entry__hint">Click to expand / 点击展开详情</span>
   </summary>
   <div class="entry__body">
-    <p><em>Details pending...</em></p>
+    <p><strong>Risk Modeling:</strong> Developed volatility-targeted strategies by modeling dynamic market risk and adapting exposure across changing volatility regimes.</p>
+    <p><strong>Strategy Design:</strong> Integrated volatility signals with systematic allocation rules to balance returns and downside risk control.</p>
+    <p><strong>Implementation:</strong> Built end-to-end pipelines for data processing, volatility estimation, signal generation, and backtesting.</p>
   </div>
 </details>
 

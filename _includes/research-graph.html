@@ -1,0 +1,210 @@
+<!-- 研究图谱 — 数据来自 _data/graph.yml -->
+<figure class="rgraph" id="rgraph">
+  <div class="rgraph__canvas">
+    <svg id="rgraph-svg" viewBox="0 0 880 670" role="img"
+         aria-label="研究方向关系图：中心为 LLM 与智能体，外围按主次排布相关方向">
+      <g id="rgraph-edges" class="rgraph__edges"></g>
+      <g id="rgraph-nodes"></g>
+    </svg>
+  </div>
+
+  <figcaption class="rgraph__cap" id="rgraph-tip" role="status" aria-live="polite"
+              data-default="点越大、颜色越深表示投入越多；连线表示方向之间的关联。鼠标悬停或键盘 Tab 可查看说明。">
+    点越大、颜色越深表示投入越多；连线表示方向之间的关联。鼠标悬停或键盘 Tab 可查看说明。
+  </figcaption>
+
+  <!-- 无障碍 / 小屏的等价内容 -->
+  <details class="rgraph__table">
+    <summary>以列表形式查看</summary>
+    <table>
+      <thead><tr><th>方向</th><th>层级</th><th>权重</th><th>说明</th></tr></thead>
+      <tbody id="rgraph-tbody"></tbody>
+    </table>
+  </details>
+</figure>
+
+<script>
+(function () {
+  var DATA = {{ site.data.graph.nodes | jsonify }};
+  var svg = document.getElementById('rgraph-svg');
+  if (!svg || !DATA || !DATA.length) return;
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var CX = 440, CY = 312;
+  var R = { 1: 166, 2: 255 };
+  var RAD = Math.PI / 180;
+
+  // ---- 半径与配色：单一色相的顺序型标尺，越重要越大、越深 ----
+  var W = DATA.map(function (n) { return n.weight || 1; });
+  var wMin = Math.min.apply(null, W), wMax = Math.max.apply(null, W);
+  function t(w) { return wMax === wMin ? 1 : (w - wMin) / (wMax - wMin); }
+  function radius(n) { return 13 + t(n.weight || 1) * 41; }
+
+  // navy -> blue 的顺序色阶（深 = 权重高）
+  // 顺序色阶：单一色相，亮度与彩度都平滑递减（越重要越深）
+  var RAMP = ['#C2D2EA', '#9BB4DC', '#7595CD', '#4F72BC', '#2E5099', '#173163', '#051C2C'];
+  function fill(n) {
+    var i = Math.round(t(n.weight || 1) * (RAMP.length - 1));
+    return RAMP[i];
+  }
+
+  // ---- 布局：按 orbit 分环，angle 缺省时环内均分 ----
+  var byId = {};
+  [0, 1, 2].forEach(function (orb) {
+    var ring = DATA.filter(function (n) { return (n.orbit || 0) === orb; });
+    ring.forEach(function (n, i) {
+      var a = (n.angle === undefined || n.angle === null)
+        ? (360 / ring.length) * i
+        : n.angle;
+      var r = R[orb] || 0;
+      n._x = CX + r * Math.cos(-a * RAD);
+      n._y = CY + r * Math.sin(-a * RAD);
+      n._r = orb === 0 ? 60 : radius(n);
+      byId[n.id] = n;
+    });
+  });
+
+  // ---- 边：内圈自动连中心；links 显式声明的另外连 ----
+  var center = DATA.filter(function (n) { return (n.orbit || 0) === 0; })[0];
+  var edges = [], seen = {};
+  function addEdge(a, b) {
+    if (!a || !b || a === b) return;
+    var k = [a.id, b.id].sort().join('|');
+    if (seen[k]) return;
+    seen[k] = 1;
+    edges.push({ a: a, b: b });
+  }
+  DATA.forEach(function (n) {
+    if ((n.orbit || 0) === 1 && center) addEdge(center, n);
+    (n.links || []).forEach(function (id) { addEdge(n, byId[id]); });
+  });
+
+  // ---- 邻接表，用于 hover 高亮 ----
+  var adj = {};
+  edges.forEach(function (e) {
+    (adj[e.a.id] = adj[e.a.id] || {})[e.b.id] = 1;
+    (adj[e.b.id] = adj[e.b.id] || {})[e.a.id] = 1;
+  });
+
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  // ---- 画边 ----
+  var gE = document.getElementById('rgraph-edges');
+  edges.forEach(function (e) {
+    var line = el('line', {
+      x1: e.a._x, y1: e.a._y, x2: e.b._x, y2: e.b._y,
+      class: 'rgraph__edge'
+    });
+    line.dataset.a = e.a.id; line.dataset.b = e.b.id;
+    gE.appendChild(line);
+  });
+
+  // ---- 画点 ----
+  var gN = document.getElementById('rgraph-nodes');
+  DATA.forEach(function (n) {
+    var g = el('g', { class: 'rgraph__node', tabindex: '0', role: 'listitem' });
+    g.dataset.id = n.id;
+
+    g.appendChild(el('circle', { cx: n._x, cy: n._y, r: n._r + 5, class: 'rgraph__halo' }));
+    g.appendChild(el('circle', { cx: n._x, cy: n._y, r: n._r, fill: fill(n), class: 'rgraph__dot' }));
+
+    // 先决定折行，再决定放上方还是下方
+    var words = String(n.label).split(' ');
+    var lines = [n.label];
+    if (String(n.label).length > 13 && words.length > 1) {
+      var total = String(n.label).length, best = 1, bestDiff = 1e9;
+      for (var w = 1; w < words.length; w++) {
+        var left = words.slice(0, w).join(' ').length;
+        var diff = Math.abs(left - (total - left));
+        if (diff < bestDiff) { bestDiff = diff; best = w; }
+      }
+      lines = [words.slice(0, best).join(' '), words.slice(best).join(' ')];
+    }
+
+    // 外圈一律朝外：位于上半部分的放到点上方，避免压住内圈的点
+    var orb = n.orbit || 0, ty;
+    if (orb === 0) ty = n._y;                                   // 中心：圆内居中
+    else if (orb === 2 && n._y < CY - 20)
+      ty = n._y - n._r - 11 - (lines.length - 1) * 15;           // 上半外圈：朝上
+    else ty = n._y + n._r + 17;                                  // 其余：朝下
+
+    var label = el('text', {
+      x: n._x, y: ty,
+      class: 'rgraph__label' + (orb === 0 ? ' is-center' : '')
+    });
+    lines.forEach(function (ln, i) {
+      var ts = el('tspan', { x: n._x, dy: i === 0 ? 0 : 15 });
+      ts.textContent = ln;
+      label.appendChild(ts);
+    });
+    g.appendChild(label);
+
+    var title = el('title'); title.textContent = n.label + ' — ' + (n.note || '');
+    g.appendChild(title);
+
+    gN.appendChild(g);
+  });
+
+  // ---- 交互：高亮自身 + 邻居，其余淡出 ----
+  var root = document.getElementById('rgraph');
+  var tip = document.getElementById('rgraph-tip');
+
+  function focus(id) {
+    root.classList.add('is-focused');
+    var nodes = gN.querySelectorAll('.rgraph__node');
+    for (var i = 0; i < nodes.length; i++) {
+      var nid = nodes[i].dataset.id;
+      nodes[i].classList.toggle('is-on', nid === id || !!(adj[id] && adj[id][nid]));
+    }
+    var ls = gE.querySelectorAll('.rgraph__edge');
+    for (var j = 0; j < ls.length; j++) {
+      ls[j].classList.toggle('is-on', ls[j].dataset.a === id || ls[j].dataset.b === id);
+    }
+    var n = byId[id];
+    if (n) {
+      tip.innerHTML = '<strong>' + n.label + '</strong>' + (n.note ? n.note : '');
+      tip.classList.add('is-on');
+    }
+  }
+  function blur() {
+    root.classList.remove('is-focused');
+    gN.querySelectorAll('.is-on').forEach(function (e) { e.classList.remove('is-on'); });
+    gE.querySelectorAll('.is-on').forEach(function (e) { e.classList.remove('is-on'); });
+    tip.classList.remove('is-on');
+    tip.textContent = tip.dataset.default;
+  }
+
+  gN.addEventListener('mouseover', function (e) {
+    var g = e.target.closest('.rgraph__node'); if (g) focus(g.dataset.id);
+  });
+  gN.addEventListener('mouseout', function (e) {
+    if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest('.rgraph__node')) blur();
+  });
+  gN.addEventListener('focusin', function (e) {
+    var g = e.target.closest('.rgraph__node'); if (g) focus(g.dataset.id);
+  });
+  gN.addEventListener('focusout', blur);
+
+  // ---- 列表视图（无障碍 + 小屏等价内容）----
+  var tb = document.getElementById('rgraph-tbody');
+  var tiers = { 0: '中心', 1: '核心方向', 2: '具体课题' };
+  DATA.slice().sort(function (a, b) { return (b.weight || 0) - (a.weight || 0); })
+      .forEach(function (n) {
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + n.label + '</td><td>' + (tiers[n.orbit || 0]) +
+                   '</td><td>' + (n.weight || '') + '</td><td>' + (n.note || '') + '</td>';
+    tb.appendChild(tr);
+  });
+
+  // 小屏没有图形，把列表自动展开（details 折叠时内容不渲染，CSS 强制不出来）
+  var det = root.querySelector('.rgraph__table');
+  var mq = window.matchMedia('(max-width: 720px)');
+  function syncTable(e) { if (e.matches) det.open = true; }
+  syncTable(mq);
+  (mq.addEventListener ? mq.addEventListener('change', syncTable) : mq.addListener(syncTable));
+})();
+</script>
