@@ -365,11 +365,11 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   z-index: 2;
   width: 100%;
   max-width: var(--measure);
-  margin: auto auto 0;          /* pushed to the bottom of the hero */
-  padding: 34px var(--gutter) 76px;    /* 上边距避开 Featured，下边距留给滚动提示 */
+  margin: 0 auto;               /* 现在在最上方 */
+  padding: 112px var(--gutter) 0;      /* 上边距避开固定导航栏 */
 }
 @media (max-width: 860px) {
-  .hero__inner { padding-bottom: 92px; }
+  .hero__inner { padding-top: 96px; }
 }
 
 /* ---- Featured 区块：左白底文字 + 右配图，下方标签切换 ---- */
@@ -378,8 +378,8 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   z-index: 2;
   width: 100%;
   max-width: var(--measure);
-  margin: 0 auto;
-  padding: 92px var(--gutter) 0;
+  margin: auto auto 0;          /* 现在贴在 hero 底部 */
+  padding: 40px var(--gutter) 82px;   /* 下边距留给滚动提示 */
 }
 
 .feat__stage { position: relative; }
@@ -387,7 +387,7 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
 .feat__slide {
   display: grid;
   grid-template-columns: 46% 54%;
-  height: clamp(268px, 31vh, 318px);
+  height: clamp(208px, 27vh, 286px);
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -472,7 +472,13 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
 .feat__tab:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
 
 @media (max-width: 900px) {
-  .feat { padding-top: 88px; }
+  .feat { padding-top: 30px; padding-bottom: 46px; }
+  .feat__excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;        /* 摘要再长也不会把卡片撑破 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .feat__slide { grid-template-columns: 1fr; height: auto; }   /* 窄屏随文字长度自适应 */
   .feat__media { display: none; }          /* 窄屏优先保证文字可读 */
   .feat__body { padding: 28px 26px; }
@@ -484,8 +490,8 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   .feat__tab:nth-child(n+3) { display: none; }
 }
 /* 视口太矮时，把空间让给大标题 */
-@media (max-height: 780px) {
-  .feat { display: none; }   /* 矮屏优先保证姓名与定位完整可见 */
+@media (max-height: 640px) {
+  .feat { display: none; }   /* 极矮屏才隐藏，优先保证姓名与定位 */
 }
 
 .hero__rule {
@@ -527,31 +533,6 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   width: 6px; height: 6px;
   background: var(--cyan);
   flex: none;
-}
-
-.hero__scroll {
-  position: absolute;
-  left: 50%; bottom: 34px;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background: none; border: 0;
-  color: rgba(255,255,255,.75);
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color .2s var(--ease);
-}
-.hero__scroll:hover { color: #fff; }
-.hero__scroll svg { animation: nudge 2.4s var(--ease) infinite; }
-@keyframes nudge {
-  0%, 100% { transform: translateY(0); }
-  45%      { transform: translateY(7px); }
 }
 
 /* Page hero for interior pages — shallow navy band */

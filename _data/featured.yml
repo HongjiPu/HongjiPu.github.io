@@ -1,5 +1,5 @@
 # ============================================================
-#  首页大图上方的 Featured 区块
+#  首页 Featured 区块（位于姓名与定位下方）
 #
 #  样式：左边白底文字（日期 / 标题 / 摘要），右边配图，
 #        下方一排标签可以切换，也会每 7 秒自动轮换。
@@ -10,45 +10,50 @@
 #    excerpt  标题下面那段摘要，两到四行最好看
 #    url      点标题跳转到哪里
 #    image    右侧配图。放进 images/featured/ 目录后写路径即可。
-#             建议横图，比例接近 4:3，宽度 1200-1600px
+#             建议横图，宽度 1200-1600px；卡片高度固定，图片会自动裁切
 #    tab      下方标签栏显示的短标题；不写就用 title
 #
 #  想加/删卡片，直接增删下面的块，标签栏会自动跟着变。
 # ============================================================
 
 cards:
-  - date: "2026年5月"
-    title: "智能体的下一个瓶颈，不是能力，而是维护"
+  - date: "May 2026"
+    title: "The next bottleneck in agentic AI isn't capability — it's maintenance"
     excerpt: >
-      当智能体不断积累技能，脆弱的地方就从"会不会"变成了"还留不留得住"。
-      把技能库当作一个能自我维护的软件生态来经营 —— 版本管理、持续评测、自动修复 ——
-      才是让能力不随时间衰减的前提。
+      As agents accumulate skills, the fragile part shifts from what they can do
+      to what they can keep. Treating the skill library as a self-maintaining
+      software ecosystem — versioned, evaluated, repaired — is what stops
+      capability from quietly decaying.
     url: /research/foundations/
     image: /images/featured/skills-placeholder.jpg
-    tab: "智能体的下一个瓶颈"
+    tab: "The maintenance bottleneck"
 
-  - date: "2026年5月"
-    title: "为一个问题挑对模型，本身就是系统设计问题"
+  - date: "May 2026"
+    title: "Choosing the right model for a query is a systems design problem"
     excerpt: >
-      模型池越大，"用哪个"就越不该靠拍脑袋。把画像、成本与准确率放进同一个决策框架，
-      路由才能在预算之内稳定地给出对的答案。
+      The larger the model pool, the less "which one" should be guesswork. Put
+      profiles, cost, and accuracy into a single decision framework, and routing
+      can return the right answer within budget.
     url: /research/foundations/
     image: /images/featured/routing.svg
-    tab: "挑对模型是系统设计问题"
+    tab: "Routing as systems design"
 
-  - date: "研究"
-    title: "两条主线：可信的机理，与真实的赌注"
+  - date: "Research"
+    title: "Two pillars: trustworthy machinery, and real stakes"
     excerpt: >
-      一条做底层机理 —— 记忆、验证、自我改进；另一条把这些机理放到出错代价高昂的地方去，
-      资本市场与课堂。两边互为检验。
+      One line builds the underlying machinery — memory, verification,
+      self-improvement. The other puts it where being wrong is expensive:
+      capital markets and classrooms. Each keeps the other honest.
     url: /research/
     image: /images/featured/pillars.svg
-    tab: "两条研究主线"
+    tab: "Two research pillars"
 
-  - date: "研究"
-    title: "让智能体的记忆，成为一个可以被检验的变量"
+  - date: "Research"
+    title: "Making agent memory a variable you can actually test"
     excerpt: >
-      如果改写记忆会改变结论，那记忆就不再是黑箱里的存储，而是一个可以被反事实检验的因果变量。
+      If rewriting what an agent remembers changes what it concludes, memory
+      stops being opaque storage and becomes a causal variable you can probe
+      counterfactually.
     url: /research/foundations/
     image: /images/featured/memory.svg
-    tab: "可检验的智能体记忆"
+    tab: "Testable agent memory"

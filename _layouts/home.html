@@ -13,7 +13,6 @@
     <div class="hero__media" style="background-image:url('{{ site.url }}/{{ site.owner.hero_img }}');"></div>
     <div class="hero__scrim"></div>
 
-    {% include hero-featured.html label="Featured" %}
 
     <div class="hero__inner">
       <div class="hero__rule"></div>
@@ -25,10 +24,8 @@
       </div>
     </div>
 
-    <button class="hero__scroll" id="hero-scroll" aria-label="Scroll to content">
-      Explore
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-    </button>
+    {% include hero-featured.html label="Featured" %}
+
   </section>
 
   <!-- ===== Body ===================================================== -->
@@ -85,11 +82,6 @@
     {% include footer.html %}
   </footer>
 
-  <script>
-    document.getElementById('hero-scroll').addEventListener('click', function () {
-      document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
-    });
-  </script>
   {% include scripts.html %}
 </body>
 </html>
