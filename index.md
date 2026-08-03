@@ -21,11 +21,12 @@ quote: "Independent and profound thought defines what it means to be human."
 <img src="{{ site.url }}/{{ site.owner.bio_photo }}" class="floatpic" alt="Hongji Pu">
 
 <div style="text-align: justify;">
-  <p>Here is <strong>Hongji Pu (JP, 蒲洪基)</strong>.</p>
+  <p>Here is <strong>Hongji Pu (JP, 蒲洪基)</strong>.<br>
+  An AI systems researcher driven by a fundamental curiosity: how can complex systems make better decisions under uncertainty?</p>
 
-  <p>I began in Pure Finance, grasping the essence of capital with solid project experience. But understanding the <em>what</em> wasn't enough; I needed the <em>how</em>. That drive led me to Financial Engineering, where I mastered the mathematical models that price risk.</p>
+  <p>My intellectual journey began with financial systems, where I studied how mathematical models capture uncertainty, quantify risk, and support decision-making in dynamic environments. Through this lens, I became fascinated by a broader question: as decision-making systems evolve, could they move beyond prediction and optimization to perceive, reason, learn, and continuously adapt?</p>
 
-  <p>Yet I crave research and exploration. With a deep interest in computer science, I pushed further into its frontiers — not to follow a trend, but because I believe the future belongs to those who control the system's underlying logic.</p>
+  <p>This question led me to computer science and AI research, where I explore the foundations of reliable intelligent systems — building agents that can acquire knowledge, learn from experience, and improve their capabilities through memory, verification, and adaptive optimization while maintaining trustworthiness.</p>
 </div>
 
 <a class="arrow-link" href="{{ site.url }}/experiences/">See selected experience</a>
@@ -67,14 +68,3 @@ quote: "Independent and profound thought defines what it means to be human."
     <p class="card__text">Where market microstructure, large language models, and modern data infrastructure meet.</p>
   </div>
 </div>
-
----
-
-<span class="eyebrow">04 — Publication</span>
-
-## Publication
-
-<p>研究产出按两个方向组织，点进去可以看到每个模块下的论文、代码和项目。<br>
-Work is organised under two pillars — open either one for the papers, code, and projects inside.</p>
-
-{% include research-mini.html %}

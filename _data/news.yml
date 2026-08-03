@@ -1,43 +1,30 @@
 # ============================================================
-#  News / 消息栏
+#  News / 消息栏   —— 纯文字格式（和 taofeng.github.io 一致）
 #  最新的放最上面。每条渲染成消息框里的一行。
 #
-#  date       加粗显示，会自动套上方括号  ->  [2026.07.01]
-#  icon       可选的 emoji（🎉 录用 · 🚀 发布 · 📌 其他 · 🏆 获奖）
-#  text       正文。可以直接写 HTML：
-#               <a href="...">链接</a>  <strong>加粗</strong>  <em>斜体</em>
-#             多行用  >  开头（会合并成一段）
-#
-#  ---- 配图（可选）----
-#  image      配图路径，比如 /images/news/paper-2026.jpg
-#             图片放进 images/news/ 目录即可。会按 4:3 裁切成缩略图，
-#             建议用横图，短边不小于 400px。不写就是纯文字条目。
-#  image_alt  图片的替代文字（无障碍用），可选
-#  url        点击图片跳转的地址，可选。外链会自动在新标签页打开。
+#  date   加粗显示，会自动套上方括号  ->  [2026.07.01]
+#  icon   可选的 emoji（🎉 录用 · 🚀 发布 · 📌 其他 · 🏆 获奖）
+#  text   正文。可以直接写 HTML：
+#           <a href="...">链接</a>  <strong>加粗</strong>  <em>斜体</em>
+#         多行用  >  开头（会合并成一段）
 #
 #  加新消息：复制一整块，改内容，放到最上面。
 # ============================================================
 
-- date: "2026.01"
-  icon: "🎉"
-  image: /images/news/sample-paper.jpg
-  image_alt: "论文配图"
-  url: "#"
-  text: >
-    示例 —— <a href="#" target="_blank">论文标题</a> 被
-    <strong>Venue 2026</strong> 接收！一句话说明它做了什么。
-
-- date: "2025.12"
+- date: "2026.05"
   icon: "🚀"
-  image: /images/news/sample-code.jpg
-  image_alt: "项目截图"
-  url: "#"
   text: >
-    示例 —— 开源了 <a href="#" target="_blank">项目名称</a>，一句话介绍这个仓库或工具。
-    ⭐ <strong style="color:#2251FF;">100+ GitHub Stars!</strong>
+    <a href="https://arxiv.org/abs/2605.13716" target="_blank">SkillOps</a> is out on arXiv —
+    managing LLM agent skill libraries as self-maintaining software ecosystems.
+
+- date: "2026.05"
+  icon: "🚀"
+  text: >
+    <a href="https://arxiv.org/abs/2605.00180" target="_blank">RouteProfile</a> is out on arXiv —
+    elucidating the design space of LLM profiles for routing.
 
 - date: "2025.09"
   icon: "📌"
   text: >
-    示例 —— 这一条没有配图，会自动排成纯文字。开始在
-    <strong>University of Illinois Urbana-Champaign</strong> 攻读 <strong>MSFE</strong>。
+    Started the <strong>MSFE</strong> program at
+    <strong>University of Illinois Urbana-Champaign</strong>.

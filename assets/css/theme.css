@@ -1038,7 +1038,7 @@ img.floatpic {
   border-left: 3px solid var(--blue);
   background: var(--wash);
   padding: 26px 30px;
-  max-height: 400px;
+  max-height: 320px;
   overflow-y: auto;
   font-size: .97rem;
   line-height: 1.72;
@@ -1060,35 +1060,6 @@ img.floatpic {
 .news__date { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .news__item a { font-weight: 600; }
 .news__item strong, .news__list b { color: var(--ink); }
-
-/* 带配图的条目：左图右文 */
-.news__item--media {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-}
-
-.news__thumb {
-  flex: 0 0 132px;
-  overflow: hidden;
-  background: #E9EDEF;
-}
-.news__thumb img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  transition: transform .5s var(--ease);
-}
-.news__thumb a { display: block; }
-.news__item--media:hover .news__thumb img { transform: scale(1.05); }
-
-.news__body { flex: 1; min-width: 0; }
-
-@media (max-width: 560px) {
-  .news__item--media { gap: 14px; }
-  .news__thumb { flex-basis: 92px; }
-}
-.news__empty { color: var(--muted); font-style: italic; margin: 0; }
 
 /* --------------------------------------------------------------------------
    9. Publications
