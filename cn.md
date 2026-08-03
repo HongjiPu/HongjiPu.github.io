@@ -9,7 +9,7 @@ lang: zh-CN
 
 ## 关于我
 
-<img src="" class="floatpic">
+<img src="{{ site.url }}/{{ site.owner.bio_photo }}" class="floatpic" alt="蒲洪基">
 
 <br>首先感谢您的阅读。我是蒲洪基，2003年生，北京人。
 

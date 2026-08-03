@@ -1,0 +1,130 @@
+<!-- Hero featured carousel — content lives in _data/featured.yml -->
+{% assign cards = site.data.featured.cards %}
+{% if cards.size > 0 %}
+<div class="hero-feature" id="hero-feature">
+  <div class="hero-feature__head">
+    <span class="eyebrow eyebrow--light">{{ include.label | default: "Featured" }}</span>
+    <div class="hero-feature__nav">
+      <button class="hero-feature__arrow" data-dir="-1" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="hero-feature__arrow" data-dir="1" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-feature__track" id="hero-feature-track" tabindex="0" aria-label="Featured items">
+    {% for card in cards %}
+    {% if card.url %}
+    <a class="hero-feature__card" href="{{ site.url }}{{ card.url }}">
+    {% else %}
+    <div class="hero-feature__card">
+    {% endif %}
+      {% if card.eyebrow %}<span class="hero-feature__tag">{{ card.eyebrow }}</span>{% endif %}
+      <h3 class="hero-feature__title">{{ card.title }}</h3>
+      {% if card.meta %}<span class="hero-feature__meta">{{ card.meta }}</span>{% endif %}
+    {% if card.url %}</a>{% else %}</div>{% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="hero-feature__dots" id="hero-feature-dots"></div>
+</div>
+
+<script>
+(function () {
+  var root  = document.getElementById('hero-feature');
+  var track = document.getElementById('hero-feature-track');
+  var dots  = document.getElementById('hero-feature-dots');
+  if (!root || !track) return;
+
+  var cards = track.querySelectorAll('.hero-feature__card');
+  if (!cards.length) return;
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timer = null;
+  var DELAY = 5000;
+
+  function step() {
+    if (cards.length < 2) return track.clientWidth;
+    return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+  }
+  function maxScroll() { return track.scrollWidth - track.clientWidth; }
+
+  function go(dir) {
+    var max = maxScroll();
+    if (max <= 1) return;
+    var target = track.scrollLeft + dir * step();
+    if (dir > 0 && track.scrollLeft >= max - 4) target = 0;
+    if (dir < 0 && track.scrollLeft <= 4) target = max;
+    track.scrollTo({ left: target, behavior: 'smooth' });
+  }
+
+  function start() { if (!reduce && !timer && maxScroll() > 1) timer = setInterval(function () { go(1); }, DELAY); }
+  function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+  function bump()  { stop(); start(); }   // restart the clock after a manual move
+
+  // Dots
+  dots.innerHTML = Array.prototype.map.call(cards, function (_, i) {
+    return '<button class="hero-feature__dot" data-i="' + i + '" aria-label="Go to item ' + (i + 1) + '"></button>';
+  }).join('');
+  var dotEls = dots.querySelectorAll('.hero-feature__dot');
+
+  function syncDots() {
+    var s = step();
+    var i = s > 0 ? Math.round(track.scrollLeft / s) : 0;
+    if (track.scrollLeft >= maxScroll() - 4) i = cards.length - 1;
+    for (var j = 0; j < dotEls.length; j++) {
+      dotEls[j].classList.toggle('is-active', j === i);
+    }
+  }
+
+  dots.addEventListener('click', function (e) {
+    var b = e.target.closest('.hero-feature__dot');
+    if (!b) return;
+    track.scrollTo({ left: +b.dataset.i * step(), behavior: 'smooth' });
+    bump();
+  });
+
+  root.querySelector('.hero-feature__nav').addEventListener('click', function (e) {
+    var b = e.target.closest('.hero-feature__arrow');
+    if (!b) return;
+    go(+b.dataset.dir);
+    bump();
+  });
+
+  var ticking = false;
+  track.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { syncDots(); ticking = false; });
+  }, { passive: true });
+
+  // Pause while the visitor is reading or dragging
+  root.addEventListener('pointerenter', stop);
+  root.addEventListener('pointerleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  track.addEventListener('touchstart', stop, { passive: true });
+  track.addEventListener('touchend', start, { passive: true });
+
+  // Keyboard
+  track.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(1); bump(); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); go(-1); bump(); }
+  });
+
+  // Don't spin while the hero is off screen
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries[0].isIntersecting ? start() : stop();
+    }, { threshold: 0.15 }).observe(root);
+  } else {
+    start();
+  }
+
+  syncDots();
+  start();
+})();
+</script>
+{% endif %}

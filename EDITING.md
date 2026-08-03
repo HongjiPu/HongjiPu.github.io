@@ -9,6 +9,7 @@ Markdown 页面 —— 不用碰 HTML 或 CSS。
 
 | 想改什么 | 改哪个文件 |
 | --- | --- |
+| **首页大图上方的滚动卡片** | `_data/featured.yml` |
 | **News 消息栏** | `_data/news.yml` |
 | **Publications 出版物栏** | `_data/publications.yml` |
 | **Research 两个板块 / 模块 / 项目** | `_data/research.yml` |
@@ -38,6 +39,26 @@ Markdown 页面 —— 不用碰 HTML 或 CSS。
 - `icon` 可留空。常用：🎉 录用 · 🚀 发布 · 📌 其他 · 🏆 获奖
 - `text` 里可以直接写 HTML：`<a>` 链接、`<strong>` 加粗、`<em>` 斜体
 - 消息多了会在框内滚动，不会把页面撑长
+
+---
+
+## 2.5 首页大图上方的滚动卡片
+
+`_data/featured.yml`，像麦肯锡首页那样一格一格陈列你想优先展示的东西：
+
+```yaml
+cards:
+  - eyebrow: "Research"        # 顶部小标签
+    title: "卡片标题，一到两行最好看"
+    meta: "底部小字（方向 / 日期 / 状态）"   # 可选
+    url: /research/foundations/              # 可选，不填就是纯展示
+```
+
+- 每 5 秒自动向左轮播一张，**鼠标放上去会暂停**，移开继续
+- 也可以直接用鼠标横向拖、按右上角箭头、点下面的小横条、或用键盘左右方向键
+- 手机上箭头自动隐藏，直接手指滑动
+- 屏幕高度小于 620px 时自动隐藏，把空间让给大标题
+- 不想要这个区域：把 `cards:` 下面全删掉，只留 `cards: []`
 
 ---
 

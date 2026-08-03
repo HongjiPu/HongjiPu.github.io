@@ -1,0 +1,42 @@
+# ============================================================
+#  首页大图上方的滚动卡片 / Featured cards in the hero
+#
+#  像麦肯锡首页那样，一格一格地陈列你想优先让人看到的东西：
+#  代表作、最新动态、正在做的项目、一篇文章……
+#
+#  会自动横向轮播（鼠标放上去暂停），也可以手动拖动 / 左右箭头翻。
+#
+#  每张卡片：
+#    eyebrow  卡片顶部的小标签（大写小字），比如 RESEARCH / NEWS / PAPER
+#    title    卡片标题，一到两行最好看
+#    meta     可选，底部那行小字（日期、期刊、状态……）
+#    url      可选，点击跳转的地址；不填就是纯展示卡片
+#
+#  想去掉整个卡片区：把下面所有内容删掉，只留 `cards: []`
+# ============================================================
+
+cards:
+  - eyebrow: "Research"
+    title: "Counterfactual Memory: making agent memory a testable causal variable"
+    meta: "AI Foundations · Reliability"
+    url: /research/foundations/
+
+  - eyebrow: "Research"
+    title: "Finance Router: cost-aware routing across heterogeneous financial models"
+    meta: "AI Applications · Finance AI"
+    url: /research/applications/
+
+  - eyebrow: "Paper"
+    title: "Neural Network Optimization for American Option Pricing"
+    meta: "Working Paper · 2026"
+    url: /publications/
+
+  - eyebrow: "Experience"
+    title: "Volatility-Targeted Strategies at J.P. Morgan Chase"
+    meta: "Quantitative Research Practicum · 2026"
+    url: /experiences/
+
+  - eyebrow: "Note"
+    title: "Why the future belongs to those who control the system's underlying logic"
+    meta: "About me"
+    url: /
