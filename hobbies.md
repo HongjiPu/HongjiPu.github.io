@@ -32,6 +32,17 @@ permalink: /hobbies/
 
 </div>
 
+## Snorkeling
+
+<div style="text-align: justify;">
+
+<p style="text-indent: 0em; margin-bottom: 10px; margin-top: 0;">
+    <img src="/images/hobbies/snorkeling.jpg" alt="Snorkeling" class="floatpic" />
+    I have snorkelled off Kota Kinabalu in Malaysia and Hurghada on Egypt's Red Sea coast, and I hope to reach a good many more diving destinations in the years ahead.
+</p>
+
+</div>
+
 ## Other Roles
 
 <div style="text-align: justify;">
