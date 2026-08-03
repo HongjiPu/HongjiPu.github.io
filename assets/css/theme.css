@@ -338,10 +338,15 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;      /* 内容垂直居中，上下留白均衡 */
-  padding: 112px 0 92px;        /* 上避开导航栏，下留给 EXPLORE */
+  justify-content: flex-start;  /* 内容靠上，紧跟导航栏 */
+  padding: 100px 0 96px;        /* 下方 96px 是 EXPLORE 的保留区 */
   background: var(--navy);
   overflow: hidden;
+}
+
+/* 矮屏（去掉浏览器边框后约 700–830px）收紧上下留白，保证 EXPLORE 仍在首屏 */
+@media (max-height: 830px) and (min-width: 901px) {
+  .hero { padding: 92px 0 90px; }
 }
 .hero__media {
   position: absolute;
@@ -382,28 +387,36 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   max-width: var(--measure);
   margin: 0 auto;               /* 紧跟在姓名与定位下方 */
   padding: 26px var(--gutter) 0;
+  flex: 1;                      /* 吃掉剩余高度，但不侵占底部 EXPLORE 区 */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
-.feat__stage { position: relative; }
+.feat__stage {
+  position: relative;
+  flex: 1;
+  min-height: 244px;            /* 保底高度，保证左栏文字装得下 */
+  display: flex;                /* 让当前卡片能撑满整个 stage */
+}
 
 .feat__slide {
   display: grid;
   grid-template-columns: 46% 54%;
-  min-height: 210px;
   opacity: 0;
   visibility: hidden;
   position: absolute;
   inset: 0;
   transition: opacity .5s var(--ease);
 }
-.feat__slide.is-active { opacity: 1; visibility: visible; position: relative; }
+.feat__slide.is-active { opacity: 1; visibility: visible; position: relative; flex: 1; }
 
 .feat__body {
   background: var(--white);
-  padding: 28px 36px;
+  padding: 34px 36px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .feat__date {
   font-size: .78rem;
