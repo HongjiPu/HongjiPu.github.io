@@ -1,0 +1,23 @@
+<!--
+  Compact version of the two research pillars — for use inside the prose column.
+  Same data as the big panels: _data/research.yml
+-->
+<div class="mini-pillars">
+  {% for pillar in site.data.research.pillars %}
+  <a class="mini-pillar mini-pillar--{{ pillar.key }}" href="{{ site.url }}{{ pillar.url }}">
+    <span class="mini-pillar__num">{{ pillar.number }}</span>
+    <h3 class="mini-pillar__title">{{ pillar.title }}</h3>
+
+    <ul class="mini-pillar__modules">
+      {% for module in pillar.modules %}
+      <li>{{ module.name }}</li>
+      {% endfor %}
+    </ul>
+
+    <span class="mini-pillar__cta">
+      View
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
+  </a>
+  {% endfor %}
+</div>

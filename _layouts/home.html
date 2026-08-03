@@ -44,15 +44,11 @@
       </div>
     </div>
 
-    <!-- Research: two clickable pillars, full-bleed -->
-    <section class="band band--navy">
-      <div class="shell">
-        <span class="eyebrow eyebrow--light">Research</span>
-        <h2 style="color:#fff;margin:0 0 10px;">Two pillars</h2>
-        <p style="max-width:56ch;margin:0 0 44px;">One builds the machinery of trustworthy agents. The other puts that machinery to work where the stakes are real.</p>
-        {% include research-split.html %}
-      </div>
-    </section>
+    {% comment %}
+      Research 的两个板块现在放在正文里的 "04 — Publication" 一节（见 index.md），
+      用的是紧凑版 research-mini.html。
+      想额外再加一个整幅深色版本的话，见 EDITING.md 第 9 节。
+    {% endcomment %}
 
     {% if page.quote %}
     <section class="pullquote reveal">

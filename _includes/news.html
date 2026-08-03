@@ -1,6 +1,6 @@
 <!-- News board — content lives in _data/news.yml -->
+{% assign news_count = site.data.news | size %}
 <section class="news reveal" id="news">
-  {% assign news_count = site.data.news | size %}
   <div class="news__head">
     <h2 class="news__title">News</h2>
     {% if news_count == 1 %}<span class="news__count">1 update</span>{% endif %}
@@ -10,9 +10,19 @@
   <div class="news__list">
     {% if news_count > 0 %}
       {% for item in site.data.news %}
-      <div class="news__item">
-        <span class="news__date">[{{ item.date }}]</span>{% if item.icon %} {{ item.icon }}{% endif %} {{ item.text }}
-      </div>
+      <article class="news__item{% if item.image %} news__item--media{% endif %}">
+        {% if item.image %}
+        <div class="news__thumb">
+          {% if item.url %}<a href="{{ item.url }}"{% if item.url contains '//' %} target="_blank" rel="noopener"{% endif %}>{% endif %}
+          <img src="{{ item.image }}" alt="{{ item.image_alt | default: item.date }}" loading="lazy">
+          {% if item.url %}</a>{% endif %}
+        </div>
+        {% endif %}
+
+        <div class="news__body">
+          <span class="news__date">[{{ item.date }}]</span>{% if item.icon %} {{ item.icon }}{% endif %} {{ item.text }}
+        </div>
+      </article>
       {% endfor %}
     {% else %}
       <p class="news__empty">No updates yet.</p>

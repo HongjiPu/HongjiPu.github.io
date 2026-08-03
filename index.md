@@ -67,3 +67,14 @@ quote: "Independent and profound thought defines what it means to be human."
     <p class="card__text">Where market microstructure, large language models, and modern data infrastructure meet.</p>
   </div>
 </div>
+
+---
+
+<span class="eyebrow">04 — Publication</span>
+
+## Publication
+
+<p>研究产出按两个方向组织，点进去可以看到每个模块下的论文、代码和项目。<br>
+Work is organised under two pillars — open either one for the papers, code, and projects inside.</p>
+
+{% include research-mini.html %}

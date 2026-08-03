@@ -40,6 +40,25 @@ Markdown 页面 —— 不用碰 HTML 或 CSS。
 - `text` 里可以直接写 HTML：`<a>` 链接、`<strong>` 加粗、`<em>` 斜体
 - 消息多了会在框内滚动，不会把页面撑长
 
+### 给消息配图（可选）
+
+把图片放进 `images/news/` 目录，然后加三个字段：
+
+```yaml
+- date: "2026.07"
+  icon: "🎉"
+  image: /images/news/paper-2026.jpg    # 图片路径
+  image_alt: "论文示意图"                # 替代文字，可选
+  url: "https://arxiv.org/abs/xxxx"      # 点图跳转，可选（外链自动开新标签页）
+  text: >
+    论文标题被 <strong>NeurIPS 2026</strong> 接收！
+```
+
+- **不写 `image` 就是纯文字条目**，两种可以混着排
+- 图片会按 **4:3** 裁成缩略图，建议用横图、短边不小于 400px
+- 鼠标悬停时图片会轻微放大
+- `images/news/` 里的 `sample-*.jpg` 是占位图，换成你自己的之后可以删掉
+
 ---
 
 ## 2.5 首页大图上方的滚动卡片
@@ -120,10 +139,33 @@ pillars:
                 url: "#"
 ```
 
-- 首页的两个大板块会自动列出该 pillar 下所有 module 的名字
 - 加一个新模块 = 在 `modules:` 下加一块；加一篇 paper = 在 `projects:` 下加一块
 - 两个 pillar 页面分别是 `research/applications.md` 和 `research/foundations.md`，
   它们只有一行 `include`，正常不用改
+
+### 这份数据在三个地方复用
+
+改一次 `_data/research.yml`，三处会同步更新：
+
+| 位置 | 用的组件 | 样子 |
+| --- | --- | --- |
+| 首页 **04 — Publication** | `research-mini.html` | 两个紧凑的深色小卡片 |
+| `/research/` 页面 | `research-split.html` | 两个整幅大面板 |
+| 两个 pillar 页面 | `research-pillar.html` | 模块 + 项目卡片全展开 |
+
+想在首页再加一个整幅深色版本（原来那个），在 `_layouts/home.html` 的
+`{% comment %}` 那一段位置贴回这几行：
+
+```liquid
+<section class="band band--navy">
+  <div class="shell">
+    <span class="eyebrow eyebrow--light">Research</span>
+    <h2 style="color:#fff;margin:0 0 10px;">Two pillars</h2>
+    <p style="max-width:56ch;margin:0 0 44px;">你的介绍语</p>
+    {% include research-split.html %}
+  </div>
+</section>
+```
 
 ---
 
