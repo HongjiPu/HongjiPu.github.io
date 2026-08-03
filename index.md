@@ -11,7 +11,8 @@ hero_meta:
   - "Explorer"
 # ---- Pull-quote band (delete these two lines to hide it) -------------------
 quote_label: "Point of view"
-quote: "Independent and profound thought defines what it means to be human."
+quote: "The wise man doesn't give the right answers, he poses the right questions."
+quote_author: "Claude Lévi-Strauss"
 ---
 
 <span class="eyebrow">01 — Profile</span>

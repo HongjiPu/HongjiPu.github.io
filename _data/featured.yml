@@ -1,42 +1,54 @@
 # ============================================================
-#  首页大图上方的滚动卡片 / Featured cards in the hero
+#  首页大图上方的 Featured 区块
 #
-#  像麦肯锡首页那样，一格一格地陈列你想优先让人看到的东西：
-#  代表作、最新动态、正在做的项目、一篇文章……
+#  样式：左边白底文字（日期 / 标题 / 摘要），右边配图，
+#        下方一排标签可以切换，也会每 7 秒自动轮换。
 #
-#  会自动横向轮播（鼠标放上去暂停），也可以手动拖动 / 左右箭头翻。
+#  每一条：
+#    date     左上角的小字日期
+#    title    大标题。会自动带一个蓝色 › 箭头
+#    excerpt  标题下面那段摘要，两到四行最好看
+#    url      点标题跳转到哪里
+#    image    右侧配图。放进 images/featured/ 目录后写路径即可。
+#             建议横图，比例接近 4:3，宽度 1200-1600px
+#    tab      下方标签栏显示的短标题；不写就用 title
 #
-#  每张卡片：
-#    eyebrow  卡片顶部的小标签（大写小字），比如 RESEARCH / NEWS / PAPER
-#    title    卡片标题，一到两行最好看
-#    meta     可选，底部那行小字（日期、期刊、状态……）
-#    url      可选，点击跳转的地址；不填就是纯展示卡片
-#
-#  想去掉整个卡片区：把下面所有内容删掉，只留 `cards: []`
+#  想加/删卡片，直接增删下面的块，标签栏会自动跟着变。
 # ============================================================
 
 cards:
-  - eyebrow: "Research"
-    title: "Counterfactual Memory: making agent memory a testable causal variable"
-    meta: "AI Foundations · Reliability"
+  - date: "2026年5月"
+    title: "智能体的下一个瓶颈，不是能力，而是维护"
+    excerpt: >
+      当智能体不断积累技能，脆弱的地方就从"会不会"变成了"还留不留得住"。
+      把技能库当作一个能自我维护的软件生态来经营 —— 版本管理、持续评测、自动修复 ——
+      才是让能力不随时间衰减的前提。
     url: /research/foundations/
+    image: /images/featured/skills-placeholder.jpg
+    tab: "智能体的下一个瓶颈"
 
-  - eyebrow: "Research"
-    title: "Finance Router: cost-aware routing across heterogeneous financial models"
-    meta: "AI Applications · Finance AI"
-    url: /research/applications/
+  - date: "2026年5月"
+    title: "为一个问题挑对模型，本身就是系统设计问题"
+    excerpt: >
+      模型池越大，"用哪个"就越不该靠拍脑袋。把画像、成本与准确率放进同一个决策框架，
+      路由才能在预算之内稳定地给出对的答案。
+    url: /research/foundations/
+    image: /images/featured/routing.svg
+    tab: "挑对模型是系统设计问题"
 
-  - eyebrow: "Paper"
-    title: "Neural Network Optimization for American Option Pricing"
-    meta: "Working Paper · 2026"
-    url: /publications/
+  - date: "研究"
+    title: "两条主线：可信的机理，与真实的赌注"
+    excerpt: >
+      一条做底层机理 —— 记忆、验证、自我改进；另一条把这些机理放到出错代价高昂的地方去，
+      资本市场与课堂。两边互为检验。
+    url: /research/
+    image: /images/featured/pillars.svg
+    tab: "两条研究主线"
 
-  - eyebrow: "Experience"
-    title: "Volatility-Targeted Strategies at J.P. Morgan Chase"
-    meta: "Quantitative Research Practicum · 2026"
-    url: /experiences/
-
-  - eyebrow: "Note"
-    title: "Why the future belongs to those who control the system's underlying logic"
-    meta: "About me"
-    url: /
+  - date: "研究"
+    title: "让智能体的记忆，成为一个可以被检验的变量"
+    excerpt: >
+      如果改写记忆会改变结论，那记忆就不再是黑箱里的存储，而是一个可以被反事实检验的因果变量。
+    url: /research/foundations/
+    image: /images/featured/memory.svg
+    tab: "可检验的智能体记忆"

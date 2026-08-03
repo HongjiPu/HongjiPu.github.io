@@ -366,133 +366,128 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
   width: 100%;
   max-width: var(--measure);
   margin: auto auto 0;          /* pushed to the bottom of the hero */
-  padding: 56px var(--gutter) 132px;   /* top padding keeps it clear of the carousel */
+  padding: 34px var(--gutter) 76px;    /* 上边距避开 Featured，下边距留给滚动提示 */
 }
 @media (max-width: 860px) {
   .hero__inner { padding-bottom: 92px; }
 }
 
-/* ---- Featured carousel, sitting in the blank upper half of the hero ---- */
-.hero-feature {
+/* ---- Featured 区块：左白底文字 + 右配图，下方标签切换 ---- */
+.feat {
   position: relative;
   z-index: 2;
   width: 100%;
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 122px var(--gutter) 0;   /* clears the fixed nav */
+  padding: 92px var(--gutter) 0;
 }
-.hero-feature__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 16px;
-}
-.hero-feature__head .eyebrow { margin: 0; }
 
-.hero-feature__nav { display: flex; gap: 8px; }
-.hero-feature__arrow {
-  width: 34px; height: 34px;
+.feat__stage { position: relative; }
+
+.feat__slide {
   display: grid;
-  place-items: center;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.22);
-  color: rgba(255,255,255,.85);
-  cursor: pointer;
-  transition: background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
+  grid-template-columns: 46% 54%;
+  height: clamp(268px, 31vh, 318px);
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  transition: opacity .5s var(--ease);
 }
-.hero-feature__arrow:hover {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: #fff;
-}
+.feat__slide.is-active { opacity: 1; visibility: visible; position: relative; }
 
-.hero-feature__track {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 4px;
-  outline: none;
-}
-.hero-feature__track::-webkit-scrollbar { display: none; }
-.hero-feature__track:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
-
-.hero-feature__card {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: clamp(240px, 25vw, 310px);
-  min-height: 158px;
+.feat__body {
+  background: var(--white);
+  padding: 32px 40px;
   display: flex;
   flex-direction: column;
-  padding: 20px 22px;
-  /* Navy-tinted glass: keeps white text legible over bright parts of the photo */
-  background: rgba(5,28,44,.52);
-  border: 1px solid rgba(255,255,255,.20);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  backdrop-filter: blur(14px) saturate(140%);
-  color: #fff;
-  transition: background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+  justify-content: center;
 }
-a.hero-feature__card:hover {
-  background: rgba(5,28,44,.72);
-  border-color: rgba(255,255,255,.45);
-  transform: translateY(-4px);
-  color: #fff;
+.feat__date {
+  font-size: .78rem;
+  color: var(--muted);
+  letter-spacing: .02em;
+  margin-bottom: 14px;
 }
-.hero-feature__tag {
-  font-size: .64rem;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 12px;
-}
-.hero-feature__title {
+.feat__title {
   font-family: var(--serif);
-  font-size: 1.02rem;
-  font-weight: 400;
-  line-height: 1.34;
-  color: #fff;
-  margin: 0 0 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: clamp(1.5rem, 2.3vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  margin: 0 0 16px;
 }
-.hero-feature__meta {
-  margin-top: auto;
-  font-size: .74rem;
-  letter-spacing: .04em;
-  color: rgba(255,255,255,.62);
+.feat__title a { color: var(--ink); }
+.feat__title a:hover { color: var(--blue); }
+.feat__chev {
+  color: var(--blue);
+  vertical-align: baseline;
+  margin-left: 8px;
+  transition: transform .28s var(--ease);
+}
+.feat__title a:hover .feat__chev { transform: translateX(5px); }
+.feat__excerpt {
+  font-size: .95rem;
+  line-height: 1.62;
+  color: var(--body);
+  margin: 0;
 }
 
-.hero-feature__dots {
-  display: flex;
-  gap: 7px;
-  margin-top: 16px;
+.feat__media { overflow: hidden; background: var(--navy); }
+.feat__media img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 底部标签栏 */
+.feat__tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin-top: 22px;
 }
-.hero-feature__dot {
-  width: 22px; height: 2px;
-  padding: 0;
+.feat__tab {
+  background: none;
   border: 0;
-  background: rgba(255,255,255,.28);
+  padding: 0;
+  text-align: left;
   cursor: pointer;
-  transition: background .3s var(--ease), width .3s var(--ease);
+  font-family: var(--sans);
 }
-.hero-feature__dot.is-active { background: var(--cyan); width: 34px; }
+.feat__rule {
+  display: block;
+  height: 3px;
+  background: rgba(255,255,255,.45);
+  margin-bottom: 13px;
+  transition: background .3s var(--ease);
+}
+.feat__tab-label {
+  display: block;
+  font-size: .88rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,.7);
+  transition: color .3s var(--ease);
+}
+.feat__tab:hover .feat__rule { background: rgba(255,255,255,.8); }
+.feat__tab:hover .feat__tab-label { color: #fff; }
+.feat__tab.is-active .feat__rule { background: var(--cyan); }
+.feat__tab.is-active .feat__tab-label { color: #fff; font-weight: 600; }
+.feat__tab:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
 
-@media (max-width: 860px) {
-  .hero-feature { padding-top: 96px; }
-  .hero-feature__nav { display: none; }
-  .hero-feature__card { width: clamp(220px, 72vw, 280px); min-height: 140px; }
+@media (max-width: 900px) {
+  .feat { padding-top: 88px; }
+  .feat__slide { grid-template-columns: 1fr; height: auto; }   /* 窄屏随文字长度自适应 */
+  .feat__media { display: none; }          /* 窄屏优先保证文字可读 */
+  .feat__body { padding: 28px 26px; }
+  .feat__tabs { grid-template-columns: repeat(2, 1fr); gap: 16px 18px; }
+  .feat__tab-label { font-size: .8rem; }
 }
-/* Very short viewports: the headline matters more than the cards */
-@media (max-height: 620px) {
-  .hero-feature { display: none; }
+@media (max-width: 560px) {
+  .feat__tabs { grid-template-columns: 1fr 1fr; }
+  .feat__tab:nth-child(n+3) { display: none; }
 }
+/* 视口太矮时，把空间让给大标题 */
+@media (max-height: 780px) {
+  .feat { display: none; }   /* 矮屏优先保证姓名与定位完整可见 */
+}
+
 .hero__rule {
   width: 72px; height: 3px;
   background: var(--blue);
@@ -501,7 +496,7 @@ a.hero-feature__card:hover {
 .hero__title {
   font-family: var(--serif);
   color: #fff;
-  font-size: clamp(3rem, 8vw, 6.2rem);
+  font-size: clamp(2.6rem, 6.6vw, 5.2rem);
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.03em;
@@ -514,7 +509,7 @@ a.hero-feature__card:hover {
   line-height: 1.42;
   color: rgba(255,255,255,.88);
   max-width: 46ch;
-  margin: 0 0 34px;
+  margin: 0 0 18px;
 }
 .hero__meta {
   display: flex;
@@ -786,14 +781,39 @@ a.hero-feature__card:hover {
   color: #fff;
   padding: 76px 0;
 }
-.pullquote p {
-  font-family: var(--serif);
-  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
-  line-height: 1.32;
-  letter-spacing: -0.015em;
+.pullquote__text {
   margin: 0;
-  max-width: 22ch;
+  padding: 0;
+  border: 0;                       /* 覆盖全局 blockquote 的左边线 */
 }
+.pullquote__text p {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 3.1vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.36;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin: 0;
+  max-width: 26ch;                 /* 三行左右最耐读 */
+  text-wrap: balance;              /* 支持的浏览器里让每行长度更均衡 */
+}
+.pullquote__text p::before { content: "\201C"; }
+.pullquote__text p::after  { content: "\201D"; }
+.pullquote__text cite {
+  display: block;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.22);
+  max-width: 26ch;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.62);
+}
+.pullquote__text cite::before { content: "— "; }
 .pullquote .eyebrow { color: var(--cyan); }
 
 /* Inline photo used inside markdown prose */

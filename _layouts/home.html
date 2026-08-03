@@ -58,7 +58,10 @@
     <section class="pullquote reveal">
       <div class="shell">
         <span class="eyebrow">{{ page.quote_label | default: "Point of view" }}</span>
-        <p>{{ page.quote }}</p>
+        <blockquote class="pullquote__text">
+          <p>{{ page.quote }}</p>
+          {% if page.quote_author %}<cite>{{ page.quote_author }}</cite>{% endif %}
+        </blockquote>
       </div>
     </section>
     {% endif %}
