@@ -157,8 +157,7 @@ pillars:
 | `/research/` 页面 | `research-split.html` | 两个整幅大面板 |
 | 两个 pillar 页面 | `research-pillar.html` | 模块 + 项目卡片全展开 |
 
-想在首页再加一个整幅深色版本（原来那个），在 `_layouts/home.html` 的
-`{% comment %}` 那一段位置贴回这几行：
+想在首页再加一个整幅深色版本（原来那个），在 `_layouts/home.html` 的那段 Liquid 注释块（`comment` / `endcomment`）位置贴回这几行：
 
 ```liquid
 <section class="band band--navy">
@@ -166,7 +165,7 @@ pillars:
     <span class="eyebrow eyebrow--light">Research</span>
     <h2 style="color:#fff;margin:0 0 10px;">Two pillars</h2>
     <p style="max-width:56ch;margin:0 0 44px;">你的介绍语</p>
-    {% include research-split.html %}
+    {​% include research-split.html %}
   </div>
 </section>
 ```

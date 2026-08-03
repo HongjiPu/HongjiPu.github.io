@@ -120,6 +120,11 @@ kramdown:
 # --------------------------------------------------
 include: [".htaccess"]           # Files to force-include in the build
 exclude:                         # Folders/files ignored during build
+  # ↓ 必须排除，否则会让 GitHub Pages 构建失败或页面冲突：
+  #   backup/    改版前的备份，里面 publications.md 的 permalink 和正式页面撞车
+  #   EDITING.md 编辑指南，里面的 Liquid 示例会被当成真模板解析
+  - "backup"
+  - "EDITING.md"
   - "lib"
   - "config.rb"
   - "Capfile"
