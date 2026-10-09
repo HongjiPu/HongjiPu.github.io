@@ -1109,6 +1109,28 @@ img.floatpic {
   gap: 20px;
 }
 
+/* Named thread inside a module (module.tracks in _data/research.yml) */
+.track + .track { margin-top: 44px; }
+.track__head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.track__rule { flex: none; width: 26px; height: 2px; background: var(--blue); }
+.track__title {
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+.track__summary {
+  margin: 0 0 22px 40px;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.6;
+}
+@media (max-width: 620px) { .track__summary { margin-left: 0; } }
+
 .project {
   border: 1px solid var(--hair);
   border-top: 3px solid var(--hair);

@@ -6,7 +6,12 @@
 #  each pillar has its own page listing its modules and projects.
 #
 #  module 的名字和 _data/publications.yml 里的 categories 保持一致，
-#  这样"研究方向"和"论文筛选标签"是同一套说法。
+#  这样“研究方向”和“论文筛选标签”是同一套说法。
+#
+#  一个 module 里的工作可以用两种写法：
+#    projects:   平铺一列项目卡片
+#    tracks:     分成几条有名字的线索，每条下面再写 projects:
+#                （一个 module 里有多条明显不同的线索时用这种）
 #
 #  Per project you can set:
 #    name     (required)
@@ -15,7 +20,8 @@
 #    venue    optional, e.g. "Under review at ICLR 2027 · arXiv:2610.01048"
 #    tags     optional list of short keywords
 #    links    optional list of {name, url}; name Paper / Code / Demo / Slides
-#             each gets its own icon. Leave url as "#" until you have one.
+#             each gets its own icon. 站内文件写 /file/... 即可，
+#             外链写完整 URL。还没有链接就先留 "#"。
 # ============================================================
 
 pillars:
@@ -35,39 +41,248 @@ pillars:
     modules:
       - name: "Finance AI"
         summary: >
-          Risk-aware decision-making over market data, cast as a routing and
-          control problem rather than a pure forecasting problem.
-        projects:
-          - name: "Beyond Forecasting: Recasting Volatility Control as a Routing Problem"
+          Where this research started, and the longest-running thread in my
+          work: how to act on a number you already know is uncertain. It runs
+          from econometric risk measurement, through derivative pricing and
+          factor models, to the routing and control problems I work on now.
+          Four threads below, oldest to newest — each project names the setting
+          it was done in, and the full chronology sits on the Experience page.
+        tracks:
+          # -------------------------------------------------------
+          - name: "Market risk and systemic spillover"
             summary: >
-              Instead of chasing a single best volatility forecast, the
-              controller routes between estimators and scaling rules according
-              to the prevailing regime, so exposure decisions degrade gracefully
-              when any one estimator is wrong.
-            status: "Under review"
-            venue: "ACM ICAIF 2026 · arXiv:2608.10375"
-            tags: ["Routing", "Volatility", "Quantitative Finance"]
-            links:
-              - name: Paper
-                url: "https://arxiv.org/abs/2608.10375"
-              - name: Code
-                url: "https://github.com/HongjiPu/AI4Fin-Routing-Forecasting"
+              The starting point: measuring risk and tracing how it propagates
+              between markets. Undergraduate research in econometric time
+              series, and the origin of the regime-identification problem that
+              the volatility work later turns into a control problem.
+            projects:
+              - name: "Digital Finance and Risk in Traditional Financial Markets"
+                summary: >
+                  Computed VaR-based risk indices for five Chinese financial
+                  markets over 2013–2023, then estimated a joint vector
+                  autoregression linking those indices to a digital-finance
+                  development index. Variance decomposition and impulse
+                  response functions gave the counter-intuitive result the
+                  paper is built around: the growth of digital finance is
+                  associated with *lower*, not higher, risk in the traditional
+                  markets it competes with.
+                status: "Completed"
+                venue: "Undergraduate research · Central University of Finance and Economics · 2024"
+                tags: ["VaR", "Vector Autoregression", "Risk Spillover"]
+                links:
+                  - name: Paper
+                    url: /file/papers/Pu-2024-Digital-Finance-Risk-Spillover-VAR.pdf
 
-          - name: "Volatility-Targeted Strategies for S&P 500 Futures"
+              - name: "Long-Horizon Forecasting of the Dow Jones Index with ARMA Models"
+                summary: >
+                  Fitted ARMA models to 1,685 weekly observations of the Dow
+                  Jones U.S. index from 1992 to 2024 — stationarity testing,
+                  differencing, order selection by information criteria,
+                  residual diagnostics — and projected the series forward ten
+                  years. A deliberately plain baseline, and a useful reference
+                  for how little a well-specified linear model concedes to
+                  heavier machinery on index-level data.
+                status: "Completed"
+                venue: "Undergraduate research · Central University of Finance and Economics · 2024"
+                tags: ["ARMA", "Time Series", "Macro Forecasting"]
+                links:
+                  - name: Paper
+                    url: /file/papers/Pu-2024-DJIA-ARMA-Forecast.pdf
+
+          # -------------------------------------------------------
+          - name: "Derivatives pricing and surface calibration"
             summary: >
-              An end-to-end volatility-targeting pipeline — preprocessing,
-              forecasting, exposure allocation, backtesting — comparing EWMA,
-              GJR-GARCH, HAR-RV, and Random Forest estimators against
-              regime-aware controllers. HAR-RV with regime scaling reached a
-              0.602 Sharpe versus 0.575 for naive scaling, while cutting maximum
-              drawdown from 18.71% to 17.58%.
-            status: "Completed"
-            venue: "JPMorgan Chase & Co., Quantitative Research · 2026"
-            tags: ["HAR-RV", "Regime Scaling", "Backtesting"]
-            links:
-              - name: Details
-                url: /experiences/
+              Learning where neural networks genuinely beat classical numerical
+              methods in pricing, and where they do not. This is also where the
+              world-model intuition behind my current research first became
+              concrete: a calibrated surface is a model of consequences you can
+              query instead of re-simulating.
+            projects:
+              - name: "Neural-Network De-Americanization for American Option Pricing"
+                summary: >
+                  Cleaned SPX index option data from 2011 to 2023, fitted a
+                  power-law surface SSVI model to the raw implied volatility
+                  surface, and implemented binomial-tree de-Americanization as
+                  the benchmark. Synthetic prices generated by finite-difference
+                  pricing then let the neural de-Americanization of the early
+                  exercise premium be stress-tested in simulated extreme
+                  high- and low-rate regimes, where it held its accuracy at
+                  computational cost comparable to the binomial method.
+                status: "Completed"
+                venue: "Quantitative finance research · 2024"
+                tags: ["SSVI", "American Options", "Finite Differences", "Local Volatility"]
+                links:
+                  - name: Code
+                    url: "https://github.com/HongjiPu/HongjiPu.github.io/tree/main/file/code/spx-option-de-americanization"
 
+              - name: "SPX–VIX Joint Calibration with a Neural SDE"
+                summary: >
+                  Built a two-factor stochastic local volatility model in JAX
+                  whose drift, diffusion, and correlation are supplied by neural
+                  networks and trained through Euler–Maruyama simulation, so
+                  that SPX and VIX smiles are calibrated jointly and remain
+                  arbitrage-free across both markets. Quasi-Monte Carlo via
+                  Sobol sequences cut the deviation ratio from 5.02/0.764
+                  (SPX/VIX) to 3.8/0.28; the calibration was extended from 8
+                  maturities to all 38 SPX and 13 VIX maturities under a
+                  warm-start then next-day protocol, training roughly 7× faster
+                  than the reference implementation (0.9 vs 7.86 minutes per
+                  100 epochs). Short-dated, deep out-of-the-money SPX
+                  calibration stayed unstable — small Vega makes the implied
+                  volatility gradients overshoot — which is the model's
+                  practical limit.
+                status: "Completed"
+                venue: "Quantitative finance research · 2025"
+                tags: ["Neural SDE", "Stochastic Local Volatility", "JAX", "Quasi-Monte Carlo"]
+
+              - name: "Neural-Network Optimization for Pricing and Local-Volatility Surfaces"
+                summary: >
+                  Continuing the pricing line: comparing SSVI parameterisations,
+                  local volatility extraction, American binomial trees, and
+                  finite-difference solvers against neural surrogates, with the
+                  goal of pinning down which part of the pricing pipeline the
+                  network should actually replace.
+                status: "In progress"
+                venue: "Quantitative finance research · 2025 – present"
+                tags: ["Local Volatility", "Surrogate Models", "QuantLib"]
+                links:
+                  - name: Code
+                    url: "https://github.com/HongjiPu/HongjiPu.github.io/tree/main/file/code/spx-option-de-americanization"
+
+          # -------------------------------------------------------
+          - name: "Factor models and LLMs for alpha"
+            summary: >
+              Cross-sectional prediction, and the point at which language
+              models entered the pipeline. Replication came first — establishing
+              what a careful baseline actually delivers — before adding
+              architecture or modality on top of it.
+            projects:
+              - name: "Man versus Machine Learning Revisited — Replication and Extension"
+                summary: >
+                  Rebuilt the replication package for Zhang, Zhu and Linnainmaa
+                  (RFS 2025) end to end on WRDS data: look-ahead-bias-free
+                  earnings forecasts, a random-forest replication benchmarked
+                  against the linear forecasts of So (2013) and Hughes et al.
+                  (2008), then single sorts and Fama–MacBeth regressions over
+                  FF49 industries, with alternative random-forest and
+                  machine-learning specifications probed for robustness. The
+                  exercise is the reason I treat “the baseline, implemented
+                  properly” as the hardest number to beat.
+                status: "Completed"
+                venue: "Research assistant · Central University of Finance and Economics · 2025"
+                tags: ["Asset Pricing", "Earnings Forecasts", "Random Forest", "Replication"]
+                links:
+                  - name: Notes
+                    url: /file/papers/Man-versus-Machine-Learning-Replication-Package.pdf
+                  - name: Paper
+                    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4899584"
+
+              - name: "Deep-Learning Factor Mining for A-Shares"
+                summary: >
+                  A factor-mining pipeline built around the liquidity–volatility
+                  anomaly, adding ProbSparse attention and TFT variable
+                  selection to lift monthly IC from 0.05 to 0.13. Size and
+                  industry neutralisation plus AdamW with cyclic learning rates
+                  kept the gain from being an overfitting artefact; backtests
+                  from 2010 to 2023 showed a 15% Sharpe improvement and
+                  persistent out-of-sample alpha against the CSI 300.
+                status: "Completed"
+                venue: "Hantak Investment Management · Jan – Apr 2025"
+                tags: ["Factor Mining", "Attention", "Neutralization"]
+                links:
+                  - name: Details
+                    url: /experiences/
+
+              - name: "Financial LLMs and Multimodal Alpha Signals"
+                summary: >
+                  The first project where a language model carried the signal
+                  rather than the analysis. A financial RAG prototype over 10k+
+                  instructions with chain-of-thought prompting for extracting
+                  structure from earnings reports, alongside a pipeline turning
+                  YOLO-detected K-line patterns and Whisper audio tags into
+                  embeddings; a LoRA-tuned backbone delivered a sentiment factor
+                  at 0.038 peak RankIC, ahead of Alpha101. The failure modes here
+                  — ungrounded retrieval, confident wrong extraction — are what
+                  BeliefRAG and the reliability work later attack directly.
+                status: "Completed"
+                venue: "REI-Tech, AI Lab · May – Jul 2025"
+                tags: ["RAG", "Multimodal", "LoRA", "Sentiment Factors"]
+                links:
+                  - name: Details
+                    url: /experiences/
+
+          # -------------------------------------------------------
+          - name: "Volatility forecasting and control"
+            summary: >
+              Where the thread arrives: once you accept that no single
+              volatility estimator is reliably best, the decision stops being a
+              forecasting problem and becomes a routing problem — which is the
+              same question my agent research asks about models and memories.
+            projects:
+              - name: "Beyond Forecasting: Recasting Volatility Control as a Routing Problem"
+                summary: >
+                  Instead of chasing a single best volatility forecast, the
+                  controller routes between estimators and scaling rules
+                  according to the prevailing regime, so exposure decisions
+                  degrade gracefully when any one estimator is wrong.
+                status: "Under review"
+                venue: "ACM ICAIF 2026 · arXiv:2608.10375"
+                tags: ["Routing", "Volatility", "Quantitative Finance"]
+                links:
+                  - name: Paper
+                    url: "https://arxiv.org/abs/2608.10375"
+                  - name: Code
+                    url: "https://github.com/HongjiPu/AI4Fin-Routing-Forecasting"
+
+              - name: "Volatility-Targeted Strategies for S&P 500 Futures"
+                summary: >
+                  An end-to-end volatility-targeting pipeline — preprocessing,
+                  forecasting, exposure allocation, backtesting — comparing
+                  EWMA, GJR-GARCH, HAR-RV, and Random Forest estimators against
+                  regime-aware controllers. HAR-RV with regime scaling reached a
+                  0.602 Sharpe versus 0.575 for naive scaling, while cutting
+                  maximum drawdown from 18.71% to 17.58%. The empirical basis
+                  for the routing paper above.
+                status: "Completed"
+                venue: "JPMorgan Chase & Co., Quantitative Research · Jan – Apr 2026"
+                tags: ["HAR-RV", "Regime Scaling", "Backtesting"]
+                links:
+                  - name: Details
+                    url: /experiences/
+
+              - name: "Cross-Asset Volatility: From the VIX Surface to Bitcoin"
+                summary: >
+                  Validated volatility spillover from the S&P 500 into crypto,
+                  then built a hybrid model joining VIX surface features to BTC
+                  level-one data, which held up best precisely where single-asset
+                  models fail — around macro events. Arbitrage-free implied
+                  volatility surfaces calibrated by SSVI with differential
+                  evolution (WRMSE < 0.006) supplied ATM variance and skew as
+                  leading indicators; 30+ alpha signals from 60,000+ hours of
+                  tick data fed an Optuna-tuned LightGBM to a 0.46 out-of-sample
+                  IC on 24-hour volatility.
+                status: "Completed"
+                venue: "Positive Research Ltd. · Dec 2025 – Jan 2026"
+                tags: ["Cross-Asset", "SSVI", "LightGBM", "Crypto"]
+                links:
+                  - name: Details
+                    url: /experiences/
+
+              - name: "BTC Realized Volatility: GARCH-Family and LSTM Baselines"
+                summary: >
+                  The groundwork for the cross-asset model above. Forecast
+                  seven-day-ahead average realized volatility for BTC-USD with
+                  the GARCH family — GARCH, TARCH and variants over interval
+                  windows — then an LSTM on the same features, scored against
+                  naive and rolling baselines. Framed throughout as a trade:
+                  forecast realized volatility against market implied
+                  volatility, and the sign of the gap tells you whether the
+                  option is cheap or rich.
+                status: "Completed"
+                venue: "Independent research · 2025"
+                tags: ["GARCH", "TARCH", "LSTM", "Realized Volatility"]
+
+      # -----------------------------------------------------------
       - name: "Education AI"
         summary: >
           Assessment and feedback systems that stay calibrated, auditable, and
@@ -75,24 +290,29 @@ pillars:
         projects:
           - name: "RubricWorld: World Model-Guided Rubric Optimization for LLM Graders"
             summary: >
-              Using a world model of grader behaviour to propose rubric edits,
-              so optimisation targets the score boundaries where the grader
-              actually fails rather than the rubric as a whole.
+              Every edit to a grading rubric can correct some mistakes while
+              degrading decisions that were already right — and the same edit
+              behaves differently depending on which revisions came before it.
+              Existing prompt and rubric optimizers pick edits on aggregate
+              validation performance and never learn those state-dependent
+              effects. RubricWorld learns them from paired grading decisions
+              taken before and after each edit, predicting correction and
+              degradation rates at individual ordinal score boundaries to guide
+              candidate selection; an independent certification step then uses
+              held-out measurements and finite-sample confidence bounds to
+              decide whether an edit is committed at all. Across EIR (National),
+              ASAP 2.0, and ASAP-SAS with three frozen LLM graders it achieves
+              the best result in 20 of 27 reported metric comparisons, raising
+              gpt-5-mini accuracy on ASAP 2.0 from 18.20% to 46.70%. Ablations
+              isolate why both halves matter: removing rubric-state information
+              drops average accuracy from 40.18% to 35.42%, and removing the
+              learned edit-effect model drops it to 27.31%.
             status: "Under review"
-            venue: "AAAI 2026"
-            tags: ["Rubrics", "LLM-as-Judge", "World Models"]
-
-          - name: "RubricGuard: Improving LLM Graders Without Breaking Correct Judgments"
-            summary: >
-              A Route–Generate–Audit framework that localises failures to
-              specific score boundaries, patches the rubric, then audits each
-              update for regressions on protected cases. Best performance in 20
-              of 27 metric–dataset–backbone settings on ASAP 2.0, EIR, and
-              ASAP-SAS; keeping the audit step cut protected-case breakage from
-              15.7% to 3.6%.
-            status: "In progress"
-            venue: "Michigan State University, DSE Lab · 2026"
-            tags: ["Evaluation", "Regression Control", "Prompt Optimization"]
+            venue: "ARR, October 2026 cycle · Michigan State University, DSE Lab"
+            tags: ["Rubrics", "LLM-as-Judge", "World Models", "Regression Control"]
+            links:
+              - name: Paper
+                url: /file/papers/RubricWorld.pdf
 
   # ---------------------------------------------------------------
   - key: foundations
@@ -146,14 +366,27 @@ pillars:
 
           - name: "Launder-Bench: Can Repository-Level Agentic Code Laundering Be Detected?"
             summary: >
-              A benchmark for whether provenance survives an agent rewriting a
-              whole repository — testing detection of laundered code at the
-              scale agents actually operate on.
+              Coding agents can now rewrite a repository-scale codebase while
+              preserving tested behaviour, which breaks the assumptions behind
+              plagiarism detection, license auditing, and software provenance.
+              Launder-Bench defines repository-level agentic code laundering and
+              builds the first repository-scale provenance benchmark for it from
+              282 real-world repositories, keeping a rewrite only after
+              execution-based verification under a source-hidden reconstruction
+              protocol. 1,128 pairwise instances ask whether two repositories
+              share provenance; 229 attribution instances ask which candidate is
+              the source, with abstention allowed when evidence is insufficient.
+              The strongest static detector reaches only 0.66 AUROC, and
+              repository encoders rank the true source first on up to 22% of
+              attribution queries while earning calibrated attribution credit on
+              just 1–2%.
             status: "Under review"
             venue: "ICLR 2027"
             tags: ["Benchmark", "Provenance", "Code Agents"]
-            # 仓库接收/公开后把下面三行取消注释即可恢复 Code 链接
-            # links:
+            links:
+              - name: Paper
+                url: /file/papers/Launder-Bench.pdf
+            # 仓库接收/公开后把下面两行加到上面的 links: 里即可恢复 Code 链接
             #   - name: Code
             #     url: "https://github.com/HuieL/TRACE-Bench"
 

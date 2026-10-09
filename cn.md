@@ -29,8 +29,8 @@ lang: zh-CN
 | 自我进化智能体 | 从经验与论文中持续吸收新能力，同时不偏离原始目标（Paper2LLM++、SkillOps） |
 | 网络世界模型 | 带干预语义的图上动力学建模，作为算法自动设计的评估环境（Network World Models） |
 | 高效智能体基础设施 | 画像、路由与编排，让多模型系统在生产中养得起（RouteProfile） |
-| 教育 AI | 评分量表的定向修补与回归审计（RubricWorld、RubricGuard） |
-| 金融 AI | 把波动率控制重构成路由问题（Beyond Forecasting） |
+| 教育 AI | 学习每次量表改动在评分边界上的效果，再决定是否提交（RubricWorld） |
+| 金融 AI | 从风险度量、衍生品定价、因子模型，到把波动率控制重构成路由问题（Beyond Forecasting 等，详见 Finance AI） |
 
 详细介绍见 [Research]({{ site.url }}/research/)。
 
@@ -63,6 +63,8 @@ lang: zh-CN
 * **密歇根州立大学** Data Science and Engineering Lab，导师 Jiliang Tang 教授（2026.03 – 至今）
 * **埃默里大学** Machine Intelligence for Complex Systems Lab，导师 Liang Zhao 教授（2026.03 – 至今）
 * **摩根大通（JPMorgan Chase & Co.）** 量化研究实习生，波动率目标策略设计（2026.01 – 2026.04）
+
+* **早期金融研究** 风险度量与溢出、衍生品定价与曲面校准、因子模型与金融 LLM（2022 – 2025）
 
 更多经历见 [Experience]({{ site.url }}/experiences/)，简历见 [CV（PDF）]({{ site.owner.cv }})。
 

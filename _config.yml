@@ -125,6 +125,8 @@ exclude:                         # Folders/files ignored during build
   #   EDITING.md 编辑指南，里面的 Liquid 示例会被当成真模板解析
   - "backup"
   - "EDITING.md"
+  #   file/code/  公开的研究代码，只在 GitHub 仓库里浏览，不进站点构建
+  - "file/code"
   - "lib"
   - "config.rb"
   - "Capfile"

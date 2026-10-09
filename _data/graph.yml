@@ -138,7 +138,7 @@ nodes:
     weight: 40
     orbit: 2
     angle: 218
-    note: "RubricWorld / RubricGuard — 以评分边界为单位修补量表，并审计回归"
+    note: "RubricWorld — 学习每次改动在评分边界上的效果，再决定是否提交"
     links: [trust]
 
   - id: volatility

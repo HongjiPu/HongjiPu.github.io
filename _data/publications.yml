@@ -104,10 +104,13 @@ items:
     year: 2026
     month: 9
     category: "Reliability & Verification"
-    # 仓库接收/公开后把下面三行取消注释即可恢复 Code 链接
-    # links:
-    #   - name: Code
-    #     url: "https://github.com/HuieL/TRACE-Bench"
+    selected: true
+    links:
+      - name: Paper
+        url: "/file/papers/Launder-Bench.pdf"
+      # 仓库接收/公开后把下面两行取消注释即可恢复 Code 链接
+      # - name: Code
+      #   url: "https://github.com/HuieL/TRACE-Bench"
 
   # ---------------------------------------------------------------
   - title: "RubricWorld: World Model-Guided Rubric Optimization for LLM Graders"
@@ -116,12 +119,16 @@ items:
       - Hang Li
       - Yucheng Chu
       - Jiliang Tang
-    venue: "Under review at AAAI 2026"
+    venue: "Under review · ARR October 2026 cycle"
     year: 2026
     month: 8
     category: "Education AI"
     extra_categories:
       - "Reliability & Verification"
+    selected: true
+    links:
+      - name: Paper
+        url: "/file/papers/RubricWorld.pdf"
 
   # ---------------------------------------------------------------
   - title: "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems"
@@ -151,6 +158,7 @@ items:
     year: 2026
     month: 9
     category: "Reliability & Verification"
+    selected: true
     links:
       - name: Paper
         url: "https://arxiv.org/abs/2609.39139"
@@ -168,6 +176,7 @@ items:
     category: "Finance AI"
     extra_categories:
       - "Efficient Agent Infrastructure"
+    selected: true
     links:
       - name: Paper
         url: "https://arxiv.org/abs/2608.10375"

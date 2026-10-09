@@ -12,6 +12,15 @@
 # ============================================================
 
 - date: "2026.10"
+  icon: "📌"
+  text: >
+    Manuscripts for <a href="/file/papers/RubricWorld.pdf" target="_blank">RubricWorld</a>
+    (world model-guided rubric optimization, submitted to the <strong>ARR October 2026</strong> cycle) and
+    <a href="/file/papers/Launder-Bench.pdf" target="_blank">Launder-Bench</a>
+    (repository-level agentic code laundering, under review at <strong>ICLR 2027</strong>)
+    are now readable on this site.
+
+- date: "2026.10"
   icon: "🚀"
   text: >
     <a href="https://arxiv.org/abs/2610.01048" target="_blank">Network World Models</a>

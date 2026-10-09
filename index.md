@@ -33,24 +33,13 @@ quote_author: "Claude Lévi-Strauss"
 <div class="linkrow">
   <a class="arrow-link" href="{{ site.url }}/research/">Browse the research</a>
   <a class="arrow-link" href="{{ site.url }}/publications/">Publications</a>
+  <a class="arrow-link" href="{{ site.url }}/experiences/">Experience</a>
   <a class="arrow-link" href="{{ site.owner.cv }}" target="_blank" rel="noopener">CV (PDF)</a>
 </div>
 
 ---
 
-<span class="eyebrow">02 — Affiliations</span>
-
-## Where I Work
-
-* **Rutgers University** — Web Intelligent Systems and Engineering Lab, with Prof. Yongfeng Zhang &nbsp;<em>(Apr. 2026 – present)</em>
-* **Michigan State University** — Data Science and Engineering Lab, with Prof. Jiliang Tang &nbsp;<em>(Mar. 2026 – present)</em>
-* **Emory University** — Machine Intelligence for Complex Systems Lab, with Prof. Liang Zhao &nbsp;<em>(Mar. 2026 – present)</em>
-
-<a class="arrow-link" href="{{ site.url }}/experiences/">Research and industry experience in detail</a>
-
----
-
-<span class="eyebrow">03 — Education</span>
+<span class="eyebrow">02 — Education</span>
 
 ## Education
 
@@ -61,7 +50,7 @@ quote_author: "Claude Lévi-Strauss"
 
 ---
 
-<span class="eyebrow">04 — Focus</span>
+<span class="eyebrow">03 — Focus</span>
 
 ## Research Interests
 

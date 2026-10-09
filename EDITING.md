@@ -153,6 +153,34 @@ items:
 页面顶部三个切换：`show selected` / `show all by date` / `show all by topic`，
 外加搜索框和方向筛选，全部自动生成。
 
+### 没挂 arXiv 的论文怎么放
+
+PDF 放进 `file/papers/`，slides 放进 `file/slides/`，然后 `url` 直接写站内路径
+（开头的 `/` 别省，`site.url` 会自动补上）：
+
+```yaml
+    links:
+      - name: Paper
+        url: "/file/papers/RubricWorld.pdf"
+```
+
+- 文件名别带空格和括号，否则链接要转义，容易出问题
+- `_data/research.yml` 里的 `links` 用法完全一样
+- 单个文件尽量控制在 10 MB 以内（GitHub Pages 有流量额度）
+
+**代码**放进 `file/code/<项目名>/`，并在 `_config.yml` 的 `exclude` 里（已经加好了），
+所以它不进站点构建，只在 GitHub 仓库里浏览 —— notebook 在 GitHub 上会直接渲染。
+`links` 的 `url` 写 GitHub 的目录地址：
+
+```yaml
+    links:
+      - name: Code
+        url: "https://github.com/HongjiPu/HongjiPu.github.io/tree/main/file/code/<项目名>"
+```
+
+发布代码前记得：清空 notebook 输出、删掉写死的本地路径和他人署名，
+每个目录配一个 `README.md` 说明算法。
+
 **作者标记**：共同一作写 `†`，通讯作者写 `~`，直接跟在名字后面（`Hongji Pu†`）。
 图例在 `publications.md` 顶部那一行，改了符号记得同步改图例。
 第一个 link 会挂在论文标题上，所以把最想让人点的那个放第一位
@@ -187,6 +215,25 @@ pillars:
               - name: Code
                 url: "#"
 ```
+
+### 一个模块里分几条线索（tracks）
+
+模块里的工作如果明显分成几条不同的线索（比如 Finance AI 就分成四条），
+把 `projects:` 换成 `tracks:`，每条线索下面再写自己的 `projects:`：
+
+```yaml
+      - name: "Finance AI"
+        summary: "这个模块整体在做什么"
+        tracks:
+          - name: "Volatility forecasting and control"   # 小标题，会大写加字距显示
+            summary: "这条线索在做什么，一两句"
+            projects:
+              - name: "..."
+                summary: "..."
+```
+
+`projects:` 和 `tracks:` 二选一，只写 `projects:` 就是原来的平铺样式，
+模板两种都认，不用改代码。
 
 - 加一个新模块 = 在 `modules:` 下加一块；加一篇 paper = 在 `projects:` 下加一块
 - 两个 pillar 页面分别是 `research/applications.md` 和 `research/foundations.md`，
