@@ -386,9 +386,8 @@ pillars:
             links:
               - name: Paper
                 url: /file/papers/Launder-Bench.pdf
-            # 仓库接收/公开后把下面两行加到上面的 links: 里即可恢复 Code 链接
-            #   - name: Code
-            #     url: "https://github.com/HuieL/TRACE-Bench"
+              - name: Code
+                url: "https://github.com/HuieL/Launder-Bench"
 
       - name: "Self-Evolving Agents"
         summary: >

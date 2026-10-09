@@ -108,9 +108,8 @@ items:
     links:
       - name: Paper
         url: "/file/papers/Launder-Bench.pdf"
-      # 仓库接收/公开后把下面两行取消注释即可恢复 Code 链接
-      # - name: Code
-      #   url: "https://github.com/HuieL/TRACE-Bench"
+      - name: Code
+        url: "https://github.com/HuieL/Launder-Bench"
 
   # ---------------------------------------------------------------
   - title: "RubricWorld: World Model-Guided Rubric Optimization for LLM Graders"
