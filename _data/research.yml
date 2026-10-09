@@ -5,11 +5,14 @@
 #  The home page shows the two pillars as clickable panels;
 #  each pillar has its own page listing its modules and projects.
 #
+#  module 的名字和 _data/publications.yml 里的 categories 保持一致，
+#  这样"研究方向"和"论文筛选标签"是同一套说法。
+#
 #  Per project you can set:
 #    name     (required)
 #    summary  one or two lines describing it
-#    status   optional badge, e.g. "In progress" / "Under review" / "Released"
-#    venue    optional, e.g. "NeurIPS 2026"
+#    status   optional badge, e.g. "In progress" / "Under review" / "Preprint"
+#    venue    optional, e.g. "Under review at ICLR 2027 · arXiv:2610.01048"
 #    tags     optional list of short keywords
 #    links    optional list of {name, url}; name Paper / Code / Demo / Slides
 #             each gets its own icon. Leave url as "#" until you have one.
@@ -23,148 +26,209 @@ pillars:
     tagline: "Putting agents to work in domains where being wrong is expensive."
     blurb: >
       Deploying agentic systems into real decision environments — capital
-      markets and classrooms — where correctness, latency, and accountability
-      are measured against outcomes rather than benchmarks.
+      markets and classrooms — where correctness, cost, and accountability are
+      measured against outcomes rather than benchmarks. The recurring question
+      is whether a system can improve on the cases it gets wrong without
+      quietly breaking the cases it already got right.
     url: /research/applications/
     accent: "#2251FF"
     modules:
       - name: "Finance AI"
         summary: >
-          Routing, reasoning, and risk-aware decision-making across market data.
+          Risk-aware decision-making over market data, cast as a routing and
+          control problem rather than a pure forecasting problem.
         projects:
-          - name: "Finance Router"
+          - name: "Beyond Forecasting: Recasting Volatility Control as a Routing Problem"
             summary: >
-              Domain-specialised routing across heterogeneous financial models,
-              trading off cost against decision quality under live constraints.
-            status: "In progress"
-            tags: ["Routing", "Quantitative Finance"]
+              Instead of chasing a single best volatility forecast, the
+              controller routes between estimators and scaling rules according
+              to the prevailing regime, so exposure decisions degrade gracefully
+              when any one estimator is wrong.
+            status: "Under review"
+            venue: "ACM ICAIF 2026 · arXiv:2608.10375"
+            tags: ["Routing", "Volatility", "Quantitative Finance"]
             links:
               - name: Paper
-                url: "#"
+                url: "https://arxiv.org/abs/2608.10375"
               - name: Code
-                url: "#"
+                url: "https://github.com/HongjiPu/AI4Fin-Routing-Forecasting"
+
+          - name: "Volatility-Targeted Strategies for S&P 500 Futures"
+            summary: >
+              An end-to-end volatility-targeting pipeline — preprocessing,
+              forecasting, exposure allocation, backtesting — comparing EWMA,
+              GJR-GARCH, HAR-RV, and Random Forest estimators against
+              regime-aware controllers. HAR-RV with regime scaling reached a
+              0.602 Sharpe versus 0.575 for naive scaling, while cutting maximum
+              drawdown from 18.71% to 17.58%.
+            status: "Completed"
+            venue: "JPMorgan Chase & Co., Quantitative Research · 2026"
+            tags: ["HAR-RV", "Regime Scaling", "Backtesting"]
+            links:
+              - name: Details
+                url: /experiences/
 
       - name: "Education AI"
         summary: >
-          Assessment and feedback systems that stay calibrated and auditable.
+          Assessment and feedback systems that stay calibrated, auditable, and
+          stable as their grading standards are revised.
         projects:
-          - name: "RUBRICGUARD"
+          - name: "RubricWorld: World Model-Guided Rubric Optimization for LLM Graders"
             summary: >
-              Rubric-grounded evaluation that keeps model judgments anchored to
-              explicit criteria instead of drifting preference signals.
+              Using a world model of grader behaviour to propose rubric edits,
+              so optimisation targets the score boundaries where the grader
+              actually fails rather than the rubric as a whole.
+            status: "Under review"
+            venue: "AAAI 2026"
+            tags: ["Rubrics", "LLM-as-Judge", "World Models"]
+
+          - name: "RubricGuard: Improving LLM Graders Without Breaking Correct Judgments"
+            summary: >
+              A Route–Generate–Audit framework that localises failures to
+              specific score boundaries, patches the rubric, then audits each
+              update for regressions on protected cases. Best performance in 20
+              of 27 metric–dataset–backbone settings on ASAP 2.0, EIR, and
+              ASAP-SAS; keeping the audit step cut protected-case breakage from
+              15.7% to 3.6%.
             status: "In progress"
-            tags: ["Evaluation", "LLM-as-Judge"]
-            links:
-              - name: Paper
-                url: "#"
-              - name: Code
-                url: "#"
+            venue: "Michigan State University, DSE Lab · 2026"
+            tags: ["Evaluation", "Regression Control", "Prompt Optimization"]
 
   # ---------------------------------------------------------------
   - key: foundations
     number: "02"
     title: "AI Foundations"
-    tagline: "The machinery underneath: reliability, self-improvement, and infrastructure."
+    tagline: "The machinery underneath: verification, self-evolution, world models, and infrastructure."
     blurb: >
-      Core research on what makes an agent trustworthy at scale — how it
-      remembers, how it verifies its own beliefs, how it improves itself, and
-      how it runs efficiently enough to matter in production.
+      Core research on what makes a language agent trustworthy at scale — how it
+      remembers, how it verifies what it believes, how it improves itself from
+      experience and external knowledge, and how it runs cheaply enough to
+      matter in production. World models run through all of it: when an agent can
+      simulate the consequences of an action, feedback stops being a guess.
     url: /research/foundations/
     accent: "#00A9F4"
     modules:
-      - name: "Reliability"
+      - name: "Reliability & Verification"
         summary: >
-          Memory, belief, and retrieval mechanisms that make agent behaviour
-          reproducible and verifiable.
+          Memory, belief, and detection mechanisms that make agent behaviour
+          reproducible, auditable, and verifiable against evidence.
         projects:
-          - name: "Counterfactual Memory"
+          - name: "CounterMem: World-Model-Verified Counterfactual Memory for Language Agents"
             summary: >
-              Probing what an agent would have concluded under altered memory,
-              turning memory contents into a testable causal variable.
-            status: "In progress"
-            tags: ["Memory", "Causality"]
+              An RL framework that builds memory out of verified counterfactuals:
+              it generates local alternatives to failed actions, checks their
+              outcomes against executable world models, stores the action
+              contrasts with evidence and reuse conditions, and trains a DQN
+              selector to decide when retrieved memory should steer a new task.
+              Improved ReAct and Reflexion in 24/24 benchmark-agent comparisons
+              (+12.6 pp average) while reducing task-run token usage.
+            status: "Under review"
+            venue: "ICLR 2027 · arXiv:2609.31874"
+            tags: ["Memory", "Counterfactuals", "Reinforcement Learning"]
             links:
               - name: Paper
-                url: "#"
-              - name: Code
-                url: "#"
+                url: "https://arxiv.org/abs/2609.31874"
 
-          - name: "BeliefRAG"
+          - name: "BeliefRAG: Making Adaptive RAG State-Aware Under Evolving Evidence"
             summary: >
-              Retrieval-augmented generation with explicit belief state, so the
-              model can represent uncertainty over retrieved evidence.
-            status: "In progress"
-            tags: ["RAG", "Uncertainty"]
+              Retrieval-augmented generation with an explicit belief state, so
+              the system tracks how confident it should be as evidence arrives,
+              conflicts, and goes stale — instead of treating every retrieval as
+              equally authoritative.
+            status: "Under review"
+            venue: "TACL · arXiv:2609.39139"
+            tags: ["RAG", "Belief State", "Uncertainty"]
             links:
               - name: Paper
-                url: "#"
+                url: "https://arxiv.org/abs/2609.39139"
               - name: Code
-                url: "#"
+                url: "https://github.com/HongjiPu/BeliefRAG"
 
-          - name: "Retrieval-Augmented Reasoning"
+          - name: "Launder-Bench: Can Repository-Level Agentic Code Laundering Be Detected?"
             summary: >
-              Coupling retrieval with multi-step reasoning so evidence enters
-              the chain of thought where it actually changes the answer.
-            status: "In progress"
-            tags: ["Reasoning", "Retrieval"]
-            links:
-              - name: Paper
-                url: "#"
-              - name: Code
-                url: "#"
+              A benchmark for whether provenance survives an agent rewriting a
+              whole repository — testing detection of laundered code at the
+              scale agents actually operate on.
+            status: "Under review"
+            venue: "ICLR 2027"
+            tags: ["Benchmark", "Provenance", "Code Agents"]
+            # 仓库接收/公开后把下面三行取消注释即可恢复 Code 链接
+            # links:
+            #   - name: Code
+            #     url: "https://github.com/HuieL/TRACE-Bench"
 
-      - name: "Self-Evolving and Trustworthy AI Optimization"
+      - name: "Self-Evolving Agents"
         summary: >
-          Systems that critique and repair themselves without losing their
-          alignment to the original specification.
+          Systems that improve from experience, published knowledge, and
+          verified feedback without drifting away from their original
+          specification.
         projects:
-          - name: "RUBRICGUARD"
+          - name: "Paper2LLM++: Continual Self-Evolution of Language Models From Research Papers"
             summary: >
-              Guardrails for self-optimisation: rubric-anchored scoring that
-              resists reward hacking during iterative self-improvement.
-            status: "In progress"
-            tags: ["Trustworthy AI", "Self-Improvement"]
+              Treating the literature as a continual training signal: extracting
+              methods from research papers and folding them back into the model,
+              so capability accrues from reading rather than from retraining on
+              scraped text.
+            status: "Under review"
+            venue: "TACL · arXiv:2610.02793"
+            tags: ["Continual Learning", "Knowledge Integration"]
             links:
               - name: Paper
-                url: "#"
-              - name: Code
-                url: "#"
-
-          - name: "Paper-to-Patch"
-            summary: >
-              Translating research papers into working code changes, closing
-              the loop from published method to executable artefact.
-            status: "In progress"
-            tags: ["Code Generation", "Agents"]
-            links:
-              - name: Paper
-                url: "#"
-              - name: Code
-                url: "#"
-
-      - name: "Efficient Agent Infrastructure"
-        summary: >
-          The plumbing — routing, orchestration, and skill reuse that keep
-          multi-model systems affordable.
-        projects:
-          - name: "RouteProfile: Elucidating the Design Space of LLM Profiles for Routing"
-            summary: >
-              A systematic study of how LLM profiles should be represented and
-              used when routing queries across a pool of models.
-            status: "Submission"
-            venue: "arXiv:2605.00180, 2026"
-            tags: ["Routing", "Efficiency"]
-            links:
-              - name: Paper
-                url: "https://arxiv.org/abs/2605.00180"
+                url: "https://arxiv.org/abs/2610.02793"
 
           - name: "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems"
             summary: >
-              Treating an agent's skill library as a software ecosystem that
-              versions, evaluates, and repairs itself over time.
-            status: "Submission"
-            venue: "arXiv:2605.13716, 2026"
-            tags: ["Infrastructure", "Agents"]
+              An agent's skill library is a codebase, so it should be run like
+              one — versioned, tested, deprecated, and repaired — which is what
+              stops accumulated capability from quietly decaying.
+            status: "Under review"
+            venue: "ICLR 2027 · arXiv:2605.13716"
+            tags: ["Skill Libraries", "Infrastructure", "Maintenance"]
             links:
               - name: Paper
                 url: "https://arxiv.org/abs/2605.13716"
+              - name: Code
+                url: "https://github.com/Hik289/SkillOps"
+
+      - name: "World Models for Networks"
+        summary: >
+          Learned, action-conditioned environments for complex networks, used as
+          the evaluation substrate for automated algorithm design.
+        projects:
+          - name: "Network World Models as Environments for Algorithm Design on Complex Networks"
+            summary: >
+              An action-conditioned graph world model that applies intervention
+              semantics before learning the subsequent diffusion dynamics, then
+              serves as the environment inside an LLM-driven algorithm discovery
+              loop. Reached 90.2% candidate preference accuracy on held-out SBM
+              graphs; world-model-only selection attained 1.01% regret against
+              1.13% for simulator-based selection, with no trusted-simulator
+              calls during selection.
+            status: "Under review"
+            venue: "ICLR 2027 · arXiv:2610.01048"
+            tags: ["Graph Learning", "World Models", "Algorithm Discovery"]
+            links:
+              - name: Paper
+                url: "https://arxiv.org/abs/2610.01048"
+              # 仓库接收/公开后把下面两行取消注释即可恢复 Code 链接
+              # - name: Code
+              #   url: "https://github.com/Zeesh-an/GraphWorldModel"
+
+      - name: "Efficient Agent Infrastructure"
+        summary: >
+          The plumbing — profiling, routing, and orchestration that keep
+          multi-model systems affordable at scale.
+        projects:
+          - name: "RouteProfile: Graph-Based Profiling for Cold-Start LLM Routing"
+            summary: >
+              Routing a query to the right model requires knowing what each
+              model is good at. Graph-based profiles make that judgement
+              possible for models with little or no routing history.
+            status: "Preprint"
+            venue: "arXiv:2605.00180"
+            tags: ["Routing", "Profiling", "Efficiency"]
+            links:
+              - name: Paper
+                url: "https://arxiv.org/abs/2605.00180"
+              - name: Code
+                url: "https://github.com/ulab-uiuc/RouteProfile"

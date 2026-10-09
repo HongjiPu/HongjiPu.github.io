@@ -123,17 +123,25 @@ highlight_authors:     # 你名字的各种写法，命中任意一个就自动�
   - "H Pu"
 
 categories:            # 筛选按钮，按这里的顺序显示
+                       # 和 _data/research.yml 的 module 名字保持一致
+  - Reliability & Verification
+  - Self-Evolving Agents
+  - World Models for Networks
   - Efficient Agent Infrastructure
-  - Reliability
+  - Education AI
+  - Finance AI
 
 items:
   - title: "论文标题"
-    authors: ["H Pu", "合作者"]          # 用哪种写法都行，见 highlight_authors
-    venue: "arXiv:2605.00180, 2026"
+    authors:                             # 用哪种写法都行，见 highlight_authors
+      - Hongji Pu†                       # 共同一作在名字后面加 †，通讯作者加 ~
+      - 合作者†                           # 加粗匹配会忽略这些符号，不影响你的名字变粗
+      - 另一位合作者
+    venue: "Under review at ICLR 2027 · arXiv:2610.01048"
     year: 2026
-    month: 5                             # 可选，用于同年内排序
-    category: "Reinforcement Learning"   # 必须是上面 categories 里的一个
-    extra_categories: ["Multi-Agent AI"] # 可选，让它同时出现在别的方向下
+    month: 10                            # 可选，用于同年内排序
+    category: "World Models for Networks"  # 必须是上面 categories 里的一个
+    extra_categories: ["Self-Evolving Agents"] # 可选，同时出现在别的方向下
     selected: true                       # 可选，出现在默认的 "show selected"
     links:
       - name: Paper                      # Paper / Code / Demo / Slides 各有图标
@@ -144,6 +152,11 @@ items:
 
 页面顶部三个切换：`show selected` / `show all by date` / `show all by topic`，
 外加搜索框和方向筛选，全部自动生成。
+
+**作者标记**：共同一作写 `†`，通讯作者写 `~`，直接跟在名字后面（`Hongji Pu†`）。
+图例在 `publications.md` 顶部那一行，改了符号记得同步改图例。
+第一个 link 会挂在论文标题上，所以把最想让人点的那个放第一位
+（通常是 Paper，没有 Paper 就放 Code）。
 
 ---
 

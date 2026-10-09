@@ -4,7 +4,7 @@
 title: Hongji Pu   # Main site title (appears in browser tab & RSS)
 tagline: Adventurous · Aspirational · Analytical  # 大图上标题之上的那行小字
 subtitle: Independent and profound thought defines what it means to be human.
-description: Hongji Pu's Personal Website. Researcher，Quantitative，Analyst  # Strongly recommended for SEO & social cards
+description: Hongji Pu — AI systems researcher working on self-evolving language agents, graph world models, and trustworthy LLM systems.  # Strongly recommended for SEO & social cards
 
 # TIP ── For local development you can comment out `url`
 # and build with relative paths. In production you want this set.
@@ -15,7 +15,7 @@ url: https://HongjiPu.github.io
 # --------------------------------------------------
 owner:
   name: Hongji Pu
-  role: MSFE · UIUC          # shown under your name in the sidebar rail
+  role: AI Systems Research · UIUC MSFE   # shown under your name in the sidebar rail
   avatar: avatar.jpg        # 网站图标 / 分享缩略图
   bio_photo: avatar.jpg     # 侧栏和正文里的个人照片
   email: hongjip2@gmail.com
@@ -60,9 +60,9 @@ links:
     url: /research/
   - title: Publications
     url: /publications/
-  - title: Projects
-    url: /experiences/
   - title: Experience
+    url: /experiences/
+  - title: Beyond the Desk
     url: /hobbies/
   - title: CV
     url: /CV_Hongji_Pu.pdf

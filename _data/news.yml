@@ -1,8 +1,8 @@
 # ============================================================
-#  News / 消息栏   —— 纯文字格式（和 taofeng.github.io 一致）
+#  News / 消息栏   —— 纯文字格式
 #  最新的放最上面。每条渲染成消息框里的一行。
 #
-#  date   加粗显示，会自动套上方括号  ->  [2026.07.01]
+#  date   加粗显示，会自动套上方括号  ->  [2026.10]
 #  icon   可选的 emoji（🎉 录用 · 🚀 发布 · 📌 其他 · 🏆 获奖）
 #  text   正文。可以直接写 HTML：
 #           <a href="...">链接</a>  <strong>加粗</strong>  <em>斜体</em>
@@ -11,17 +11,75 @@
 #  加新消息：复制一整块，改内容，放到最上面。
 # ============================================================
 
+- date: "2026.10"
+  icon: "🚀"
+  text: >
+    <a href="https://arxiv.org/abs/2610.01048" target="_blank">Network World Models</a>
+    is out on arXiv — action-conditioned graph world models as environments for algorithm
+    design on complex networks. Under review at ICLR 2027.
+
+- date: "2026.10"
+  icon: "🚀"
+  text: >
+    <a href="https://arxiv.org/abs/2610.02793" target="_blank">Paper2LLM++</a> is out on arXiv —
+    continual self-evolution of language models from research papers. Under review at TACL.
+
+- date: "2026.09"
+  icon: "🚀"
+  text: >
+    <a href="https://arxiv.org/abs/2609.31874" target="_blank">CounterMem</a> is out on arXiv —
+    world-model-verified counterfactual memory for language agents, improving ReAct and
+    Reflexion in 24/24 benchmark-agent comparisons. Under review at ICLR 2027.
+
+- date: "2026.09"
+  icon: "🚀"
+  text: >
+    <a href="https://arxiv.org/abs/2609.39139" target="_blank">BeliefRAG</a> is out on arXiv —
+    making adaptive RAG state-aware under evolving evidence
+    (<a href="https://github.com/HongjiPu/BeliefRAG" target="_blank">code</a>).
+    Under review at TACL.
+
+- date: "2026.08"
+  icon: "📌"
+  text: >
+    <a href="https://arxiv.org/abs/2608.10375" target="_blank">Beyond Forecasting</a> —
+    recasting volatility control as a routing problem — is under review at
+    <strong>ACM ICAIF 2026</strong>
+    (<a href="https://github.com/HongjiPu/AI4Fin-Routing-Forecasting" target="_blank">code</a>).
+
 - date: "2026.05"
   icon: "🚀"
   text: >
     <a href="https://arxiv.org/abs/2605.13716" target="_blank">SkillOps</a> is out on arXiv —
-    managing LLM agent skill libraries as self-maintaining software ecosystems.
+    managing LLM agent skill libraries as self-maintaining software ecosystems
+    (<a href="https://github.com/Hik289/SkillOps" target="_blank">code</a>).
 
 - date: "2026.05"
   icon: "🚀"
   text: >
     <a href="https://arxiv.org/abs/2605.00180" target="_blank">RouteProfile</a> is out on arXiv —
-    elucidating the design space of LLM profiles for routing.
+    graph-based profiling for cold-start LLM routing
+    (<a href="https://github.com/ulab-uiuc/RouteProfile" target="_blank">code</a>).
+
+- date: "2026.04"
+  icon: "📌"
+  text: >
+    Joined the <strong>Web Intelligent Systems and Engineering Lab</strong> at
+    <strong>Rutgers University</strong>, working with Prof. Yongfeng Zhang on verified
+    counterfactual memory for language agents.
+
+- date: "2026.03"
+  icon: "📌"
+  text: >
+    Started research collaborations with the <strong>DSE Lab</strong> at
+    <strong>Michigan State University</strong> (Prof. Jiliang Tang) and the
+    <strong>MICS Lab</strong> at <strong>Emory University</strong> (Prof. Liang Zhao).
+
+- date: "2026.01"
+  icon: "📌"
+  text: >
+    Began a quantitative research internship at <strong>JPMorgan Chase &amp; Co.</strong>,
+    designing volatility-targeted strategies for S&amp;P 500 futures.
 
 - date: "2025.09"
   icon: "📌"

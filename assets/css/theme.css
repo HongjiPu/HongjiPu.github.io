@@ -194,6 +194,16 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
 }
 .arrow-link:hover::after { width: 30px; }
 
+/* A row of arrow-links: wraps on narrow screens, keeps the trailing rules
+   from crowding each other. Used on the home page and the research pillars. */
+.linkrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 32px;
+  margin: 10px 0 0;
+}
+
 /* --------------------------------------------------------------------------
    4. Layout primitives
    -------------------------------------------------------------------------- */

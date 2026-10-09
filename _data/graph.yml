@@ -21,122 +21,138 @@
 
 nodes:
   # ---------- 中心 ----------
-  - id: llm
-    label: "LLM & Agents"
+  - id: agents
+    label: "Language Agents"
     weight: 100
     orbit: 0
-    note: "构建能推理、记忆、自我改进的智能体系统"
+    note: "构建能记忆、验证、并从经验中自我进化的语言智能体"
 
   # ---------- 内圈：核心方向 ----------
-  - id: reasoning
-    label: "LLM Reasoning"
-    weight: 84
+  - id: selfevolve
+    label: "Self-Evolving Agents"
+    weight: 90
     orbit: 1
     angle: 90
-    note: "让模型在多步推理中真正用上检索到的证据"
-    links: [rl, memory]
+    note: "从经验、外部知识与可验证反馈中持续改进记忆、技能与决策"
+    links: [skills, continual, memory]
+
+  - id: worldmodel
+    label: "World Models"
+    weight: 88
+    orbit: 1
+    angle: 30
+    note: "用可执行的世界模型预判动作后果，让反馈不再靠猜"
+    links: [graphwm, algodesign, memory]
+
+  - id: memory
+    label: "Memory & Verification"
+    weight: 86
+    orbit: 1
+    angle: 150
+    note: "记忆、信念与证据机制，让智能体行为可复现、可审计"
+    links: [counterfactual, rag]
+
+  - id: trust
+    label: "Trustworthy LLM Systems"
+    weight: 76
+    orbit: 1
+    angle: 198
+    note: "改进失败样本的同时，不破坏原本正确的判断"
+    links: [rubric, provenance]
 
   - id: rl
     label: "Reinforcement Learning"
-    weight: 80
-    orbit: 1
-    angle: 150
-    note: "不确定环境下的序贯决策"
-    links: [marl]
-
-  - id: memory
-    label: "Agent Memory & Reliability"
-    weight: 76
-    orbit: 1
-    angle: 30
-    note: "记忆、信念与检索机制，让智能体行为可复现、可验证"
-    links: [selfimp]
-
-  - id: marl
-    label: "Multi-Agent AI"
-    weight: 68
-    orbit: 1
-    angle: 210
-    note: "多个学习主体之间的协作与涌现行为"
-    links: []
-
-  - id: selfimp
-    label: "Self-Improving Systems"
-    weight: 64
+    weight: 70
     orbit: 1
     angle: 330
-    note: "系统自我批评与修复，同时不偏离原始目标"
-    links: [infra]
-
-  - id: timeseries
-    label: "Time Series Analysis"
-    weight: 56
-    orbit: 1
-    angle: 270
-    note: "波动率曲面、状态识别与非平稳信号预测"
-    links: [rl]
-
-  # ---------- 外圈：具体课题 ----------
-  - id: routing
-    label: "LLM Routing"
-    weight: 46
-    orbit: 2
-    angle: 345
-    note: "RouteProfile — 在模型池之间做成本感知的路由"
-    links: [infra, reasoning]
-
-  - id: infra
-    label: "Agent Infrastructure"
-    weight: 44
-    orbit: 2
-    angle: 315
-    note: "让多模型系统在生产环境里跑得起、养得起"
-    links: [selfimp]
-
-  - id: skills
-    label: "Skill Libraries"
-    weight: 40
-    orbit: 2
-    angle: 285
-    note: "SkillOps — 把智能体技能库当作自维护的软件生态"
-    links: [infra]
-
-  - id: rag
-    label: "Retrieval-Augmented Reasoning"
-    weight: 42
-    orbit: 2
-    angle: 60
-    note: "把证据送进推理链中真正会改变答案的位置"
-    links: [reasoning, memory]
-
-  - id: trust
-    label: "Trustworthy Evaluation"
-    weight: 38
-    orbit: 2
-    angle: 15
-    note: "RUBRICGUARD — 以评分量表为锚，抵抗奖励劫持"
-    links: [memory, selfimp]
-
-  - id: prompt
-    label: "Prompt Optimization"
-    weight: 34
-    orbit: 2
-    angle: 105
-    note: "以任务表现为目标反向优化提示"
-    links: [reasoning]
+    note: "不确定环境下的序贯决策与策略选择"
+    links: [routing, counterfactual]
 
   - id: quant
     label: "Quantitative Finance"
+    weight: 62
+    orbit: 1
+    angle: 266
+    note: "波动率建模、风险度量与状态识别"
+    links: [volatility]
+
+  # ---------- 外圈：具体课题 ----------
+  - id: graphwm
+    label: "Graph World Models"
+    weight: 54
+    orbit: 2
+    angle: 10
+    note: "Network World Models — 带干预语义的图上扩散动力学建模"
+    links: [worldmodel]
+
+  - id: algodesign
+    label: "Algorithm Discovery"
+    weight: 46
+    orbit: 2
+    angle: 45
+    note: "把世界模型当作环境，驱动 LLM 自动设计并筛选算法"
+    links: [worldmodel, selfevolve]
+
+  - id: skills
+    label: "Skill Libraries"
+    weight: 48
+    orbit: 2
+    angle: 72
+    note: "SkillOps — 把智能体技能库当作自维护的软件生态来运维"
+    links: [selfevolve]
+
+  - id: continual
+    label: "Continual Learning"
+    weight: 42
+    orbit: 2
+    angle: 112
+    note: "Paper2LLM++ — 让模型从研究论文中持续吸收新方法"
+    links: [selfevolve]
+
+  - id: counterfactual
+    label: "Counterfactual Memory"
+    weight: 56
+    orbit: 2
+    angle: 140
+    note: "CounterMem — 为失败动作生成替代方案，经世界模型验证后入库复用"
+    links: [memory, worldmodel]
+
+  - id: rag
+    label: "Adaptive RAG"
     weight: 44
     orbit: 2
-    angle: 250
-    note: "衍生品定价、风险度量与跨市场风险传导"
-    links: [timeseries]
+    angle: 168
+    note: "BeliefRAG — 证据演化时让检索增强保持显式的信念状态"
+    links: [memory]
 
-  - id: alpha
-    label: "Factor Mining"
+  - id: provenance
+    label: "Code-Agent Provenance"
     weight: 36
     orbit: 2
-    angle: 190
-    note: "深度学习因子挖掘与组合回测"
-    links: [timeseries, marl]
+    angle: 192
+    note: "Launder-Bench — 仓库级别的智能体代码洗稿能否被检测出来"
+    links: [trust]
+
+  - id: rubric
+    label: "Rubric Optimization"
+    weight: 40
+    orbit: 2
+    angle: 218
+    note: "RubricWorld / RubricGuard — 以评分边界为单位修补量表，并审计回归"
+    links: [trust]
+
+  - id: volatility
+    label: "Volatility Control"
+    weight: 42
+    orbit: 2
+    angle: 290
+    note: "Beyond Forecasting — 把波动率控制重构成一个路由问题"
+    links: [quant, routing]
+
+  - id: routing
+    label: "LLM Routing"
+    weight: 50
+    orbit: 2
+    angle: 332
+    note: "RouteProfile — 用图结构画像解决冷启动场景下的模型路由"
+    links: [rl, selfevolve]

@@ -17,6 +17,28 @@
 # ============================================================
 
 cards:
+  - date: "October 2026"
+    title: "A world model turns algorithm design into a search you can actually run"
+    excerpt: >
+      Learn an action-conditioned model of how a network responds to
+      intervention, and candidate algorithms can be judged without calling a
+      trusted simulator — 1.01% regret from the world model alone, against
+      1.13% from simulator-based selection.
+    url: /research/foundations/
+    image: /images/featured/worldmodel.svg
+    tab: "Network world models"
+
+  - date: "September 2026"
+    title: "Agent memory is only worth keeping if its claims have been checked"
+    excerpt: >
+      CounterMem generates alternatives to the actions an agent got wrong,
+      verifies their outcomes against executable world models, and stores the
+      contrast with its evidence. Verified counterfactuals improved ReAct and
+      Reflexion in 24 of 24 comparisons.
+    url: /research/foundations/
+    image: /images/featured/memory.svg
+    tab: "Verified memory"
+
   - date: "May 2026"
     title: "The next bottleneck in agentic AI isn't capability — it's maintenance"
     excerpt: >
@@ -28,32 +50,22 @@ cards:
     image: /images/featured/skills-placeholder.jpg
     tab: "The maintenance bottleneck"
 
-  - date: "May 2026"
-    title: "Choosing the right model for a query is a systems design problem"
+  - date: "August 2026"
+    title: "Volatility control is a routing problem, not a forecasting problem"
     excerpt: >
-      The larger the model pool, the less "which one" should be guesswork. Put
-      profiles, cost, and accuracy into a single decision framework, and routing
-      can return the right answer within budget.
-    url: /research/foundations/
+      Stop asking which estimator is best and start asking which one to trust
+      right now. Routing between estimators by regime beat naive scaling on both
+      Sharpe and drawdown in S&P 500 futures backtests.
+    url: /research/applications/
     image: /images/featured/routing.svg
-    tab: "Routing as systems design"
+    tab: "Volatility as routing"
 
   - date: "Research"
     title: "Two pillars: trustworthy machinery, and real stakes"
     excerpt: >
       One line builds the underlying machinery — memory, verification,
-      self-improvement. The other puts it where being wrong is expensive:
-      capital markets and classrooms. Each keeps the other honest.
+      self-evolution, world models. The other puts it where being wrong is
+      expensive: capital markets and classrooms. Each keeps the other honest.
     url: /research/
     image: /images/featured/pillars.svg
     tab: "Two research pillars"
-
-  - date: "Research"
-    title: "Making agent memory a variable you can actually test"
-    excerpt: >
-      If rewriting what an agent remembers changes what it concludes, memory
-      stops being opaque storage and becomes a causal variable you can probe
-      counterfactually.
-    url: /research/foundations/
-    image: /images/featured/memory.svg
-    tab: "Testable agent memory"

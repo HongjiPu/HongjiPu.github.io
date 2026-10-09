@@ -1,21 +1,67 @@
 ---
 layout: page
-title: "Projects"
-subtitle: "Quantitative research and systematic strategy work across the sell-side, buy-side, AI labs, and venture capital."
+title: "Experience"
+subtitle: "Research in language agents, world models, and trustworthy evaluation — alongside quantitative work across the sell-side, buy-side, AI labs, and venture capital."
 eyebrow: "Selected work"
 permalink: /experiences/
 ---
 
-<details class="entry">
+## Research Experience
+
+<details class="entry" open>
   <summary>
-    <span class="entry__row"><span class="entry__title">Volatility-Targeted Strategies</span><span class="entry__date">2026.01 - 2026.04</span></span>
-    <span class="entry__row"><span class="entry__role">Quantitative Research Intern (Practicum)</span><span class="entry__org">JPM Chase（US）</span></span>
+    <span class="entry__row"><span class="entry__title">CounterMem: World-Model-Verified Counterfactual Memory for Language Agents</span><span class="entry__date">2026.04 - Present</span></span>
+    <span class="entry__row"><span class="entry__role">Web Intelligent Systems and Engineering Lab · Prof. Yongfeng Zhang</span><span class="entry__org">Rutgers University (US)</span></span>
     <span class="entry__hint">Click to expand / 点击展开详情</span>
   </summary>
   <div class="entry__body">
-    <p><strong>Risk Modeling:</strong> Developed volatility-targeted strategies by modeling dynamic market risk and adapting exposure across changing volatility regimes.</p>
-    <p><strong>Strategy Design:</strong> Integrated volatility signals with systematic allocation rules to balance returns and downside risk control.</p>
-    <p><strong>Implementation:</strong> Built end-to-end pipelines for data processing, volatility estimation, signal generation, and backtesting.</p>
+    <p><strong>Method:</strong> Developed CounterMem, an RL-based framework for constructing and reusing verified counterfactual memory in language agents. The method generates local alternatives to failed actions, verifies their outcomes with executable world models, stores action contrasts together with evidence and reuse conditions, and trains a DQN selector to decide when retrieved memory should guide a new task.</p>
+    <p><strong>Results:</strong> Evaluated on 12 benchmarks across six domains. CounterMem improved ReAct and Reflexion in 24/24 benchmark-agent comparisons with gpt-oss-120b, averaging <strong>+12.6 pp</strong>; across two backbones, four-domain gains reached <strong>8.2–20.4 pp</strong> while task-run token usage fell by <strong>7.7–42.0%</strong>.</p>
+    <p><strong>Links:</strong> <a href="https://arxiv.org/abs/2609.31874" target="_blank" rel="noopener">Paper (arXiv:2609.31874)</a> — under review at ICLR 2027.</p>
+  </div>
+</details>
+
+<details class="entry">
+  <summary>
+    <span class="entry__row"><span class="entry__title">RubricGuard: Improving LLM Graders Without Breaking Correct Judgments</span><span class="entry__date">2026.03 - Present</span></span>
+    <span class="entry__row"><span class="entry__role">Data Science and Engineering Lab (DSE) · Prof. Jiliang Tang</span><span class="entry__org">Michigan State University (US)</span></span>
+    <span class="entry__hint">Click to expand / 点击展开详情</span>
+  </summary>
+  <div class="entry__body">
+    <p><strong>Method:</strong> Developed RubricGuard, a Route–Generate–Audit framework for refining LLM grading rubrics without retraining the underlying model. The framework localizes failures to specific score boundaries, generates targeted rubric patches, and audits each update for both target improvement and protected-boundary regressions, limiting scoring-standard drift.</p>
+    <p><strong>Results:</strong> Evaluated on ASAP 2.0, EIR, and ASAP-SAS across three LLM backbones, achieving the best performance in <strong>20 of 27</strong> metric–dataset–backbone settings. Boundary-level ablations showed that retaining the audit component reduced protected-case breakage from <strong>15.7% to 3.6%</strong>, confirming its role in preserving previously correct grading decisions.</p>
+    <p><strong>Related paper:</strong> RubricWorld — World Model-Guided Rubric Optimization for LLM Graders, under review at AAAI 2026.</p>
+  </div>
+</details>
+
+<details class="entry">
+  <summary>
+    <span class="entry__row"><span class="entry__title">Network World Models as Environments for Algorithm Design on Complex Networks</span><span class="entry__date">2026.03 - Present</span></span>
+    <span class="entry__row"><span class="entry__role">Machine Intelligence for Complex Systems Lab · Prof. Liang Zhao</span><span class="entry__org">Emory University (US)</span></span>
+    <span class="entry__hint">Click to expand / 点击展开详情</span>
+  </summary>
+  <div class="entry__body">
+    <p><strong>Method:</strong> Developed an action-conditioned graph world model that explicitly applies intervention semantics before learning the subsequent diffusion dynamics. Integrated the model into an LLM-driven algorithm discovery loop, where it supplies candidate evaluations and counterfactual feedback to guide program generation and refinement.</p>
+    <p><strong>Results:</strong> Evaluated transition prediction, multi-step rollouts, and downstream decision quality on held-out graphs and unseen topologies. Achieved <strong>90.2%</strong> candidate preference accuracy on held-out SBM graphs; world-model-only candidate selection attained <strong>1.01% regret</strong> versus 1.13% for simulator-based selection, using no trusted-simulator calls during selection.</p>
+    <p><strong>Links:</strong> <a href="https://arxiv.org/abs/2610.01048" target="_blank" rel="noopener">Paper (arXiv:2610.01048)</a> — under review at ICLR 2027.</p>
+  </div>
+</details>
+
+---
+
+## Industry Experience
+
+<details class="entry">
+  <summary>
+    <span class="entry__row"><span class="entry__title">Volatility-Targeted Strategies Design</span><span class="entry__date">2026.01 - 2026.04</span></span>
+    <span class="entry__row"><span class="entry__role">Quantitative Research Intern</span><span class="entry__org">JPMorgan Chase &amp; Co. (US)</span></span>
+    <span class="entry__hint">Click to expand / 点击展开详情</span>
+  </summary>
+  <div class="entry__body">
+    <p><strong>Pipeline:</strong> Co-developed an end-to-end volatility-targeting research pipeline for S&amp;P 500 futures, covering data preprocessing, volatility forecasting, exposure allocation, and backtesting.</p>
+    <p><strong>Modeling:</strong> Compared statistical and machine-learning estimators — EWMA, GJR-GARCH, HAR-RV, and Random Forest — alongside regime-aware controllers and ensemble strategies.</p>
+    <p><strong>Results:</strong> Evaluated estimator–controller combinations on forecasting accuracy, risk-adjusted returns, turnover, and drawdown. In the project backtests, HAR-RV with regime scaling achieved a Sharpe ratio of <strong>0.602</strong> versus 0.575 with naive scaling, reduced maximum drawdown from <strong>18.71% to 17.58%</strong>, and raised the Calmar ratio from 0.355 to 0.364.</p>
+    <p><strong>Related paper:</strong> <a href="https://arxiv.org/abs/2608.10375" target="_blank" rel="noopener">Beyond Forecasting: Recasting Volatility Control as a Routing Problem</a> · <a href="https://github.com/HongjiPu/AI4Fin-Routing-Forecasting" target="_blank" rel="noopener">Code</a> — under review at ACM ICAIF 2026.</p>
   </div>
 </details>
 
@@ -96,3 +142,12 @@ permalink: /experiences/
     <p><strong>Insights Extraction:</strong> Captured market insights via expert interviews, translating industry know-how into <strong>structured investment memorandums</strong>.</p>
   </div>
 </details>
+
+---
+
+## Technical Toolbox
+
+<div style="text-align: justify;">
+  <p><strong>Programming:</strong> Python, SQL, Bash, MATLAB, Lean.</p>
+  <p><strong>Tools &amp; Platforms:</strong> PyTorch, Hugging Face Transformers, verl, PyMARL, EPyMARL, MemOS, AgentDojo, NLIP, Qdrant, Git.</p>
+</div>

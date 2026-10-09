@@ -3,13 +3,14 @@
 #
 #  categories : 筛选按钮，按这里的顺序显示。
 #               每篇论文的 `category` 必须是这里的一个。
+#               这里的名字和 _data/research.yml 里的 module 名字保持一致。
 #
 #  items      : 一篇论文一块。字段 —
 #    title             必填，论文标题
 #    authors           必填，列表；名字命中 highlight_authors 会自动加粗
 #                      共同一作直接在名字后面写 †，通讯作者写 ~
 #                      （加粗匹配会自动忽略这些符号，不影响你的名字变粗）
-#    venue             必填，如 "arXiv:2605.00180, 2026" / "NeurIPS, 2026"
+#    venue             必填，如 "Under review at ICLR 2027 · arXiv:2610.01048"
 #    year              必填，整数，用于排序和 "show all by date"
 #    month             可选，1-12，同一年内再排序
 #    category          必填，主方向，必须是 categories 里的一个
@@ -27,24 +28,162 @@ highlight_authors:
   - "H Pu"
 
 categories:
+  - Reliability & Verification
+  - Self-Evolving Agents
+  - World Models for Networks
   - Efficient Agent Infrastructure
-  - Reliability
-  - Self-Evolving and Trustworthy AI Optimization
-  - Finance AI
   - Education AI
-  - Time Series & Volatility
-  - FinTech & Market Microstructure
+  - Finance AI
 
 items:
-  - title: "RouteProfile: Elucidating the Design Space of LLM Profiles for Routing"
+  # ---------------------------------------------------------------
+  - title: "CounterMem: World-Model-Verified Counterfactual Memory for Language Agents"
     authors:
-      - J Xu†
-      - H Pu†
-      - T Feng
-      - H Zhang
-      - J You
-      - G Liu
-    venue: "arXiv e-prints, arXiv:2605.00180"
+      - Hongji Pu
+      - Ruixiang Tong
+      - Yongfeng Zhang
+    venue: "Under review at ICLR 2027 · arXiv:2609.31874"
+    year: 2026
+    month: 9
+    category: "Reliability & Verification"
+    extra_categories:
+      - "Self-Evolving Agents"
+    selected: true
+    links:
+      - name: Paper
+        url: "https://arxiv.org/abs/2609.31874"
+
+  # ---------------------------------------------------------------
+  - title: "Network World Models as Environments for Algorithm Design on Complex Networks"
+    authors:
+      - Hongji Pu†
+      - Rishab Alagharu†
+      - Zeeshan Memon
+      - Xinyuan Song
+      - Yuntong Hu
+      - Liang Zhao
+    venue: "Under review at ICLR 2027 · arXiv:2610.01048"
+    year: 2026
+    month: 10
+    category: "World Models for Networks"
+    selected: true
+    links:
+      - name: Paper
+        url: "https://arxiv.org/abs/2610.01048"
+      # 仓库接收/公开后把下面两行取消注释即可恢复 Code 链接
+      # - name: Code
+      #   url: "https://github.com/Zeesh-an/GraphWorldModel"
+
+  # ---------------------------------------------------------------
+  - title: "Paper2LLM++: Continual Self-Evolution of Language Models From Research Papers"
+    authors:
+      - Hongji Pu
+      - Yilun Zhao
+      - Wenpeng Yin
+    venue: "Under review at TACL · arXiv:2610.02793"
+    year: 2026
+    month: 10
+    category: "Self-Evolving Agents"
+    selected: true
+    links:
+      - name: Paper
+        url: "https://arxiv.org/abs/2610.02793"
+
+  # ---------------------------------------------------------------
+  - title: "Launder-Bench: Can Repository-Level Agentic Code Laundering Be Detected?"
+    authors:
+      - Yuntong Hu
+      - Hongji Pu
+      - Zimo Li
+      - Ruomeng Li
+      - Xiaotong Liu
+      - Ziyuan Qin
+      - Qiyue Li
+      - Liang Zhao
+    venue: "Under review at ICLR 2027"
+    year: 2026
+    month: 9
+    category: "Reliability & Verification"
+    # 仓库接收/公开后把下面三行取消注释即可恢复 Code 链接
+    # links:
+    #   - name: Code
+    #     url: "https://github.com/HuieL/TRACE-Bench"
+
+  # ---------------------------------------------------------------
+  - title: "RubricWorld: World Model-Guided Rubric Optimization for LLM Graders"
+    authors:
+      - Hongji Pu
+      - Hang Li
+      - Yucheng Chu
+      - Jiliang Tang
+    venue: "Under review at AAAI 2026"
+    year: 2026
+    month: 8
+    category: "Education AI"
+    extra_categories:
+      - "Reliability & Verification"
+
+  # ---------------------------------------------------------------
+  - title: "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems"
+    authors:
+      - Hongji Pu†
+      - Xinyuan Song†
+      - Liang Zhao
+    venue: "Under review at ICLR 2027 · arXiv:2605.13716"
+    year: 2026
+    month: 5
+    category: "Efficient Agent Infrastructure"
+    extra_categories:
+      - "Self-Evolving Agents"
+    selected: true
+    links:
+      - name: Paper
+        url: "https://arxiv.org/abs/2605.13716"
+      - name: Code
+        url: "https://github.com/Hik289/SkillOps"
+
+  # ---------------------------------------------------------------
+  - title: "BeliefRAG: Making Adaptive RAG State-Aware Under Evolving Evidence"
+    authors:
+      - Hongji Pu
+      - Leyang Zhou
+    venue: "Under review at TACL · arXiv:2609.39139"
+    year: 2026
+    month: 9
+    category: "Reliability & Verification"
+    links:
+      - name: Paper
+        url: "https://arxiv.org/abs/2609.39139"
+      - name: Code
+        url: "https://github.com/HongjiPu/BeliefRAG"
+
+  # ---------------------------------------------------------------
+  - title: "Beyond Forecasting: Recasting Volatility Control as a Routing Problem"
+    authors:
+      - Hongji Pu
+      - Leyang Zhou
+    venue: "Under review at ACM ICAIF 2026 · arXiv:2608.10375"
+    year: 2026
+    month: 8
+    category: "Finance AI"
+    extra_categories:
+      - "Efficient Agent Infrastructure"
+    links:
+      - name: Paper
+        url: "https://arxiv.org/abs/2608.10375"
+      - name: Code
+        url: "https://github.com/HongjiPu/AI4Fin-Routing-Forecasting"
+
+  # ---------------------------------------------------------------
+  - title: "RouteProfile: Graph-Based Profiling for Cold-Start LLM Routing"
+    authors:
+      - Hongji Pu†
+      - Jingjun Xu†
+      - Tao Feng†
+      - Haozhen Zhang
+      - Jiaxuan You
+      - Ge Liu
+    venue: "Preprint · arXiv:2605.00180"
     year: 2026
     month: 5
     category: "Efficient Agent Infrastructure"
@@ -52,17 +191,5 @@ items:
     links:
       - name: Paper
         url: "https://arxiv.org/abs/2605.00180"
-
-  - title: "SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems"
-    authors:
-      - H Pu†
-      - X Song†
-      - L Zhao
-    venue: "arXiv preprint, arXiv:2605.13716"
-    year: 2026
-    month: 5
-    category: "Efficient Agent Infrastructure"
-    selected: true
-    links:
-      - name: Paper
-        url: "https://arxiv.org/abs/2605.13716"
+      - name: Code
+        url: "https://github.com/ulab-uiuc/RouteProfile"
