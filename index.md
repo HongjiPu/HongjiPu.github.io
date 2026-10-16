@@ -6,9 +6,9 @@ permalink: /
 hero_title: "Hongji Pu"
 hero_lede: "Designing language agents that do more than predict — they remember, verify, and evolve from experience."
 hero_meta:
-  - "Self-Evolving Agents"
-  - "Graph World Models"
-  - "Trustworthy LLM Systems"
+  - "AI4Fin"
+  - "AI Foundations"
+  - "AI Self-Evolving"
 # ---- Pull-quote band (delete these two lines to hide it) -------------------
 quote_label: "Point of view"
 quote: "The wise man doesn't give the right answers, he poses the right questions."
