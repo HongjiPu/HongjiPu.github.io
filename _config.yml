@@ -40,6 +40,9 @@ owner:
 #  SEARCH-ENGINE VERIFICATION & ANALYTICS
 # --------------------------------------------------
 google_verify: ""
+# 访问统计：在 https://www.goatcounter.com/signup 注册时 code 填 hongjipu，
+# 之后在 https://hongjipu.goatcounter.com 看每天多少人访问。留空即关闭。
+goatcounter: hongjipu
 # google_analytics: ""  # 如果你以后注册了 Google Analytics，再把 ID 填到这里
 # bing_verify: ""    # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 # google_analytics: "G-XXXXXXX"                                 # GA-4 property ID

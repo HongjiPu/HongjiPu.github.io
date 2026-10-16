@@ -21,6 +21,24 @@
 })();
 </script>
 
+{% if site.goatcounter %}
+<!-- GoatCounter — page views per day at https://{{ site.goatcounter }}.goatcounter.com -->
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script>
+// PDFs (CV, papers) can't run the counter themselves, so count the click as an event.
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href$=".pdf"]');
+  if (!a || !window.goatcounter || !window.goatcounter.count) return;
+  window.goatcounter.count({
+    path: new URL(a.href, location.href).pathname,
+    title: 'PDF: ' + (a.textContent || '').trim(),
+    event: true
+  });
+});
+</script>
+{% endif %}
+
 {% if site.google_analytics %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
 <script>
