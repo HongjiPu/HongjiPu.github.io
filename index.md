@@ -27,7 +27,7 @@ quote_author: "Claude Lévi-Strauss"
 
   <p>My intellectual journey began with financial systems, where I studied how mathematical models capture uncertainty, quantify risk, and support decision-making in dynamic environments. Through this lens, I became fascinated by a broader question: as decision-making systems evolve, could they move beyond prediction and optimization to perceive, reason, learn, and continuously adapt?</p>
 
-  <p>That question led me to AI research. Today I work on <strong>self-evolving language agents</strong>, <strong>graph world models</strong>, and <strong>trustworthy LLM systems</strong> — studying how agents learn from experience, external knowledge, and verified feedback to improve their memory, reusable skills, and decision-making, and how world models can support algorithm design on complex networks. Across these directions I build methods and evaluations for systems that continually adapt to new tasks and environments, with an emphasis on the reliability of their behaviour and of their claimed improvements.</p>
+  <p>My research focuses on <strong>language agents</strong>, <strong>continual learning and self-improvement</strong>, and <strong>world models for evaluation and decision-making</strong>. I study how language models and agents use memory and external evidence, learn from research findings and feedback, and acquire new capabilities while retaining what they have learned. I develop methods to verify proposed updates and determine when past experience remains useful as a system changes. I also investigate how world models guide rubric optimization for automated grading and algorithm design on complex networks. Across these directions, I ask when improvements in a model translate into better decisions.</p>
 </div>
 
 <div class="linkrow">
@@ -54,4 +54,6 @@ quote_author: "Claude Lévi-Strauss"
 
 ## Research Interests
 
-{% include research-graph.html %}
+* **Language Agents** — how language models and agents use memory and external evidence.
+* **Continual Learning & Self-Improvement** — acquiring new capabilities from research findings and feedback while retaining what was already learned.
+* **World Models for Evaluation & Decision-Making** — guiding rubric optimization for automated grading and algorithm design on complex networks.

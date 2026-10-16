@@ -14,7 +14,7 @@ Markdown 页面 —— 不用碰 HTML 或 CSS。
 | **News 消息栏** | `_data/news.yml` |
 | **Publications 出版物栏** | `_data/publications.yml` |
 | **Research 两个板块 / 模块 / 项目** | `_data/research.yml` |
-| 首页 About / Education / Research Interests | `index.md` |
+| 首页 About / Education / Research Interests（三个 topic） | `index.md` |
 | 首页大图上的标题和副标题 | `index.md` 最上面的 front matter |
 | Experience 经历 | `experiences.md` |
 | Academic 学术服务 | `academic.md` |
