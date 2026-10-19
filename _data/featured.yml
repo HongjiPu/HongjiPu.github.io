@@ -10,62 +10,47 @@
 #    excerpt  标题下面那段摘要，两到四行最好看
 #    url      点标题跳转到哪里
 #    image    右侧配图。放进 images/featured/ 目录后写路径即可。
-#             建议横图，宽度 1200-1600px；卡片高度固定，图片会自动裁切
+#             建议横图，宽度 1200-1600px；默认完整显示在白底上（适合论文流程图）
+#    fit      可选。照片想裁切铺满就写 fit: cover
 #    tab      下方标签栏显示的短标题；不写就用 title
 #
 #  想加/删卡片，直接增删下面的块，标签栏会自动跟着变。
 # ============================================================
 
 cards:
-  - date: "October 2026"
-    title: "A world model turns algorithm design into a search you can actually run"
-    excerpt: >
-      Learn an action-conditioned model of how a network responds to
-      intervention, and candidate algorithms can be judged without calling a
-      trusted simulator — 1.01% regret from the world model alone, against
-      1.13% from simulator-based selection.
-    url: /research/foundations/
-    image: /images/featured/worldmodel.svg
-    tab: "Network world models"
-
   - date: "September 2026"
     title: "Agent memory is only worth keeping if its claims have been checked"
     excerpt: >
-      CounterMem generates alternatives to the actions an agent got wrong,
-      verifies their outcomes against executable world models, and stores the
-      contrast with its evidence. Verified counterfactuals improved ReAct and
-      Reflexion in 24 of 24 comparisons.
+      Failed actions get alternatives verified by executable world models.
+      Improved ReAct and Reflexion on all 12 benchmarks, +12.6 points on average.
     url: /research/foundations/
-    image: /images/featured/memory.svg
-    tab: "Verified memory"
+    image: /images/featured/countermem.png
+    tab: "CounterMem"
 
-  - date: "May 2026"
-    title: "The next bottleneck in agentic AI isn't capability — it's maintenance"
+  - date: "October 2026"
+    title: "The papers that expose an LLM's failures can also teach it to fix them"
     excerpt: >
-      As agents accumulate skills, the fragile part shifts from what they can do
-      to what they can keep. Treating the skill library as a self-maintaining
-      software ecosystem — versioned, evaluated, repaired — is what stops
-      capability from quietly decaying.
+      Turns findings in research papers into verified LoRA updates that keep
+      earlier gains — positive held-out gains on 24 of 30 papers.
     url: /research/foundations/
-    image: /images/featured/skills-placeholder.jpg
-    tab: "The maintenance bottleneck"
+    image: /images/featured/paper2llm.png
+    tab: "Paper2LLM++"
 
-  - date: "August 2026"
-    title: "Volatility control is a routing problem, not a forecasting problem"
+  - date: "October 2026"
+    title: "A rubric edit can fix some grades and quietly break others"
     excerpt: >
-      Stop asking which estimator is best and start asking which one to trust
-      right now. Routing between estimators by regime beat naive scaling on both
-      Sharpe and drawdown in S&P 500 futures backtests.
+      Learns which grades each rubric edit fixes or breaks. Best in 20 of 27
+      comparisons; gpt-5-mini on ASAP 2.0 rose from 18.20% to 46.70%.
     url: /research/applications/
-    image: /images/featured/routing.svg
-    tab: "Volatility as routing"
+    image: /images/featured/rubricworld.png
+    tab: "RubricWorld"
 
-  - date: "Research"
-    title: "Two pillars: trustworthy machinery, and real stakes"
+  - date: "October 2026"
+    title: "A world model turns algorithm design into a search you can actually run"
     excerpt: >
-      One line builds the underlying machinery — memory, verification,
-      self-evolution, world models. The other puts it where being wrong is
-      expensive: capital markets and classrooms. Each keeps the other honest.
-    url: /research/
-    image: /images/featured/pillars.svg
-    tab: "Two research pillars"
+      Coding agents score candidate algorithms on a learned network model
+      instead of a simulator: best or tied in 138 of 141 settings, up to 14.5×
+      faster.
+    url: /research/foundations/
+    image: /images/featured/network-world-model.png
+    tab: "Network World Models"

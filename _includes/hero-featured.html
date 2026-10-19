@@ -13,7 +13,7 @@
         </h2>
         {% if card.excerpt %}<p class="feat__excerpt">{{ card.excerpt }}</p>{% endif %}
       </div>
-      <div class="feat__media">
+      <div class="feat__media{% if card.fit == 'cover' %} feat__media--cover{% endif %}">
         <img src="{{ card.image }}" alt="" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
       </div>
     </article>

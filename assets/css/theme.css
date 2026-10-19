@@ -463,13 +463,17 @@ th { font-family: var(--sans); font-weight: 600; color: var(--ink); }
 }
 
 /* 图片绝对定位，不参与行高计算 —— 卡片高度只由左栏文字决定 */
-.feat__media { position: relative; overflow: hidden; background: var(--navy); }
+.feat__media { position: relative; overflow: hidden; background: var(--white); border-left: 1px solid var(--hair); }
 .feat__media img {
   position: absolute;
   inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;          /* 论文流程图：完整显示，不裁切 */
+  padding: 14px 16px;
+  box-sizing: border-box;
 }
+.feat__media--cover { background: var(--navy); border-left: 0; }
+.feat__media--cover img { object-fit: cover; padding: 0; }  /* 照片：裁切铺满 */
 
 /* 底部标签栏 */
 .feat__tabs {
