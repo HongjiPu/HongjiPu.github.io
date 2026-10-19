@@ -427,15 +427,17 @@ pillars:
           Learned, action-conditioned environments for complex networks, used as
           the evaluation substrate for automated algorithm design.
         projects:
-          - name: "Network World Models as Environments for Algorithm Design on Complex Networks"
+          - name: "Network World Models as Environments for Algorithm Design on Complex Systems"
             summary: >
-              An action-conditioned graph world model that applies intervention
-              semantics before learning the subsequent diffusion dynamics, then
-              serves as the environment inside an LLM-driven algorithm discovery
-              loop. Reached 90.2% candidate preference accuracy on held-out SBM
-              graphs; world-model-only selection attained 1.01% regret against
-              1.13% for simulator-based selection, with no trusted-simulator
-              calls during selection.
+              An action-conditioned Network World Model learns how diffusion
+              unfolds under interventions — applying each action to the network,
+              then predicting what follows — and serves as a fast evaluator
+              inside an algorithm design loop, where a coding agent refines
+              executable algorithms from full rollouts, action-level credit, and
+              counterfactual probes. Across eight network tasks and five
+              diffusion models, the designed algorithms match or exceed the
+              strongest reported baseline in 138 of 141 settings, with rollouts
+              up to 14.5× faster than Monte Carlo simulation.
             status: "Under review"
             venue: "ICLR 2027 · arXiv:2610.01048"
             tags: ["Graph Learning", "World Models", "Algorithm Discovery"]

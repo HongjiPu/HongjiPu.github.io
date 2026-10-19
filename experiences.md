@@ -37,13 +37,13 @@ permalink: /experiences/
 
 <details class="entry">
   <summary>
-    <span class="entry__row"><span class="entry__title">Network World Models as Environments for Algorithm Design on Complex Networks</span><span class="entry__date">2026.03 - Present</span></span>
+    <span class="entry__row"><span class="entry__title">Network World Models as Environments for Algorithm Design on Complex Systems</span><span class="entry__date">2026.03 - Present</span></span>
     <span class="entry__row"><span class="entry__role">Machine Intelligence for Complex Systems Lab · Prof. Liang Zhao</span><span class="entry__org">Emory University (US)</span></span>
     <span class="entry__hint">Click to expand / 点击展开详情</span>
   </summary>
   <div class="entry__body">
     <p><strong>Method:</strong> Developed an action-conditioned graph world model that explicitly applies intervention semantics before learning the subsequent diffusion dynamics. Integrated the model into an LLM-driven algorithm discovery loop, where it supplies candidate evaluations and counterfactual feedback to guide program generation and refinement.</p>
-    <p><strong>Results:</strong> Evaluated transition prediction, multi-step rollouts, and downstream decision quality on held-out graphs and unseen topologies. Achieved <strong>90.2%</strong> candidate preference accuracy on held-out SBM graphs; world-model-only candidate selection attained <strong>1.01% regret</strong> versus 1.13% for simulator-based selection, using no trusted-simulator calls during selection.</p>
+    <p><strong>Results:</strong> Across eight network tasks and five diffusion models, the designed algorithms matched or exceeded the strongest reported baseline in <strong>138 of 141</strong> settings, with rollouts up to <strong>14.5×</strong> faster than Monte Carlo simulation.</p>
     <p><strong>Links:</strong> <a href="https://arxiv.org/abs/2610.01048" target="_blank" rel="noopener">Paper (arXiv:2610.01048)</a> — under review at ICLR 2027.</p>
   </div>
 </details>

@@ -19,38 +19,38 @@
 
 cards:
   - date: "September 2026"
-    title: "Agent memory is only worth keeping if its claims have been checked"
+    title: "What if the agent had acted differently — can that become memory?"
     excerpt: >
-      Failed actions get alternatives verified by executable world models.
-      Improved ReAct and Reflexion on all 12 benchmarks, +12.6 points on average.
+      CounterMem keeps only alternatives verified by executable world models —
+      improving ReAct and Reflexion on all 12 benchmarks, +12.6 points.
     url: /research/foundations/
     image: /images/featured/countermem.png
     tab: "CounterMem"
 
   - date: "October 2026"
-    title: "The papers that expose an LLM's failures can also teach it to fix them"
+    title: "Can an LLM learn from the research papers that expose its failures?"
     excerpt: >
-      Turns findings in research papers into verified LoRA updates that keep
-      earlier gains — positive held-out gains on 24 of 30 papers.
+      Paper2LLM++ turns each paper's findings into verified LoRA updates that
+      keep earlier gains — positive held-out gains on 24 of 30 papers.
     url: /research/foundations/
     image: /images/featured/paper2llm.png
     tab: "Paper2LLM++"
 
   - date: "October 2026"
-    title: "A rubric edit can fix some grades and quietly break others"
+    title: "Which grades will a rubric edit fix — and which will it break?"
     excerpt: >
-      Learns which grades each rubric edit fixes or breaks. Best in 20 of 27
-      comparisons; gpt-5-mini on ASAP 2.0 rose from 18.20% to 46.70%.
+      RubricWorld predicts both from paired grading and certifies each edit —
+      best in 20 of 27 comparisons; gpt-5-mini on ASAP 2.0: 18.20% → 46.70%.
     url: /research/applications/
     image: /images/featured/rubricworld.png
     tab: "RubricWorld"
 
   - date: "October 2026"
-    title: "A world model turns algorithm design into a search you can actually run"
+    title: "Can a learned world model replace the simulator in algorithm design?"
     excerpt: >
-      Coding agents score candidate algorithms on a learned network model
-      instead of a simulator: best or tied in 138 of 141 settings, up to 14.5×
-      faster.
+      A Network World Model predicts how interventions spread, so coding agents
+      can score algorithms without simulation: best or tied in 138 of 141
+      settings, up to 14.5× faster.
     url: /research/foundations/
     image: /images/featured/network-world-model.png
     tab: "Network World Models"
